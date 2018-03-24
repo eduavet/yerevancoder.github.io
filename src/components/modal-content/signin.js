@@ -39,17 +39,18 @@ export default class SignInForm extends React.Component {
   make_remember_forget_row() {
     const remember_me_update = event =>
       this.setState(updateByPropertyName('remember_me_checked', event.target.value));
+
     return (
       <div className={'PlainFlexRow FlexSpaceBetween PlainFlexCentered RememberMeRow'}>
-        <div className={'PlainFlexColumn OnePaddingLeft PlainFlexCentered'}>
+        <span className={'PlainFlexColumn'}>
           <input
             type={'checkbox'}
             style={{ height: '20px' }}
             onChange={remember_me_update}
             value={this.state.remember_me_checked}
           />
-          <label>Remember me</label>
-        </div>
+          Remember me
+        </span>
         <span>Forgot Password</span>
       </div>
     );
@@ -66,6 +67,8 @@ export default class SignInForm extends React.Component {
       this.state.loading_state === LOADING_STATE.CURRENTLY_LOADING
         ? 'ProfileContainer__SpinningCentered'
         : 'ModalContainer__Form';
+    const remember_me_update = event =>
+      this.setState(updateByPropertyName('remember_me_checked', event.target.value));
 
     const content =
       this.state.loading_state === LOADING_STATE.CURRENTLY_LOADING ? (
@@ -96,6 +99,7 @@ export default class SignInForm extends React.Component {
                 input_type={'password'}
               />
               {SPACER_30_H}
+
               {this.make_remember_forget_row()}
             </section>
             <SubmitInput value={'Sign In'} disabled={is_invalid} />

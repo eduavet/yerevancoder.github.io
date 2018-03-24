@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import PageControl from '../components/page-control';
 
-import { MODAL_PROFILE_CONTENT, MODAL_CONTENT, PAGE_CONTENT } from '../utils/constants';
+import { MODAL_PROFILE_CONTENT, PAGE_CONTENT } from '../utils/constants';
 import { freelancers_posts_ref, db, firebase } from '../utils/db';
 import { query_my_freelance_submission, obj_to_array, no_op } from '../utils/funcs';
 

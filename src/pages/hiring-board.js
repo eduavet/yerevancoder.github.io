@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import PageControl from '../components/page-control';
 
-import { MODAL_PROFILE_CONTENT, MODAL_CONTENT, PAGE_CONTENT } from '../utils/constants';
+import { MODAL_PROFILE_CONTENT, PAGE_CONTENT } from '../utils/constants';
 import { hiring_table_posts_ref, db, firebase } from '../utils/db';
 import { query_my_hiring_post_submissions, obj_to_array, no_op } from '../utils/funcs';
 
@@ -11,7 +11,7 @@ const SUBMIT_NEW_JOB = 'Submit new Job';
 
 export default class HiringBoardPage extends React.Component {
   state = {
-    modal_content: MODAL_CONTENT.SIGNIN_VIEW,
+    modal_profile_content: MODAL_PROFILE_CONTENT.FREELANCER_POSTING,
     page_content: PAGE_CONTENT.HIRING_TABLE,
     jobs: [],
     my_hiring_submissions: [],
@@ -84,10 +84,6 @@ export default class HiringBoardPage extends React.Component {
           ? PAGE_CONTENT.HIRING_TABLE
           : PAGE_CONTENT.NEW_HIRING_POST,
     }));
-
-  show_my_posting = () => {
-    this.setState(() => ({ modal_show: true, modal_content: MODAL_CONTENT.PROFILE_VIEW }));
-  };
 
   render() {
     const { authenticated_user, sign_user_out } = this.context;

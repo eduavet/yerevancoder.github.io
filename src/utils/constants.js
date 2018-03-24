@@ -289,8 +289,14 @@ textarea { resize:none; }
   border-radius: 5px;
 }
 
+.FormTopEntry > input[type="checkbox"] {
+  align-self:flex-start;
+}
+
 .RememberMeRow {
+  font-size:12px;
   padding:7px 14px;
+  align-items:flex-end;
 }
 
 .PlainFlexRow.FlexSpaceBetween {
