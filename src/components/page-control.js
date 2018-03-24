@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Modal from 'react-modal';
 
 import Signin from './modal-content/signin';
 import Signup from './modal-content/signup';
 import ProfileControl from './modal-content/profile-control';
-import WithModalControl from './page-content/content-control';
 import NewFreelancer from './new-freelancer';
 import FreelancerTable from './freelancer-table';
 import JobsTable from './jobs-table';
 import NewJobPosting from './new-job-posting';
+import SigninBar from './signin-bar';
 
 import {
   MODAL_TRANSITION,
@@ -33,7 +34,6 @@ export default class PageControl extends React.Component {
     freelancer_post_did_finish: PropTypes.func,
     submit_new_freelancer_post: PropTypes.func,
     banner_title: PropTypes.string,
-    set_page_content: PropTypes.func,
     custom_input_handler_signedout: PropTypes.func,
     custom_input_signed_in_name: PropTypes.string,
     custom_input_signed_out_name: PropTypes.string,
@@ -57,8 +57,11 @@ export default class PageControl extends React.Component {
 
   user_did_sign_in = () => {
     const { post_signin_in_query } = this.props;
-    return post_signin_in_query().then(page_content =>
-      this.setState(() => ({ modal_show: false, page_content }))
+    return post_signin_in_query().then(() =>
+      this.setState(() => ({
+        modal_show: false,
+        page_content: PAGE_CONTENT.FREELANCER_TABLE,
+      }))
     );
   };
 
@@ -129,6 +132,14 @@ export default class PageControl extends React.Component {
       freelancer_post_did_finish,
       submit_new_freelancer_post,
     } = this.props;
+    const freelancer_did_post_wrapper = () =>
+      freelancer_post_did_finish().then(() =>
+        this.setState(() => ({
+          page_content: PAGE_CONTENT.FREELANCER_TABLE,
+        }))
+      );
+
+    // Then need to add the HN style news thing here
     switch (this.state.page_content) {
       case PAGE_CONTENT.HIRING_TABLE:
         return <JobsTable all_jobs={jobs} />;
@@ -144,7 +155,7 @@ export default class PageControl extends React.Component {
       case PAGE_CONTENT.NEW_FREELANCER:
         return (
           <NewFreelancer
-            freelancer_post_did_finish={freelancer_post_did_finish}
+            freelancer_post_did_finish={freelancer_did_post_wrapper}
             submit_new_freelancer_post={submit_new_freelancer_post}
           />
         );
@@ -153,6 +164,17 @@ export default class PageControl extends React.Component {
         throw new Error(`Unhandled page requested ${this.state.page_content}`);
     }
   };
+
+  static new_freelancer = when_done =>
+    this.setState(
+      prev_state => ({
+        page_content:
+          prev_state.page_content === PAGE_CONTENT.NEW_FREELANCER
+            ? PAGE_CONTENT.FREELANCER_TABLE
+            : PAGE_CONTENT.NEW_FREELANCER,
+      }),
+      when_done
+    );
 
   render() {
     const {
@@ -165,26 +187,36 @@ export default class PageControl extends React.Component {
     const { modal_show, modal_content, page_content } = this.state;
     const { authenticated_user, sign_user_out } = this.context;
     const user = authenticated_user();
+    const set_page_content_wrapper = () =>
+      set_page_content(this.constructor.new_freelancer.bind(this));
     return (
-      <WithModalControl
-        close_timeout={MODAL_TRANSITION}
-        modal_show={modal_show}
-        on_modal_request_close={this.toggle_modal}
-        modal_style={modal_s}
-        modal_content={this.modal_content}
-        banner_title={banner_title}
-        signin_handler={this.signin_handler}
-        signup_handler={this.signup_handler}
-        signout_handler={sign_user_out}
-        signed_in_handler={this.show_my_profile}
-        is_signed_in={user !== null}
-        when_active_name={user ? user.email : ''}
-        custom_input_handler_signedin={set_page_content}
-        custom_input_handler_signedout={custom_input_handler_signedout}
-        custom_input_signed_in_name={custom_input_signed_in_name}
-        custom_input_signed_out_name={custom_input_signed_out_name}
-        page_content={this.page_content}
-      />
+      <div className={'AvailableForWorkContainer'}>
+        <Modal
+          closeTimeoutMS={MODAL_TRANSITION}
+          isOpen={modal_show}
+          onRequestClose={this.toggle_modal}
+          ariaHideApp={false}
+          style={modal_s}
+          contentLabel="yerevancoder">
+          {this.modal_content()}
+        </Modal>
+        <nav className={'AvailableForWorkContainer__NavTopRow'}>
+          <h4 className={'AvailableForWorkContainer__PageBanner'}>{banner_title}</h4>
+          <SigninBar
+            signin_handler={this.signin_handler}
+            signup_handler={this.signup_handler}
+            signout_handler={sign_user_out}
+            signed_in_handler={this.signed_in_handler}
+            is_signed_in={user !== null}
+            when_active_name={user ? user.email : ''}
+            custom_input_handler_signedin={set_page_content_wrapper}
+            custom_input_handler_signedout={custom_input_handler_signedout}
+            custom_input_signed_in_name={custom_input_signed_in_name}
+            custom_input_signed_out_name={custom_input_signed_out_name}
+          />
+        </nav>
+        {this.page_content()}
+      </div>
     );
   }
 }

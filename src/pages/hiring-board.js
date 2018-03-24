@@ -57,7 +57,6 @@ export default class HiringBoardPage extends React.Component {
     query_my_hiring_post_submissions()
       .then(rows => {
         return this.setState(() => ({
-          modal_show: false,
           my_hiring_submissions: rows ? obj_to_array(rows) : [],
           page_content: PAGE_CONTENT.HIRING_TABLE,
         }));
@@ -85,6 +84,15 @@ export default class HiringBoardPage extends React.Component {
           : PAGE_CONTENT.NEW_HIRING_POST,
     }));
 
+  post_signin_in_query = () => {
+    return query_my_hiring_post_submissions()
+      .catch(error => console.log(error))
+      .then(rows => {
+        this.setState(() => ({ jobs: rows ? obj_to_array(rows) : [] }));
+        return PAGE_CONTENT.HIRING_TABLE;
+      });
+  };
+
   render() {
     const { authenticated_user, sign_user_out } = this.context;
     const user = authenticated_user();
@@ -96,7 +104,7 @@ export default class HiringBoardPage extends React.Component {
         my_hiring_submissions={this.state.my_hiring_submissions}
         delete_my_freelance_posting={no_op}
         jobs={this.state.jobs}
-        new_tech_job_post_did_finish={no_op}
+        new_tech_job_post_did_finish={this.no_op}
         submit_new_hiring_post={no_op}
         freelancers={[]}
         freelancer_post_did_finish={no_op}

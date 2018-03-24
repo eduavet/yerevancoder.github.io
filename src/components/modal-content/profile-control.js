@@ -58,11 +58,11 @@ export default class ProfileControl extends React.Component {
     return (
       <div>
         <div className={'Profile__User'}>
-          <div>
+          <div className={'PlainFlexColumn'}>
             <label>Account Name </label>
             <span>{account_name}</span>
           </div>
-          <div className={'Profile__CreationTime'}>
+          <div className={'PlainFlexColumn Profile__CreationTime'}>
             <label>Creation Date </label>
             <span>{profile_made_on}</span>
           </div>

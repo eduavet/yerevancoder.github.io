@@ -93,6 +93,16 @@ const _MATERIAL_GREY_HEAVY_FADE_ = color(MATERIAL_GREY)
   .hsl()
   .string();
 
+const FADE_WHITE_BUTTON = color('white')
+  .darken(0.1)
+  .hsl()
+  .string();
+
+const FADE_WHITE_FORM = color('white')
+  .darken(0.5)
+  .hsl()
+  .string();
+
 const GLOBAL_CSS = `
 body {
   background-color: ${MATERIAL_BEIGE};
@@ -138,10 +148,7 @@ textarea { resize:none; }
   padding:7px 14px;
   box-shadow:none;
   border:none;
-  color: ${color('white')
-    .darken(0.1)
-    .hsl()
-    .string()};
+  color: ${FADE_WHITE_BUTTON};
   border-radius:5px;
   cursor:pointer;
 }
@@ -204,6 +211,7 @@ textarea { resize:none; }
 
 .FreelanceProfileSubmission__PostingBanner {
   font-size:25px;
+  text-align:center;
   text-shadow: 2px 2px 3px gold;
   color:${MATERIAL_BLUE};
   font-weight:600;
@@ -214,14 +222,25 @@ textarea { resize:none; }
   border-width: 1px;
   border-style: solid;
   border-color: #666666;
+  padding:5px;
   font-size:14px;
   margin:0;
-  width:100%;
-  padding:15px;
   font-family: Mono;
   display:flex;
   justify-content:center;
+  width:100%;
 }
+
+.FreelanceProfileSubmission__SelfDescription {
+  margin:0;
+  height:150px;
+  width:100%;
+  padding:5px;
+}
+
+.FreelanceProfileSubmission__MonoText > span {
+}
+
 /* https://codepen.io/ayoungh/pen/ABJKu */
 .TextSubmissionArea {
   -moz-border-bottom-colors: none;
@@ -299,6 +318,22 @@ textarea { resize:none; }
   align-items:flex-end;
 }
 
+RememberMeRow__RememberMe--Checked {
+  color:black;
+}
+
+.RememberMeRow__RememberMe--Unchecked{
+  color:${FADE_WHITE_FORM};
+}
+
+.RememberMeRow__ForgotPassword {
+  color:${color('red')
+    .lighten(0.25)
+    .hsl()
+    .string()};
+  cursor:pointer;
+}
+
 .PlainFlexRow.FlexSpaceBetween {
   justify-content:space-between;
   width:100%;
@@ -371,6 +406,10 @@ form > fieldset {
 
 .InputEffect:nth-child(1) {
   margin-top:0;
+}
+
+.loginActionRow__CustomInputField--UserSignedOut {
+  background-color:red;
 }
 
 .loginActionRow__CustomInputField--UserSignedIn,
@@ -612,12 +651,17 @@ form > fieldset {
   padding:0;
 }
 
+.Profile__Container {
+
+}
+
 .Profile__Container > * {
   margin:0;
   font-family: Montserrat, sans-serif;
 }
 
 .Profile__User {
+  font-size:14px;
   background-color:hsl(220, 12%, 95%);
   padding:10px;
   display:flex;
@@ -817,7 +861,7 @@ const MEDIA_QUERIES_CSS = `
     text-align:center !important;
   }
   .FreelanceProfileSubmission__MonoText {
-    font-size:16px;
+    font-size:12px;
   }
 
   .loginActionRow__RowContainer {
@@ -985,10 +1029,13 @@ top: auto; bottom: 0;
   transition: 0.4s;
 }
 .effect-${box_name} ~ label{
-position: absolute;
-left: 14px; width: 100%; top: 10px;
-color: #aaa; transition: 0.3s; z-index: -1;
-letter-spacing: 0.5px;}
+  position: absolute;
+  left: 14px; width: 100%; top: 10px;
+  color: ${FADE_WHITE_FORM};
+  transition: 0.3s;
+  z-index: -1;
+  letter-spacing: 0.5px;
+}
 
 .effect-${box_name}:focus ~ label,
 .has-content.effect-${box_name} ~ label {

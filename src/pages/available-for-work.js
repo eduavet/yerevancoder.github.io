@@ -11,10 +11,9 @@ const ADD_YOURSELF = 'Add yourself';
 
 export default class AvailableForWorkPage extends React.Component {
   state = {
-    page_content: PAGE_CONTENT.FREELANCER_TABLE,
-    modal_profile_content: MODAL_PROFILE_CONTENT.FREELANCER_POSTING,
     freelancers: [],
     self_freelance_posting: null,
+    page_content: PAGE_CONTENT.FREELANCER_TABLE,
   };
 
   static contextTypes = {
@@ -39,7 +38,7 @@ export default class AvailableForWorkPage extends React.Component {
       db
         .ref(`users/${current_user.uid}/my-freelance-submission`)
         .remove()
-        .then(() => freelancers_posts_ref.child(post_key).remove())
+        .then(freelancers_posts_ref.child(post_key).remove)
         .then(() =>
           this.query_data().then(rows =>
             this.setState(() => ({
@@ -52,38 +51,24 @@ export default class AvailableForWorkPage extends React.Component {
     }
   };
 
-  post_signin_in_query = () => {
-    return query_my_freelance_submission()
+  post_signin_in_query = () =>
+    query_my_freelance_submission()
       .catch(error => console.log(error))
-      .then(self_freelance_posting => {
-        this.setState(() => ({ self_freelance_posting }));
-        return PAGE_CONTENT.FREELANCER_TABLE;
-      });
-  };
+      .then(self_freelance_posting => this.setState(() => ({ self_freelance_posting })));
 
   freelancer_post_did_finish = () => {
     this.query_data().then(rows =>
       query_my_freelance_submission().then(self_freelance_posting =>
         this.setState(() => ({
           self_freelance_posting,
-          page_content: PAGE_CONTENT.FREELANCER_TABLE,
           freelancers: rows ? obj_to_array(rows) : [],
         }))
       )
     );
   };
 
-  toggle_freelancer_content = () => {
-    // this.setState(prev_state => ({
-    //   page_content:
-    //     prev_state.page_content === PAGE_CONTENT.NEW_FREELANCER
-    //       ? PAGE_CONTENT.FREELANCER_TABLE
-    //       : PAGE_CONTENT.NEW_FREELANCER,
-    // }));
-  };
-
-  show_my_posting = () => {
-    this.setState(() => ({ modal_show: true, modal_content: MODAL_CONTENT.PROFILE_VIEW }));
+  toggle_freelancer_content = after_finish => {
+    PageControl.new_freelancer.bind(this, after_finish)();
   };
 
   render() {
