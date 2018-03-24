@@ -23,6 +23,13 @@ export const ROUTES = {
   AVAILABLE_FOR_WORK: '/available-for-work',
 };
 
+export const PAGE_CONTENT = {
+  HIRING_TABLE: 'hiring-table',
+  NEW_HIRING_POST: 'new-hiring-post',
+  FREELANCER_TABLE: 'freelancer-table',
+  NEW_FREELANCER: 'new-freelancer',
+};
+
 export const MODAL_CONTENT = {
   PROFILE_VIEW: 'profile-view',
   SIGNIN_VIEW: 'signin-view',
