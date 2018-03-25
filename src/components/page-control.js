@@ -21,36 +21,17 @@ import {
 
 export default class PageControl extends React.Component {
   static propTypes = {
-    page_content: PropTypes.oneOf(Object.values(PAGE_CONTENT)),
-    modal_profile_content: PropTypes.oneOf(Object.values(MODAL_PROFILE_CONTENT)),
-    self_freelance_posting: PropTypes.object,
-    post_sigin_in_query: PropTypes.func,
-    my_hiring_submissions: PropTypes.array,
-    delete_my_freelance_posting: PropTypes.func,
-    jobs: PropTypes.array,
-    new_tech_job_post_did_finish: PropTypes.func,
-    submit_new_hiring_post: PropTypes.func,
-    freelancers: PropTypes.array,
-    freelancer_post_did_finish: PropTypes.func,
-    submit_new_freelancer_post: PropTypes.func,
-    banner_title: PropTypes.string,
-    custom_input_handler_signedout: PropTypes.func,
-    custom_input_signed_in_name: PropTypes.string,
-    custom_input_signed_out_name: PropTypes.string,
-    post_signin_in_query: PropTypes.func,
+    //
   };
 
-  state = {
-    modal_show: false,
-    modal_content: MODAL_CONTENT.SIGNIN_VIEW,
-    page_content: this.props.page_content,
-    modal_profile_content: this.props.modal_profile_content,
-  };
+  state = { modal_show: false };
 
   static contextTypes = {
     authenticated_user: PropTypes.func,
     sign_user_out: PropTypes.func,
     sign_user_in: PropTypes.func,
+    submit_new_freelancer_post: PropTypes.func,
+    submit_new_hiring_post: PropTypes.func,
   };
 
   toggle_modal = () => this.setState(({ modal_show }) => ({ modal_show: !modal_show }));
@@ -60,7 +41,6 @@ export default class PageControl extends React.Component {
     return post_signin_in_query().then(() =>
       this.setState(() => ({
         modal_show: false,
-        page_content: PAGE_CONTENT.FREELANCER_TABLE,
       }))
     );
   };
@@ -77,7 +57,7 @@ export default class PageControl extends React.Component {
       my_hiring_submissions,
       delete_my_freelance_posting,
     } = this.props;
-    switch (this.state.modal_content) {
+    switch (this.props.modal_content) {
       case MODAL_CONTENT.SIGNIN_VIEW:
         content = (
           <Signin
@@ -102,45 +82,26 @@ export default class PageControl extends React.Component {
         content = <Signup user_did_sign_up={this.user_did_sign_up} />;
         break;
       default:
-        throw new Error(`Unknown modal content requested: ${this.state.modal_content}`);
+        throw new Error(`Unknown modal content requested: ${this.props.modal_content}`);
     }
     return <div className={'ModalContentWrapper'}>{content}</div>;
   };
 
-  signin_handler = () =>
-    this.setState(() => ({
-      modal_show: true,
-      modal_content: MODAL_CONTENT.SIGNIN_VIEW,
-    }));
-
-  signup_handler = () =>
-    this.setState(() => ({
-      modal_show: true,
-      modal_content: MODAL_CONTENT.SIGNUP_VIEW,
-    }));
-
-  show_my_profile = () => {
-    this.setState(() => ({ modal_show: true, modal_content: MODAL_CONTENT.PROFILE_VIEW }));
+  submit_post_lifecycle = (useful_data, clear_out_form, e) => {
+    const { submit_new_freelancer_post } = this.context;
+    const { did_finish_submit_post_lifecycle } = this.props;
+    e.preventDefault();
+    submit_new_freelancer_post(useful_data).then(() =>
+      clear_out_form(() => {
+        did_finish_submit_post_lifecycle();
+      })
+    );
   };
 
   page_content = () => {
-    const {
-      jobs,
-      new_tech_job_post_did_finish,
-      submit_new_hiring_post,
-      freelancers,
-      freelancer_post_did_finish,
-      submit_new_freelancer_post,
-    } = this.props;
-    const freelancer_did_post_wrapper = () =>
-      freelancer_post_did_finish().then(() =>
-        this.setState(() => ({
-          page_content: PAGE_CONTENT.FREELANCER_TABLE,
-        }))
-      );
-
+    const { jobs, new_tech_job_post_did_finish, submit_new_hiring_post, freelancers } = this.props;
     // Then need to add the HN style news thing here
-    switch (this.state.page_content) {
+    switch (this.props.page_content) {
       case PAGE_CONTENT.HIRING_TABLE:
         return <JobsTable all_jobs={jobs} />;
       case PAGE_CONTENT.NEW_HIRING_POST:
@@ -153,33 +114,23 @@ export default class PageControl extends React.Component {
       case PAGE_CONTENT.FREELANCER_TABLE:
         return <FreelancerTable freelancers={freelancers} />;
       case PAGE_CONTENT.NEW_FREELANCER:
-        return (
-          <NewFreelancer
-            freelancer_post_did_finish={freelancer_did_post_wrapper}
-            submit_new_freelancer_post={submit_new_freelancer_post}
-          />
-        );
-
+        return <NewFreelancer submit_post_lifecycle={this.submit_post_lifecycle} />;
       default:
-        throw new Error(`Unhandled page requested ${this.state.page_content}`);
+        throw new Error(`Unhandled page requested ${this.props.page_content}`);
     }
   };
 
-  static new_freelancer = when_done =>
+  already_signed_in_handler = () => {
+    const { already_signed_in_page_handler } = this.props;
     this.setState(
-      prev_state => ({
-        page_content:
-          prev_state.page_content === PAGE_CONTENT.NEW_FREELANCER
-            ? PAGE_CONTENT.FREELANCER_TABLE
-            : PAGE_CONTENT.NEW_FREELANCER,
-      }),
-      when_done
+      () => ({ modal_content: MODAL_CONTENT.PROFILE_VIEW, modal_show: true }),
+      already_signed_in_page_handler
     );
+  };
 
   render() {
     const {
       banner_title,
-      set_page_content,
       custom_input_handler_signedout,
       custom_input_signed_in_name,
       custom_input_signed_out_name,
@@ -187,8 +138,6 @@ export default class PageControl extends React.Component {
     const { modal_show, modal_content, page_content } = this.state;
     const { authenticated_user, sign_user_out } = this.context;
     const user = authenticated_user();
-    const set_page_content_wrapper = () =>
-      set_page_content(this.constructor.new_freelancer.bind(this));
     return (
       <div className={'AvailableForWorkContainer'}>
         <Modal
@@ -206,10 +155,10 @@ export default class PageControl extends React.Component {
             signin_handler={this.signin_handler}
             signup_handler={this.signup_handler}
             signout_handler={sign_user_out}
-            signed_in_handler={this.signed_in_handler}
+            already_signed_in_handler={this.already_signed_in_handler}
             is_signed_in={user !== null}
             when_active_name={user ? user.email : ''}
-            custom_input_handler_signedin={set_page_content_wrapper}
+            custom_input_handler_signedin={this.custom_input_handler_signedin}
             custom_input_handler_signedout={custom_input_handler_signedout}
             custom_input_signed_in_name={custom_input_signed_in_name}
             custom_input_signed_out_name={custom_input_signed_out_name}

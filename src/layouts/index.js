@@ -83,11 +83,11 @@ export default class ApplicationRoot extends React.Component {
           })
           .then(reply => {
             const authenticated_user = this.pass_through(reply.user);
+            const current_user = firebase.auth().currentUser;
             return db
-              .ref(`signed-up-users/${reply.uid}`)
+              .ref(`signed-up-users/${current_user.uid}`)
               .set({ user_receives_blog_newsletter, given_email, given_username })
               .then(() => {
-                const current_user = firebase.auth().currentUser;
                 return current_user.updateProfile({ displayName: given_username });
               })
               .then(() => {
