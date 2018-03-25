@@ -519,6 +519,7 @@ form > fieldset {
   background-color:${MATERIAL_BLUE_HEAVY_FADE};
 }
 
+/* http://tobiasahlin.com/blog/how-to-animate-box-shadow/ */
 .BlogEntryCard {
   margin:15px 0px;
   padding:15px;
@@ -535,7 +536,7 @@ form > fieldset {
 }
 
 .BlogEntryCard::after {
- content: "";
+  content: "";
   border-radius: 5px;
   position: absolute;
   z-index: -1;
@@ -550,8 +551,8 @@ form > fieldset {
 }
 
 .BlogEntryCard:hover {
-  -webkit-transform: scale(1.15, 1.15);
-  transform: scale(1.15, 1.15);
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
 }
 
 .BlogEntryCard:hover::after {
