@@ -37,12 +37,8 @@ export default class PageControl extends React.Component {
   toggle_modal = () => this.setState(({ modal_show }) => ({ modal_show: !modal_show }));
 
   user_did_sign_in = () => {
-    const { post_signin_in_query } = this.props;
-    return post_signin_in_query().then(() =>
-      this.setState(() => ({
-        modal_show: false,
-      }))
-    );
+    const { post_signin_action } = this.props;
+    this.setState(() => ({ modal_show: false }), post_signin_action);
   };
 
   user_did_sign_up = () => {
@@ -51,13 +47,14 @@ export default class PageControl extends React.Component {
 
   modal_content = () => {
     let content = null;
-    const { modal_profile_content } = this.state;
     const {
       self_freelance_posting,
       my_hiring_submissions,
       delete_my_freelance_posting,
+      modal_content,
+      modal_profile_content,
     } = this.props;
-    switch (this.props.modal_content) {
+    switch (modal_content) {
       case MODAL_CONTENT.SIGNIN_VIEW:
         content = (
           <Signin
@@ -82,7 +79,7 @@ export default class PageControl extends React.Component {
         content = <Signup user_did_sign_up={this.user_did_sign_up} />;
         break;
       default:
-        throw new Error(`Unknown modal content requested: ${this.props.modal_content}`);
+        throw new Error(`Unknown modal content requested: ${modal_content}`);
     }
     return <div className={'ModalContentWrapper'}>{content}</div>;
   };
@@ -99,9 +96,15 @@ export default class PageControl extends React.Component {
   };
 
   page_content = () => {
-    const { jobs, new_tech_job_post_did_finish, submit_new_hiring_post, freelancers } = this.props;
+    const {
+      jobs,
+      new_tech_job_post_did_finish,
+      submit_new_hiring_post,
+      freelancers,
+      page_content,
+    } = this.props;
     // Then need to add the HN style news thing here
-    switch (this.props.page_content) {
+    switch (page_content) {
       case PAGE_CONTENT.HIRING_TABLE:
         return <JobsTable all_jobs={jobs} />;
       case PAGE_CONTENT.NEW_HIRING_POST:
@@ -116,7 +119,7 @@ export default class PageControl extends React.Component {
       case PAGE_CONTENT.NEW_FREELANCER:
         return <NewFreelancer submit_post_lifecycle={this.submit_post_lifecycle} />;
       default:
-        throw new Error(`Unhandled page requested ${this.props.page_content}`);
+        throw new Error(`Unhandled page requested ${page_content}`);
     }
   };
 
@@ -127,6 +130,8 @@ export default class PageControl extends React.Component {
       already_signed_in_page_handler
     );
   };
+
+  signin_handler = () => this.setState(() => ({ modal_show: true }));
 
   render() {
     const {

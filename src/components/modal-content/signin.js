@@ -41,7 +41,6 @@ export default class SignInForm extends React.Component {
       this.setState(updateByPropertyName('remember_me_checked', event.target.checked));
     };
     const { remember_me_checked } = this.state;
-
     return (
       <div className={'PlainFlexRow FlexSpaceBetween PlainFlexCentered RememberMeRow'}>
         <span className={'PlainFlexColumn'}>
@@ -62,7 +61,12 @@ export default class SignInForm extends React.Component {
             Remember me
           </span>
         </span>
-        <span className={'RememberMeRow__ForgotPassword'}>Forgot Password</span>
+        <span
+          data-balloon={'This DOES not work yet'}
+          data-ballon-pos={'right'}
+          className={'RememberMeRow__ForgotPassword'}>
+          Forgot Password
+        </span>
       </div>
     );
   }

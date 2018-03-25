@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import PageControl from '../components/page-control';
 
-import { MODAL_PROFILE_CONTENT, PAGE_CONTENT, MODAL_CONTENT } from '../utils/constants';
+import { PAGE_CONTENT, MODAL_CONTENT, MODAL_PROFILE_CONTENT } from '../utils/constants';
 import { freelancers_posts_ref, db, firebase } from '../utils/db';
 import { query_my_freelance_submission, obj_to_array, no_op } from '../utils/funcs';
 
@@ -13,9 +13,9 @@ export default class AvailableForWorkPage extends React.Component {
   state = {
     freelancers: [],
     self_freelance_posting: null,
-    modal_profile_content: MODAL_PROFILE_CONTENT.FREELANCER_POSTING,
     modal_content: MODAL_CONTENT.SIGNIN_VIEW,
     page_content: PAGE_CONTENT.FREELANCER_TABLE,
+    modal_profile_content: MODAL_PROFILE_CONTENT.FREELANCER_POSTING,
   };
 
   static contextTypes = {
@@ -53,10 +53,22 @@ export default class AvailableForWorkPage extends React.Component {
     }
   };
 
-  post_signin_in_query = () =>
-    query_my_freelance_submission()
-      .catch(error => console.log(error))
-      .then(self_freelance_posting => this.setState(() => ({ self_freelance_posting })));
+  all_freelance_data = () =>
+    this.query_data().then(rows => {
+      return query_my_freelance_submission().then(self_freelance_posting => ({
+        freelancers: rows ? obj_to_array(rows) : [],
+        self_freelance_posting,
+      }));
+    });
+
+  post_signin_action = () => {
+    this.all_freelance_data()
+      .then(({ freelancers, self_freelance_posting }) => {
+        console.log({ freelancers, self_freelance_posting });
+        this.setState(() => ({ freelancers, self_freelance_posting }));
+      })
+      .catch(error => console.log(error));
+  };
 
   freelancer_post_did_finish = () => {
     this.query_data().then(rows =>
@@ -81,17 +93,38 @@ export default class AvailableForWorkPage extends React.Component {
     query_my_freelance_submission().then(self_freelance_posting =>
       this.setState(() => ({
         self_freelance_posting,
-        modal_profile_content: MODAL_PROFILE_CONTENT.FREELANCER_POSTING,
+        modal_content: MODAL_CONTENT.PROFILE_VIEW,
       }))
     );
+  };
+
+  signin_handler = () => {
+    this.setState(() => ({
+      modal_content: MODAL_CONTENT.SIGNIN_VIEW,
+    }));
   };
 
   render() {
     return (
       <PageControl
+        signin_handler={this.signin_handler}
+        banner_title={'Freelancer coders in Armenia'}
+        jobs={[]}
+        new_tech_job_post_did_finish={null}
+        did_finish_submit_post_lifecycle={null}
+        submit_new_hiring_post={null}
         freelancers={this.state.freelancers}
         page_content={this.state.page_content}
         modal_content={this.state.modal_content}
+        modal_profile_content={this.state.modal_profile_content}
+        already_signed_in_page_handler={this.already_signed_in_page_handler}
+        custom_input_handler_signedout={null}
+        custom_input_signed_in_name={ADD_YOURSELF}
+        custom_input_signed_out_name={'Other'}
+        self_freelance_posting={this.state.self_freelance_posting}
+        my_hiring_submissions={[]}
+        delete_my_freelance_posting={this.delete_my_freelance_posting}
+        post_signin_action={this.post_signin_action}
       />
     );
   }
