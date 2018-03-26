@@ -34,6 +34,7 @@ export const PAGE_CONTENT = {
   NEW_HIRING_POST: 'new-hiring-post',
   FREELANCER_TABLE: 'freelancer-table',
   NEW_FREELANCER: 'new-freelancer',
+  NEWS_LISTINGS: 'all-news-listing',
 };
 
 export const MODAL_CONTENT = {

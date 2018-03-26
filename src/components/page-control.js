@@ -7,6 +7,7 @@ import Signup from './modal-content/signup';
 import ProfileControl from './modal-content/profile-control';
 import NewFreelancer from './new-freelancer';
 import FreelancerTable from './freelancer-table';
+import News from './news';
 import JobsTable from './jobs-table';
 import NewJobPosting from './new-job-posting';
 import SigninBar from './signin-bar';
@@ -122,6 +123,8 @@ export default class PageControl extends React.Component {
         return <FreelancerTable freelancers={freelancers} />;
       case PAGE_CONTENT.NEW_FREELANCER:
         return <NewFreelancer submit_post_lifecycle={this.submit_post_lifecycle} />;
+      case PAGE_CONTENT.NEWS_LISTINGS:
+        return <News />;
       default:
         throw new Error(`Unhandled page requested ${page_content}`);
     }
@@ -134,8 +137,8 @@ export default class PageControl extends React.Component {
 
   signin_handler = () => {
     const { signin_handler } = this.props;
-    this.setState(() => ({ modal_show: true }));
     signin_handler();
+    this.setState(() => ({ modal_show: true }));
   };
 
   signout_handler = () => {
