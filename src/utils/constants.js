@@ -917,7 +917,8 @@ const MEDIA_QUERIES_CSS = `
   }
 
   .InformationBar > *:not(h3) {
-    font-size:11px;
+    font-size:14px;
+    line-height:1.2rem;
     padding-bottom:10px;
   }
 
