@@ -1,11 +1,13 @@
 ---
-title: Technical Interview
+title: Technical Interview - English
 tags: technical interview
 author: Suren Atoyan
 date: "2018-03-26"
 description: Explanation, Definition, Passing Methods and Importance of Technical Interview.
-discussionId: "2018-03-26-technical-interview"
+discussionId: "2018-03-26-technical-interview-eng"
 ---
+
+[Հայ](https://yerevancoder.com/2018-03-26-technical-interview-arm/) | Eng  
 
 ###### **Description**: This document is a definition of "Technical interview", forms of implementation, methods of application, importance and includes general advice.<br />  
 
