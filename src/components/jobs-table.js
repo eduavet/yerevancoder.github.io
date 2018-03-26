@@ -42,14 +42,28 @@ const Posting = ({
           <span>{contact_info}</span>
         </div>
       </div>
-      <textarea rows={7} readOnly={true} value={job_description} />
+      <textarea
+        className={'TextSubmissionArea FullWidth'}
+        rows={7}
+        readOnly={true}
+        value={job_description}
+      />
     </div>
   </div>
 );
 
+const no_jobs = (
+  <p style={{ textAlign: 'center', fontFamily: 'Montserrat, sans-serif' }}>
+    No jobs posted at this time
+  </p>
+);
+
 export default ({ all_jobs }) => {
-  const postings = all_jobs.map(s => (
-    <Posting {...s} key={`${s.job_description}/${s.post_author}/${s.job_location}`} />
-  ));
-  return <section>{postings}</section>;
+  const content =
+    all_jobs.length >= 1
+      ? all_jobs.map(s => (
+          <Posting {...s} key={`${s.job_description}/${s.post_author}/${s.job_location}`} />
+        ))
+      : no_jobs;
+  return <section>{content}</section>;
 };

@@ -1,9 +1,8 @@
 import React from 'react';
 import Spinner from 'react-spinkit';
 
-import { auth } from '../../utils/db';
 import { updateByPropertyName } from '../../utils/funcs';
-import { FANCY_INPUT_BOXES, LOADING_STATE, SPACER_30_H } from '../../utils/constants';
+import { FANCY_INPUT_BOXES, LOADING_STATE, SPACER_30_H, SPACER_10_H } from '../../utils/constants';
 import SubmitInput from '../submit-input';
 import WithEffectInput from '../with-effect-input';
 
@@ -15,42 +14,57 @@ const INITIAL_STATE = {
   remember_me_checked: false,
 };
 
+const with_20_h = { height: '20px', display: 'flex', justifyContent: 'center' };
+
 export default class SignInForm extends React.Component {
   state = { ...INITIAL_STATE };
 
-  onSubmit = event => {
+  on_submit = event => {
     const { email, password, remember_me_checked } = this.state;
     const { user_did_sign_in, sign_user_in } = this.props;
     event.preventDefault();
-
     this.setState(
       () => ({ loading_state: LOADING_STATE.CURRENTLY_LOADING }),
       () =>
         sign_user_in(email, password, remember_me_checked, user_did_sign_in)
-          .catch(error => this.setState(updateByPropertyName('error', error)))
           .then(() => this.setState(() => ({ ...INITIAL_STATE })))
-          .then(() => {
-            const { error } = this.state;
-            this.setState(() => ({ ...INITIAL_STATE, error }));
+          .catch(error => {
+            this.setState(() => ({ error, loading_state: LOADING_STATE.NOT_STARTED_YET }));
           })
     );
   };
 
   make_remember_forget_row() {
-    const remember_me_update = event =>
-      this.setState(updateByPropertyName('remember_me_checked', event.target.value));
+    const remember_me_update = event => {
+      this.setState(updateByPropertyName('remember_me_checked', event.target.checked));
+    };
+    const { remember_me_checked } = this.state;
     return (
       <div className={'PlainFlexRow FlexSpaceBetween PlainFlexCentered RememberMeRow'}>
-        <div className={'PlainFlexColumn OnePaddingLeft PlainFlexCentered'}>
-          <input
-            type={'checkbox'}
-            style={{ height: '20px' }}
-            onChange={remember_me_update}
-            value={this.state.remember_me_checked}
-          />
-          <label>Remember me</label>
-        </div>
-        <span>Forgot Password</span>
+        <span className={'PlainFlexColumn'}>
+          <span style={with_20_h}>
+            <input
+              type={'checkbox'}
+              style={with_20_h}
+              onChange={remember_me_update}
+              checked={remember_me_checked}
+            />
+          </span>
+          <span
+            className={
+              remember_me_checked
+                ? 'RememberMeRow__RememberMe--Checked'
+                : 'RememberMeRow__RememberMe--Unchecked'
+            }>
+            Remember me
+          </span>
+        </span>
+        <span
+          data-balloon={'This DOES not work yet'}
+          data-ballon-pos={'right'}
+          className={'RememberMeRow__ForgotPassword'}>
+          Forgot Password
+        </span>
       </div>
     );
   }
@@ -58,7 +72,7 @@ export default class SignInForm extends React.Component {
     const { email, password, error } = this.state;
     const is_invalid = password === '' || email === '';
     const top_message = error ? (
-      <pre className={'AuthingErrorMessage'}>{error.message}</pre>
+      <span className={'AuthingErrorMessage'}>{error.message}</span>
     ) : (
       <span className={'AuthingWelcomeMessage'}>{this.props.login_message}</span>
     );
@@ -66,7 +80,6 @@ export default class SignInForm extends React.Component {
       this.state.loading_state === LOADING_STATE.CURRENTLY_LOADING
         ? 'ProfileContainer__SpinningCentered'
         : 'ModalContainer__Form';
-
     const content =
       this.state.loading_state === LOADING_STATE.CURRENTLY_LOADING ? (
         <div className={'Profile__Container__LoadingSpinner'}>
@@ -98,13 +111,19 @@ export default class SignInForm extends React.Component {
               {SPACER_30_H}
               {this.make_remember_forget_row()}
             </section>
-            <SubmitInput value={'Sign In'} disabled={is_invalid} />
+            {SPACER_10_H}
+            <SubmitInput
+              value={'Sign In'}
+              ballon_position={'right'}
+              ballon_caption={'Sign in to post'}
+              disabled={is_invalid}
+            />
           </div>
         </fieldset>
       );
     return (
       <form
-        onSubmit={this.onSubmit}
+        onSubmit={this.on_submit}
         className={`ReactModal__Content--after-open Profile__Container ${extra_css_classname}`}>
         {content}
       </form>

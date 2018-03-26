@@ -47,19 +47,30 @@ const FreelancerCard = ({
             <span>{known_technologies}</span>
           </div>
         </div>
-        <textarea rows={7} readOnly={true} value={self_description} />
+        <textarea
+          className={'TextSubmissionArea FullWidth'}
+          rows={7}
+          readOnly={true}
+          value={self_description}
+        />
       </div>
     </div>
   );
 };
 
+const no_freelancers = (
+  <p style={{ textAlign: 'center', fontFamily: 'Montserrat, sans-serif' }}>
+    No free lancers posted at this time
+  </p>
+);
+
 export default props => {
   const { freelancers } = props;
-  return (
-    <div className={'FreelancerTable'}>
-      {freelancers.map(freelancer => (
-        <FreelancerCard {...freelancer} key={`${freelancer.name}/${freelancer.github_link}`} />
-      ))}
-    </div>
-  );
+  const content =
+    freelancers.length >= 1
+      ? freelancers.map(freelancer => (
+          <FreelancerCard {...freelancer} key={`${freelancer.name}/${freelancer.github_link}`} />
+        ))
+      : no_freelancers;
+  return <div className={'FreelancerTable'}>{content}</div>;
 };

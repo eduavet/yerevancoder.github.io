@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Spinner from 'react-spinkit';
 
-import { FANCY_INPUT_BOXES, LOADING_STATE, SPACER_30_H } from '../../utils/constants';
+import { FANCY_INPUT_BOXES, LOADING_STATE, SPACER_30_H, SPACER_10_H } from '../../utils/constants';
 import { updateByPropertyName } from '../../utils/funcs';
 import WithEffectInput from '../with-effect-input';
 import SubmitInput from '../submit-input';
@@ -105,6 +105,8 @@ export default class SignUpForm extends React.Component {
               />
               {SPACER_30_H}
             </section>
+            {SPACER_10_H}
+
             <SubmitInput disabled={isInvalid} value={'Create Account'} />
           </div>
         </fieldset>

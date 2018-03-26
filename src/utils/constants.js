@@ -23,6 +23,13 @@ export const ROUTES = {
   AVAILABLE_FOR_WORK: '/available-for-work',
 };
 
+export const PAGE_CONTENT = {
+  HIRING_TABLE: 'hiring-table',
+  NEW_HIRING_POST: 'new-hiring-post',
+  FREELANCER_TABLE: 'freelancer-table',
+  NEW_FREELANCER: 'new-freelancer',
+};
+
 export const MODAL_CONTENT = {
   PROFILE_VIEW: 'profile-view',
   SIGNIN_VIEW: 'signin-view',
@@ -86,6 +93,16 @@ const _MATERIAL_GREY_HEAVY_FADE_ = color(MATERIAL_GREY)
   .hsl()
   .string();
 
+const FADE_WHITE_BUTTON = color('white')
+  .darken(0.1)
+  .hsl()
+  .string();
+
+const FADE_WHITE_FORM = color('white')
+  .darken(0.5)
+  .hsl()
+  .string();
+
 const GLOBAL_CSS = `
 body {
   background-color: ${MATERIAL_BEIGE};
@@ -97,7 +114,7 @@ textarea { resize:none; }
 
 .AuthingErrorMessage {
   font-family:Montserrat, sans-serif;
-  max-width: 75%;
+  text-align:center;
   font-weight: 700;
   font-size: 14px;
   color:red;
@@ -125,16 +142,17 @@ textarea { resize:none; }
   margin:0;
 }
 
+.SubmitInput__Wrapper {
+  width:100%;
+}
+
 .SubmitInput {
   background-color:${MATERIAL_BLUE};
   width:100%;
   padding:7px 14px;
   box-shadow:none;
   border:none;
-  color: ${color('white')
-    .darken(0.1)
-    .hsl()
-    .string()};
+  color: ${FADE_WHITE_BUTTON};
   border-radius:5px;
   cursor:pointer;
 }
@@ -197,6 +215,7 @@ textarea { resize:none; }
 
 .FreelanceProfileSubmission__PostingBanner {
   font-size:25px;
+  text-align:center;
   text-shadow: 2px 2px 3px gold;
   color:${MATERIAL_BLUE};
   font-weight:600;
@@ -207,21 +226,31 @@ textarea { resize:none; }
   border-width: 1px;
   border-style: solid;
   border-color: #666666;
+  padding:5px;
   font-size:14px;
   margin:0;
-  width:100%;
-  padding:15px;
   font-family: Mono;
   display:flex;
   justify-content:center;
+  width:100%;
 }
+
+.FreelanceProfileSubmission__SelfDescription {
+  margin:0;
+  height:150px;
+  width:100%;
+  padding:5px;
+}
+
+.FreelanceProfileSubmission__MonoText > span {
+}
+
 /* https://codepen.io/ayoungh/pen/ABJKu */
 .TextSubmissionArea {
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
   border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
   border-image: none;
   border-radius: 6px 6px 6px 6px;
@@ -239,6 +268,10 @@ textarea { resize:none; }
 .TextSubmissionArea:focus {
   background: none repeat scroll 0 0 #FFFFFF;
   outline-width: 0;
+}
+
+.WithTextSubmissionBackground {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
 }
 
 .PlainFlexColumn {
@@ -282,8 +315,30 @@ textarea { resize:none; }
   border-radius: 5px;
 }
 
+.FormTopEntry > input[type="checkbox"] {
+  align-self:flex-start;
+}
+
 .RememberMeRow {
+  font-size:12px;
   padding:7px 14px;
+  align-items:flex-end;
+}
+
+RememberMeRow__RememberMe--Checked {
+  color:black;
+}
+
+.RememberMeRow__RememberMe--Unchecked{
+  color:${FADE_WHITE_FORM};
+}
+
+.RememberMeRow__ForgotPassword {
+  color:${color('red')
+    .lighten(0.25)
+    .hsl()
+    .string()};
+  cursor:pointer;
 }
 
 .PlainFlexRow.FlexSpaceBetween {
@@ -358,6 +413,10 @@ form > fieldset {
 
 .InputEffect:nth-child(1) {
   margin-top:0;
+}
+
+.loginActionRow__CustomInputField--UserSignedOut {
+  background-color:red;
 }
 
 .loginActionRow__CustomInputField--UserSignedIn,
@@ -600,12 +659,17 @@ form > fieldset {
   padding:0;
 }
 
+.Profile__Container {
+
+}
+
 .Profile__Container > * {
   margin:0;
   font-family: Montserrat, sans-serif;
 }
 
 .Profile__User {
+  font-size:14px;
   background-color:hsl(220, 12%, 95%);
   padding:10px;
   display:flex;
@@ -805,7 +869,7 @@ const MEDIA_QUERIES_CSS = `
     text-align:center !important;
   }
   .FreelanceProfileSubmission__MonoText {
-    font-size:16px;
+    font-size:12px;
   }
 
   .loginActionRow__RowContainer {
@@ -973,10 +1037,13 @@ top: auto; bottom: 0;
   transition: 0.4s;
 }
 .effect-${box_name} ~ label{
-position: absolute;
-left: 14px; width: 100%; top: 10px;
-color: #aaa; transition: 0.3s; z-index: -1;
-letter-spacing: 0.5px;}
+  position: absolute;
+  left: 14px; width: 100%; top: 10px;
+  color: ${FADE_WHITE_FORM};
+  transition: 0.3s;
+  z-index: -1;
+  letter-spacing: 0.5px;
+}
 
 .effect-${box_name}:focus ~ label,
 .has-content.effect-${box_name} ~ label {

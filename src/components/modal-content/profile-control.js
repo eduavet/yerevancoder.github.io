@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import format from 'date-fns/format';
 
 import FreelanceProfileSubmission from './freelance-profile-view';
@@ -9,6 +10,14 @@ import { updateByPropertyName } from '../../utils/funcs';
 const user_not_logged_in = 'User not logged in, cannot show profile';
 
 export default class ProfileControl extends React.Component {
+  static propTypes = {
+    self_freelance_posting: PropTypes.object,
+    delete_my_freelance_posting: PropTypes.func,
+    authenticated_user: PropTypes.object,
+    delete_hiring_record: PropTypes.func,
+    my_hiring_submissions: PropTypes.array,
+    profile_content: PropTypes.oneOf(Object.values(MODAL_PROFILE_CONTENT)),
+  };
   make_profile_view() {
     const {
       self_freelance_posting,
@@ -16,6 +25,7 @@ export default class ProfileControl extends React.Component {
       authenticated_user,
       delete_hiring_record,
       my_hiring_submissions,
+      profile_content,
     } = this.props;
     const profile_made_on =
       authenticated_user !== null
@@ -24,7 +34,7 @@ export default class ProfileControl extends React.Component {
     const account_name = authenticated_user !== null ? authenticated_user.email : '';
     let content = null;
 
-    switch (this.props.profile_content) {
+    switch (profile_content) {
       case MODAL_PROFILE_CONTENT.FREELANCER_POSTING:
         content = (
           <FreelanceProfileSubmission
@@ -42,17 +52,17 @@ export default class ProfileControl extends React.Component {
         );
         break;
       default:
-        console.warn(`this is wrong`);
+        console.warn(`Unknown profile content requested: ${profile_content}`);
     }
 
     return (
       <div>
         <div className={'Profile__User'}>
-          <div>
+          <div className={'PlainFlexColumn'}>
             <label>Account Name </label>
             <span>{account_name}</span>
           </div>
-          <div className={'Profile__CreationTime'}>
+          <div className={'PlainFlexColumn Profile__CreationTime'}>
             <label>Creation Date </label>
             <span>{profile_made_on}</span>
           </div>

@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default ({
+const SigninBar = ({
   signin_handler,
   signup_handler,
   signout_handler,
-  signed_in_handler,
+  already_signed_in_handler,
   is_signed_in,
   when_active_name,
   custom_input_handler_signedin,
@@ -41,23 +42,31 @@ export default ({
       value={is_signed_in ? 'Sign out' : 'Sign in'}
     />
   );
-  const signup_or_logged_in = (
+  const signup_or_already_signed_in = (
     <input
       className={
         is_signed_in
           ? 'loginActionRow__SignUpOrLoggedIn--UserSignedIn'
           : 'loginActionRow__SignUpOrLoggedIn--UserSignedOut'
       }
-      onClick={is_signed_in ? signed_in_handler : signup_handler}
+      onClick={is_signed_in ? already_signed_in_handler : signup_handler}
       type={'button'}
       value={is_signed_in ? when_active_name : 'Sign up'}
     />
   );
+
   return (
     <div className={'loginActionRow__RowContainer'}>
       {custom_input}
       {signin_or_signout}
-      {signup_or_logged_in}
+      {signup_or_already_signed_in}
     </div>
   );
 };
+
+SigninBar.propTypes = {
+  already_signed_in_handler: PropTypes.func,
+  is_signed_in: PropTypes.bool,
+};
+
+export default SigninBar;

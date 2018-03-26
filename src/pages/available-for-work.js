@@ -1,34 +1,26 @@
 import React from 'react';
-import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 
-import Signin from '../components/modal-content/signin';
-import Signup from '../components/modal-content/signup';
-import ProfileControl from '../components/modal-content/profile-control';
-import SigninBar from '../components/signin-bar';
-import NewFreelancer from '../components/new-freelancer';
-import FreelancerTable from '../components/freelancer-table';
-import {
-  MODAL_TRANSITION,
-  MODAL_PROFILE_CONTENT,
-  modal_s,
-  MODAL_CONTENT,
-} from '../utils/constants';
+import PageControl from '../components/page-control';
+
+import { PAGE_CONTENT, MODAL_CONTENT, MODAL_PROFILE_CONTENT } from '../utils/constants';
 import { freelancers_posts_ref, db, firebase } from '../utils/db';
-import { query_my_freelance_submission, obj_to_array } from '../utils/funcs';
+import { query_my_freelance_submission, obj_to_array, no_op } from '../utils/funcs';
 
 const ADD_YOURSELF = 'Add yourself';
 
-const PAGE_CONTENT = { FREELANCER_TABLE: 'freelancer-table', NEW_FREELANCER: 'new-freelancer' };
+const NEW_FREELANCER = 'New freelancer';
+
+const INIT_STATE = {
+  freelancers: [],
+  self_freelance_posting: null,
+  modal_content: MODAL_CONTENT.SIGNIN_VIEW,
+  page_content: PAGE_CONTENT.FREELANCER_TABLE,
+  modal_profile_content: MODAL_PROFILE_CONTENT.FREELANCER_POSTING,
+};
 
 export default class AvailableForWorkPage extends React.Component {
-  state = {
-    modal_show: false,
-    modal_content: MODAL_CONTENT.SIGNIN_VIEW,
-    page_content: PAGE_CONTENT.FREELANCER_TABLE,
-    freelancers: [],
-    self_freelance_posting: null,
-  };
+  state = { ...INIT_STATE };
 
   static contextTypes = {
     authenticated_user: PropTypes.func,
@@ -41,13 +33,9 @@ export default class AvailableForWorkPage extends React.Component {
 
   componentDidMount() {
     this.query_data().then(rows =>
-      this.setState(() => ({
-        freelancers: rows ? Object.values(rows) : [],
-      }))
+      this.setState(() => ({ freelancers: rows ? obj_to_array(rows) : [] }))
     );
   }
-
-  toggle_modal = () => this.setState(({ modal_show }) => ({ modal_show: !modal_show }));
 
   delete_my_freelance_posting = () => {
     if (this.state.self_freelance_posting) {
@@ -61,9 +49,8 @@ export default class AvailableForWorkPage extends React.Component {
           this.query_data().then(rows =>
             this.setState(() => ({
               self_freelance_posting: null,
-              modal_show: false,
               page_content: PAGE_CONTENT.FREELANCER_TABLE,
-              freelancers: rows ? Object.values(rows) : [],
+              freelancers: rows ? obj_to_array(rows) : [],
             }))
           )
         )
@@ -71,144 +58,116 @@ export default class AvailableForWorkPage extends React.Component {
     }
   };
 
-  user_did_sign_in = () => {
-    query_my_freelance_submission()
-      .then(self_freelance_posting =>
+  all_freelance_data = () =>
+    this.query_data().then(rows => {
+      return query_my_freelance_submission().then(self_freelance_posting => ({
+        freelancers: rows ? obj_to_array(rows) : [],
+        self_freelance_posting,
+      }));
+    });
+
+  post_signin_action = () => {
+    this.all_freelance_data()
+      .then(({ freelancers, self_freelance_posting }) => {
         this.setState(() => ({
-          modal_show: false,
+          freelancers,
           self_freelance_posting,
           page_content: PAGE_CONTENT.FREELANCER_TABLE,
-        }))
-      )
+        }));
+      })
       .catch(error => console.log(error));
   };
 
-  user_did_sign_up = () => {
-    this.setState(() => ({ modal_show: false }));
-  };
-
-  modal_content = () => {
-    let content = null;
-    switch (this.state.modal_content) {
-      case MODAL_CONTENT.SIGNIN_VIEW:
-        content = (
-          <Signin
-            login_message={'Sign in'}
-            sign_user_in={this.context.sign_user_in}
-            user_did_sign_in={this.user_did_sign_in}
-          />
-        );
-        break;
-      case MODAL_CONTENT.PROFILE_VIEW:
-        content = (
-          <ProfileControl
-            authenticated_user={this.context.authenticated_user()}
-            profile_content={MODAL_PROFILE_CONTENT.FREELANCER_POSTING}
-            self_freelance_posting={this.state.self_freelance_posting}
-            delete_my_freelance_posting={this.delete_my_freelance_posting}
-            force_query={this.query_data}
-          />
-        );
-        break;
-      case MODAL_CONTENT.SIGNUP_VIEW:
-        content = <Signup user_did_sign_up={this.user_did_sign_up} />;
-        break;
-      default:
-        throw new Error(`Unknown modal content requested: ${this.state.modal_content}`);
-    }
-    return <div className={'ModalContentWrapper'}>{content}</div>;
-  };
-
   freelancer_post_did_finish = () => {
-    this.query_data().then(rows =>
-      query_my_freelance_submission().then(self_freelance_posting =>
-        this.setState(() => ({
+    this.all_freelance_data().then(({ freelancers, self_freelance_posting }) => {
+      this.setState(() => ({
+        page_content: PAGE_CONTENT.FREELANCER_TABLE,
+        self_freelance_posting,
+        freelancers,
+      }));
+    });
+  };
+
+  toggle_freelancer_content = () =>
+    this.setState(({ page_content }) => ({
+      page_content:
+        page_content === PAGE_CONTENT.FREELANCER_TABLE
+          ? PAGE_CONTENT.NEW_FREELANCER
+          : PAGE_CONTENT.FREELANCER_TABLE,
+    }));
+
+  already_signed_in_page_handler = after_cb => {
+    query_my_freelance_submission().then(self_freelance_posting =>
+      this.setState(
+        () => ({
           self_freelance_posting,
-          page_content: PAGE_CONTENT.FREELANCER_TABLE,
-          freelancers: rows ? obj_to_array(rows) : [],
-        }))
+          modal_content: MODAL_CONTENT.PROFILE_VIEW,
+          modal_profile_content: MODAL_PROFILE_CONTENT.FREELANCER_POSTING,
+        }),
+        after_cb
       )
     );
   };
 
-  page_content = () => {
-    switch (this.state.page_content) {
-      case PAGE_CONTENT.FREELANCER_TABLE:
-        return <FreelancerTable freelancers={this.state.freelancers} />;
-      case PAGE_CONTENT.NEW_FREELANCER:
-        return (
-          <NewFreelancer
-            freelancer_post_did_finish={this.freelancer_post_did_finish}
-            submit_new_freelancer_post={this.context.submit_new_freelancer_post}
-          />
-        );
-      default:
-        console.warn(
-          `Unknown page content requested for freelance table ${this.state.page_content}`
-        );
-        return null;
-    }
-  };
-
-  signin_handler = () =>
+  signin_handler = () => {
     this.setState(() => ({
-      modal_show: true,
       modal_content: MODAL_CONTENT.SIGNIN_VIEW,
     }));
+  };
 
-  signup_handler = () =>
-    this.setState(() => ({
-      modal_show: true,
-      modal_content: MODAL_CONTENT.SIGNUP_VIEW,
-    }));
+  signup_handler = after_cb => {
+    this.setState(
+      () => ({
+        modal_content: MODAL_CONTENT.SIGNUP_VIEW,
+      }),
+      after_cb
+    );
+  };
 
-  toggle_freelancer_content = () =>
+  user_did_sign_out = () => {
+    this.setState(() => ({ ...INIT_STATE }));
+  };
+
+  custom_input_handler_signedin = () => {
     this.setState(prev_state => ({
       page_content:
-        prev_state.page_content === PAGE_CONTENT.NEW_FREELANCER
-          ? PAGE_CONTENT.FREELANCER_TABLE
-          : PAGE_CONTENT.NEW_FREELANCER,
+        prev_state.page_content === PAGE_CONTENT.FREELANCER_TABLE
+          ? PAGE_CONTENT.NEW_FREELANCER
+          : PAGE_CONTENT.FREELANCER_TABLE,
     }));
+  };
 
-  show_my_posting = () => {
-    this.setState(() => ({ modal_show: true, modal_content: MODAL_CONTENT.PROFILE_VIEW }));
+  custom_input_handler_signedout = () => {
+    this.setState(() => ({ page_content: PAGE_CONTENT.FREELANCER_TABLE }));
   };
 
   render() {
-    const { authenticated_user, sign_user_out } = this.context;
-    const user = authenticated_user();
     return (
-      <div className={'AvailableForWorkContainer'}>
-        <Modal
-          closeTimeoutMS={MODAL_TRANSITION}
-          isOpen={this.state.modal_show}
-          onRequestClose={this.toggle_modal}
-          ariaHideApp={false}
-          style={modal_s}
-          contentLabel="yerevancoder">
-          {this.modal_content()}
-        </Modal>
-        <nav className={'AvailableForWorkContainer__NavTopRow'}>
-          <h4 className={'AvailableForWorkContainer__PageBanner'}>
-            Freelance programmers in Armenia
-          </h4>
-          <SigninBar
-            signin_handler={this.signin_handler}
-            signup_handler={this.signup_handler}
-            signout_handler={sign_user_out}
-            signed_in_handler={this.show_my_posting}
-            is_signed_in={user !== null}
-            when_active_name={user ? user.email : ''}
-            custom_input_handler_signedin={this.toggle_freelancer_content}
-            custom_input_handler_signedout={() => undefined}
-            custom_input_signed_in_name={
-              this.state.page_content === PAGE_CONTENT.NEW_FREELANCER ? 'Freelancers' : ADD_YOURSELF
-            }
-            custom_input_signed_out_name={ADD_YOURSELF}
-          />
-        </nav>
-        {this.page_content()}
-      </div>
+      <PageControl
+        signup_handler={this.signup_handler}
+        signin_handler={this.signin_handler}
+        banner_title={'Freelancer coders in Armenia'}
+        jobs={[]}
+        user_did_sign_out={this.user_did_sign_out}
+        new_tech_job_post_did_finish={no_op}
+        did_finish_submit_post_lifecycle={this.freelancer_post_did_finish}
+        submit_new_hiring_post={no_op}
+        freelancers={this.state.freelancers}
+        page_content={this.state.page_content}
+        modal_content={this.state.modal_content}
+        modal_profile_content={this.state.modal_profile_content}
+        already_signed_in_page_handler={this.already_signed_in_page_handler}
+        custom_input_handler_signedin={this.custom_input_handler_signedin}
+        custom_input_handler_signedout={this.custom_input_handler_signedout}
+        custom_input_signed_in_name={
+          this.state.page_content === PAGE_CONTENT.NEW_FREELANCER ? 'Freelancers' : ADD_YOURSELF
+        }
+        custom_input_signed_out_name={ADD_YOURSELF}
+        self_freelance_posting={this.state.self_freelance_posting}
+        my_hiring_submissions={[]}
+        delete_my_freelance_posting={this.delete_my_freelance_posting}
+        post_signin_action={this.post_signin_action}
+      />
     );
   }
 }

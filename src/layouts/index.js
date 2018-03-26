@@ -83,11 +83,11 @@ export default class ApplicationRoot extends React.Component {
           })
           .then(reply => {
             const authenticated_user = this.pass_through(reply.user);
+            const current_user = firebase.auth().currentUser;
             return db
-              .ref(`signed-up-users/${reply.uid}`)
+              .ref(`signed-up-users/${current_user.uid}`)
               .set({ user_receives_blog_newsletter, given_email, given_username })
               .then(() => {
-                const current_user = firebase.auth().currentUser;
                 return current_user.updateProfile({ displayName: given_username });
               })
               .then(() => {
@@ -95,17 +95,15 @@ export default class ApplicationRoot extends React.Component {
               });
           }),
       sign_user_in: (email, password, remember_me_checked, did_signin_and_update) =>
-        auth
-          .signInWithEmailAndPassword(email, password)
-          .then(reply =>
-            this.setState(
-              () => ({ remember_me_checked, authenticated_user: this.pass_through(reply) }),
-              did_signin_and_update
-            )
-          ),
-      sign_user_out: () =>
+        auth.signInWithEmailAndPassword(email, password).then(reply => {
+          return this.setState(
+            () => ({ remember_me_checked, authenticated_user: this.pass_through(reply) }),
+            did_signin_and_update
+          );
+        }),
+      sign_user_out: after_sign_out =>
         auth.signOut().then(() => {
-          this.setState(() => ({ ...INIT_STATE }));
+          this.setState(() => ({ ...INIT_STATE }), after_sign_out);
         }),
       submit_new_freelancer_post: data =>
         query_my_freelance_submission().then(profile => {
