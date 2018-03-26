@@ -109,6 +109,15 @@ export default class AvailableForWorkPage extends React.Component {
     }));
   };
 
+  signup_handler = after_cb => {
+    this.setState(
+      () => ({
+        modal_content: MODAL_CONTENT.SIGNUP_VIEW,
+      }),
+      after_cb
+    );
+  };
+
   user_did_sign_out = () => {
     this.setState(() => ({
       self_freelance_posting: null,
@@ -132,6 +141,7 @@ export default class AvailableForWorkPage extends React.Component {
   render() {
     return (
       <PageControl
+        signup_handler={this.signup_handler}
         signin_handler={this.signin_handler}
         banner_title={'Freelancer coders in Armenia'}
         jobs={[]}

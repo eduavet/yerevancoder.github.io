@@ -95,14 +95,12 @@ export default class ApplicationRoot extends React.Component {
               });
           }),
       sign_user_in: (email, password, remember_me_checked, did_signin_and_update) =>
-        auth
-          .signInWithEmailAndPassword(email, password)
-          .then(reply =>
-            this.setState(
-              () => ({ remember_me_checked, authenticated_user: this.pass_through(reply) }),
-              did_signin_and_update
-            )
-          ),
+        auth.signInWithEmailAndPassword(email, password).then(reply => {
+          return this.setState(
+            () => ({ remember_me_checked, authenticated_user: this.pass_through(reply) }),
+            did_signin_and_update
+          );
+        }),
       sign_user_out: after_sign_out =>
         auth.signOut().then(() => {
           this.setState(() => ({ ...INIT_STATE }), after_sign_out);

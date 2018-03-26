@@ -131,13 +131,20 @@ export default class PageControl extends React.Component {
   };
 
   signin_handler = () => {
+    const { signin_handler } = this.props;
     this.setState(() => ({ modal_show: true }));
+    signin_handler();
   };
 
   signout_handler = () => {
     const { sign_user_out } = this.context;
     const { user_did_sign_out } = this.props;
     sign_user_out(user_did_sign_out);
+  };
+
+  signup_handler = () => {
+    const { signup_handler } = this.props;
+    signup_handler(() => this.setState(() => ({ modal_show: true })));
   };
 
   render() {

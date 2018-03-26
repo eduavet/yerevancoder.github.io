@@ -114,7 +114,7 @@ textarea { resize:none; }
 
 .AuthingErrorMessage {
   font-family:Montserrat, sans-serif;
-  max-width: 75%;
+  text-align:center;
   font-weight: 700;
   font-size: 14px;
   color:red;
