@@ -363,7 +363,8 @@ RememberMeRow__RememberMe--Checked {
 .FreelancerTable__FreelancerName {
   font-weight:700;
   font-family: Montserrat, sans-serif;
-  font-size:36px;
+  font-size:32px;
+  text-align:center;
 }
 
 .FreelancerTable__FlexRow {
