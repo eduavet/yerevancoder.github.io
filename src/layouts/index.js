@@ -103,9 +103,9 @@ export default class ApplicationRoot extends React.Component {
               did_signin_and_update
             )
           ),
-      sign_user_out: () =>
+      sign_user_out: after_sign_out =>
         auth.signOut().then(() => {
-          this.setState(() => ({ ...INIT_STATE }));
+          this.setState(() => ({ ...INIT_STATE }), after_sign_out);
         }),
       submit_new_freelancer_post: data =>
         query_my_freelance_submission().then(profile => {

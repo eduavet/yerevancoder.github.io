@@ -9,6 +9,8 @@ import { query_my_freelance_submission, obj_to_array, no_op } from '../utils/fun
 
 const ADD_YOURSELF = 'Add yourself';
 
+const NEW_FREELANCER = 'New freelancer';
+
 export default class AvailableForWorkPage extends React.Component {
   state = {
     freelancers: [],
@@ -64,8 +66,11 @@ export default class AvailableForWorkPage extends React.Component {
   post_signin_action = () => {
     this.all_freelance_data()
       .then(({ freelancers, self_freelance_posting }) => {
-        console.log({ freelancers, self_freelance_posting });
-        this.setState(() => ({ freelancers, self_freelance_posting }));
+        this.setState(() => ({
+          freelancers,
+          self_freelance_posting,
+          page_content: PAGE_CONTENT.FREELANCER_TABLE,
+        }));
       })
       .catch(error => console.log(error));
   };
@@ -104,12 +109,33 @@ export default class AvailableForWorkPage extends React.Component {
     }));
   };
 
+  user_did_sign_out = () => {
+    this.setState(() => ({
+      self_freelance_posting: null,
+      modal_content: MODAL_CONTENT.SIGNIN_VIEW,
+      page_content: PAGE_CONTENT.FREELANCER_TABLE,
+    }));
+  };
+
+  custom_input_handler_signedin = () => {
+    this.setState(() => ({
+      page_content: PAGE_CONTENT.NEW_FREELANCER,
+    }));
+  };
+
+  custom_input_handler_signedout = () => {
+    this.setState(() => ({
+      page_content: PAGE_CONTENT.FREELANCER_TABLE,
+    }));
+  };
+
   render() {
     return (
       <PageControl
         signin_handler={this.signin_handler}
         banner_title={'Freelancer coders in Armenia'}
         jobs={[]}
+        user_did_sign_out={this.user_did_sign_out}
         new_tech_job_post_did_finish={null}
         did_finish_submit_post_lifecycle={null}
         submit_new_hiring_post={null}
@@ -118,9 +144,10 @@ export default class AvailableForWorkPage extends React.Component {
         modal_content={this.state.modal_content}
         modal_profile_content={this.state.modal_profile_content}
         already_signed_in_page_handler={this.already_signed_in_page_handler}
-        custom_input_handler_signedout={null}
-        custom_input_signed_in_name={ADD_YOURSELF}
-        custom_input_signed_out_name={'Other'}
+        custom_input_handler_signedin={this.custom_input_handler_signedin}
+        custom_input_handler_signedout={this.custom_input_handler_signedout}
+        custom_input_signed_in_name={NEW_FREELANCER}
+        custom_input_signed_out_name={ADD_YOURSELF}
         self_freelance_posting={this.state.self_freelance_posting}
         my_hiring_submissions={[]}
         delete_my_freelance_posting={this.delete_my_freelance_posting}

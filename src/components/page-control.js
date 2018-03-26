@@ -125,23 +125,29 @@ export default class PageControl extends React.Component {
 
   already_signed_in_handler = () => {
     const { already_signed_in_page_handler } = this.props;
-    this.setState(
-      () => ({ modal_content: MODAL_CONTENT.PROFILE_VIEW, modal_show: true }),
-      already_signed_in_page_handler
-    );
+    this.setState(() => ({ modal_show: true }), already_signed_in_page_handler);
   };
 
-  signin_handler = () => this.setState(() => ({ modal_show: true }));
+  signin_handler = () => {
+    this.setState(() => ({ modal_show: true }));
+  };
+
+  signout_handler = () => {
+    const { sign_user_out } = this.context;
+    const { user_did_sign_out } = this.props;
+    sign_user_out(user_did_sign_out);
+  };
 
   render() {
     const {
       banner_title,
+      custom_input_handler_signedin,
       custom_input_handler_signedout,
       custom_input_signed_in_name,
       custom_input_signed_out_name,
     } = this.props;
-    const { modal_show, modal_content, page_content } = this.state;
-    const { authenticated_user, sign_user_out } = this.context;
+    const { modal_show } = this.state;
+    const { authenticated_user } = this.context;
     const user = authenticated_user();
     return (
       <div className={'AvailableForWorkContainer'}>
@@ -159,11 +165,11 @@ export default class PageControl extends React.Component {
           <SigninBar
             signin_handler={this.signin_handler}
             signup_handler={this.signup_handler}
-            signout_handler={sign_user_out}
+            signout_handler={this.signout_handler}
             already_signed_in_handler={this.already_signed_in_handler}
             is_signed_in={user !== null}
             when_active_name={user ? user.email : ''}
-            custom_input_handler_signedin={this.custom_input_handler_signedin}
+            custom_input_handler_signedin={custom_input_handler_signedin}
             custom_input_handler_signedout={custom_input_handler_signedout}
             custom_input_signed_in_name={custom_input_signed_in_name}
             custom_input_signed_out_name={custom_input_signed_out_name}
