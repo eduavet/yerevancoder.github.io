@@ -127,7 +127,7 @@ export default class PageControl extends React.Component {
 
   already_signed_in_handler = () => {
     const { already_signed_in_page_handler } = this.props;
-    this.setState(() => ({ modal_show: true }), already_signed_in_page_handler);
+    already_signed_in_page_handler(() => this.setState(() => ({ modal_show: true })));
   };
 
   signin_handler = () => {

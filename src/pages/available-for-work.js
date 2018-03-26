@@ -94,12 +94,15 @@ export default class AvailableForWorkPage extends React.Component {
           : PAGE_CONTENT.FREELANCER_TABLE,
     }));
 
-  already_signed_in_page_handler = () => {
+  already_signed_in_page_handler = after_cb => {
     query_my_freelance_submission().then(self_freelance_posting =>
-      this.setState(() => ({
-        self_freelance_posting,
-        modal_content: MODAL_CONTENT.PROFILE_VIEW,
-      }))
+      this.setState(
+        () => ({
+          self_freelance_posting,
+          modal_content: MODAL_CONTENT.PROFILE_VIEW,
+        }),
+        after_cb
+      )
     );
   };
 
@@ -127,8 +130,11 @@ export default class AvailableForWorkPage extends React.Component {
   };
 
   custom_input_handler_signedin = () => {
-    this.setState(() => ({
-      page_content: PAGE_CONTENT.NEW_FREELANCER,
+    this.setState(prev_state => ({
+      page_content:
+        prev_state.page_content === PAGE_CONTENT.FREELANCER_TABLE
+          ? PAGE_CONTENT.NEW_FREELANCER
+          : PAGE_CONTENT.FREELANCER_TABLE,
     }));
   };
 
@@ -156,7 +162,9 @@ export default class AvailableForWorkPage extends React.Component {
         already_signed_in_page_handler={this.already_signed_in_page_handler}
         custom_input_handler_signedin={this.custom_input_handler_signedin}
         custom_input_handler_signedout={this.custom_input_handler_signedout}
-        custom_input_signed_in_name={NEW_FREELANCER}
+        custom_input_signed_in_name={
+          this.state.page_content === PAGE_CONTENT.NEW_FREELANCER ? 'Freelancers' : ADD_YOURSELF
+        }
         custom_input_signed_out_name={ADD_YOURSELF}
         self_freelance_posting={this.state.self_freelance_posting}
         my_hiring_submissions={[]}
