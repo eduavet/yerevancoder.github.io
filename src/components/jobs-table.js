@@ -44,7 +44,7 @@ const Posting = ({
       </div>
       <textarea
         className={'TextSubmissionArea FullWidth'}
-        rows={7}
+        rows={10}
         readOnly={true}
         value={job_description}
       />
