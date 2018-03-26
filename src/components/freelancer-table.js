@@ -47,7 +47,12 @@ const FreelancerCard = ({
             <span>{known_technologies}</span>
           </div>
         </div>
-        <textarea rows={7} readOnly={true} value={self_description} />
+        <textarea
+          className={'TextSubmissionArea FullWidth'}
+          rows={7}
+          readOnly={true}
+          value={self_description}
+        />
       </div>
     </div>
   );

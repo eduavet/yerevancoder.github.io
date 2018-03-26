@@ -251,7 +251,6 @@ textarea { resize:none; }
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
   border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
   border-image: none;
   border-radius: 6px 6px 6px 6px;
@@ -269,6 +268,10 @@ textarea { resize:none; }
 .TextSubmissionArea:focus {
   background: none repeat scroll 0 0 #FFFFFF;
   outline-width: 0;
+}
+
+.WithTextSubmissionBackground {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
 }
 
 .PlainFlexColumn {

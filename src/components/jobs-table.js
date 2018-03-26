@@ -42,7 +42,12 @@ const Posting = ({
           <span>{contact_info}</span>
         </div>
       </div>
-      <textarea rows={7} readOnly={true} value={job_description} />
+      <textarea
+        className={'TextSubmissionArea FullWidth'}
+        rows={7}
+        readOnly={true}
+        value={job_description}
+      />
     </div>
   </div>
 );

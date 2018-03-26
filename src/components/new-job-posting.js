@@ -143,7 +143,7 @@ export default class NewJobPosting extends React.Component {
                 </label>
                 {SPACER_10_H}
                 <textarea
-                  className={'TextSubmissionArea FullWidth'}
+                  className={'TextSubmissionArea FullWidth WithTextSubmissionBackground'}
                   maxLength={SUMMARY_LIMIT}
                   rows={4}
                   autoComplete={'off'}
