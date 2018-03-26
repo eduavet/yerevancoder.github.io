@@ -114,9 +114,17 @@ body {
   background-color: ${MATERIAL_BEIGE};
 }
 
+.InformationBar__SiteBannerName {
+  text-align:center;
+}
+
 form { margin: 0; }
 
 textarea { resize:none; }
+
+.BlogPost__ByLine {
+  font-style:italic;
+}
 
 .AuthingErrorMessage {
   font-family:Montserrat, sans-serif;
@@ -637,7 +645,8 @@ form > fieldset {
 }
 
 .InformationBar > * {
-  font-family: Montserrat, sans-serif;
+  font-family: 'Titillium Web', sans-serif;
+  line-height:2rem;
   margin:0;
   color:${MATERIAL_BLUE};
   font-weight:600;
@@ -781,7 +790,7 @@ const MEDIA_QUERIES_CSS = `
     font-size:30px;
   }
   .InformationBar > * {
-    text-shadow: 2px 2px 3px gold;
+    text-shadow: 2px 2px 3px ${FADE_WHITE_BUTTON};
   }
   .InformationBar {
     position: fixed;
@@ -914,6 +923,7 @@ const MEDIA_QUERIES_CSS = `
     font-weight:700;
     padding-bottom:10px;
   }
+
   .Headroom__Container--ShowingHeader > * {
     font-size:3px;
   }
@@ -1071,8 +1081,8 @@ const FANCY_INPUT_BOX = `
   width:100%;
 }
 
-.InputEffect > input[type="text"],input[type="email"], input[type="password"]  {
-  font-family: Merriweather, sans-serif;
+.InputEffect > input[type="text"],input[type="email"],input[type="password"]  {
+  font-family: 'Titillium Web', sans-serif;
   color: #333;
   width: 100%;
   border-radius:5px;

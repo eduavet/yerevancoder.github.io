@@ -145,6 +145,10 @@ export default class ApplicationRoot extends React.Component {
             rel={'stylesheet'}
             href={'https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css'}
           />
+          <link
+            href="https://fonts.googleapis.com/css?family=Montserrat|Titillium+Web"
+            rel="stylesheet"
+          />
         </Helmet>
         <FixedSidebar authors_count={authors_count} header_content={yc} />
         <div className={'ApplicationContainer__MainContent'}>

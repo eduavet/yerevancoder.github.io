@@ -2,17 +2,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import EffectiveDiscussionsCommentsIframe from 'gatsby-plugin-ed-comments';
 
-import { rhythm, scale } from '../utils/typography';
-
-const post_style = {
-  ...scale(-1 / 5),
-  display: 'block',
-  marginBottom: rhythm(1),
-  marginTop: rhythm(-1),
-};
-
-const with_bottom_margin = { marginBottom: rhythm(1) };
-
 export default ({ data }) => {
   const post = data.markdownRemark;
   const { title, tags, author, date } = post.frontmatter;
@@ -22,11 +11,11 @@ export default ({ data }) => {
     <div>
       <Helmet title={`${title} | ${siteTitle}`} />
       <h1>{title}</h1>
-      <p style={post_style}>
+      <p className={'BlogPost__ByLine'}>
         {date} | By {author} | {tags}
       </p>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr style={with_bottom_margin} />
+      <hr />
       {tag_names.has('javascript') ? (
         <iframe
           height="400px"
