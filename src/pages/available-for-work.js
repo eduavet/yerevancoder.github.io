@@ -11,14 +11,16 @@ const ADD_YOURSELF = 'Add yourself';
 
 const NEW_FREELANCER = 'New freelancer';
 
+const INIT_STATE = {
+  freelancers: [],
+  self_freelance_posting: null,
+  modal_content: MODAL_CONTENT.SIGNIN_VIEW,
+  page_content: PAGE_CONTENT.FREELANCER_TABLE,
+  modal_profile_content: MODAL_PROFILE_CONTENT.FREELANCER_POSTING,
+};
+
 export default class AvailableForWorkPage extends React.Component {
-  state = {
-    freelancers: [],
-    self_freelance_posting: null,
-    modal_content: MODAL_CONTENT.SIGNIN_VIEW,
-    page_content: PAGE_CONTENT.FREELANCER_TABLE,
-    modal_profile_content: MODAL_PROFILE_CONTENT.FREELANCER_POSTING,
-  };
+  state = { ...INIT_STATE };
 
   static contextTypes = {
     authenticated_user: PropTypes.func,
@@ -100,6 +102,7 @@ export default class AvailableForWorkPage extends React.Component {
         () => ({
           self_freelance_posting,
           modal_content: MODAL_CONTENT.PROFILE_VIEW,
+          modal_profile_content: MODAL_PROFILE_CONTENT.FREELANCER_POSTING,
         }),
         after_cb
       )
@@ -122,11 +125,7 @@ export default class AvailableForWorkPage extends React.Component {
   };
 
   user_did_sign_out = () => {
-    this.setState(() => ({
-      self_freelance_posting: null,
-      modal_content: MODAL_CONTENT.SIGNIN_VIEW,
-      page_content: PAGE_CONTENT.FREELANCER_TABLE,
-    }));
+    this.setState(() => ({ ...INIT_STATE }));
   };
 
   custom_input_handler_signedin = () => {
@@ -139,9 +138,7 @@ export default class AvailableForWorkPage extends React.Component {
   };
 
   custom_input_handler_signedout = () => {
-    this.setState(() => ({
-      page_content: PAGE_CONTENT.FREELANCER_TABLE,
-    }));
+    this.setState(() => ({ page_content: PAGE_CONTENT.FREELANCER_TABLE }));
   };
 
   render() {

@@ -48,6 +48,7 @@ export default class PageControl extends React.Component {
   modal_content = () => {
     let content = null;
     const {
+      delete_hiring_record,
       self_freelance_posting,
       my_hiring_submissions,
       delete_my_freelance_posting,
@@ -71,6 +72,7 @@ export default class PageControl extends React.Component {
             profile_content={modal_profile_content}
             self_freelance_posting={self_freelance_posting}
             my_hiring_submissions={my_hiring_submissions}
+            delete_hiring_record={delete_hiring_record}
             delete_my_freelance_posting={delete_my_freelance_posting}
           />
         );

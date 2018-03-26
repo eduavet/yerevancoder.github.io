@@ -142,6 +142,10 @@ textarea { resize:none; }
   margin:0;
 }
 
+.SubmitInput__Wrapper {
+  width:100%;
+}
+
 .SubmitInput {
   background-color:${MATERIAL_BLUE};
   width:100%;
