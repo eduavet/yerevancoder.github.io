@@ -47,6 +47,7 @@ export default class AvailableForWorkPage extends React.Component {
           this.query_data().then(rows =>
             this.setState(() => ({
               self_freelance_posting: null,
+              page_content: PAGE_CONTENT.FREELANCER_TABLE,
               freelancers: rows ? obj_to_array(rows) : [],
             }))
           )
@@ -76,14 +77,13 @@ export default class AvailableForWorkPage extends React.Component {
   };
 
   freelancer_post_did_finish = () => {
-    this.query_data().then(rows =>
-      query_my_freelance_submission().then(self_freelance_posting =>
-        this.setState(() => ({
-          self_freelance_posting,
-          freelancers: rows ? obj_to_array(rows) : [],
-        }))
-      )
-    );
+    this.all_freelance_data().then(({ freelancers, self_freelance_posting }) => {
+      this.setState(() => ({
+        page_content: PAGE_CONTENT.FREELANCER_TABLE,
+        self_freelance_posting,
+        freelancers,
+      }));
+    });
   };
 
   toggle_freelancer_content = () =>
@@ -136,9 +136,9 @@ export default class AvailableForWorkPage extends React.Component {
         banner_title={'Freelancer coders in Armenia'}
         jobs={[]}
         user_did_sign_out={this.user_did_sign_out}
-        new_tech_job_post_did_finish={null}
-        did_finish_submit_post_lifecycle={null}
-        submit_new_hiring_post={null}
+        new_tech_job_post_did_finish={no_op}
+        did_finish_submit_post_lifecycle={this.freelancer_post_did_finish}
+        submit_new_hiring_post={no_op}
         freelancers={this.state.freelancers}
         page_content={this.state.page_content}
         modal_content={this.state.modal_content}

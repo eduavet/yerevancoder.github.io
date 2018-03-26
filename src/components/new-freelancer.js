@@ -18,27 +18,15 @@ const INIT_STATE = {
 export default class NewFreelancerEntry extends React.Component {
   state = { ...INIT_STATE };
 
-  submit_new_freelancer = (and_then, e) => {
-    // e.preventDefault();
-    // const { submit_post_lifecycle } = this.props;
-    // const { error, ...useful_data } = this.state;
-    // for (const k of Object.keys(useful_data)) {
-    //   useful_data[k] = useful_data[k].trim();
-    // }
-    // submit_post_lifecycle(useful_data)
-    //   .then(, and_then))
-    //   .catch(error => this.setState(updateByPropertyName('error', error)));
-  };
-
   render() {
     const { error, name, self_description, known_technologies } = this.state;
     const { submit_post_lifecycle } = this.props;
     return (
       <div className={'NewFreelancerFormContainer'}>
         <form
-          onSubmit={submit_post_lifecycle.bind(null, this.state, after_form_cleanup =>
-            this.setState(() => ({ ...INIT_STATE }), after_form_cleanup)
-          )}>
+          onSubmit={submit_post_lifecycle.bind(null, this.state, after_form_cleanup => {
+            this.setState(() => ({ ...INIT_STATE }), after_form_cleanup);
+          })}>
           <fieldset>
             <legend
               className={

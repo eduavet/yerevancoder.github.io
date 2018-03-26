@@ -24,7 +24,7 @@ export default class PageControl extends React.Component {
     //
   };
 
-  state = { modal_show: false };
+  state = { modal_show: false, error: null };
 
   static contextTypes = {
     authenticated_user: PropTypes.func,
@@ -86,13 +86,15 @@ export default class PageControl extends React.Component {
 
   submit_post_lifecycle = (useful_data, clear_out_form, e) => {
     const { submit_new_freelancer_post } = this.context;
-    const { did_finish_submit_post_lifecycle } = this.props;
+    const { did_finish_submit_post_lifecycle, page_content } = this.props;
     e.preventDefault();
-    submit_new_freelancer_post(useful_data).then(() =>
-      clear_out_form(() => {
-        did_finish_submit_post_lifecycle();
-      })
-    );
+    if (page_content === PAGE_CONTENT.NEW_FREELANCER) {
+      submit_new_freelancer_post(useful_data).then(() => {
+        clear_out_form(() => {
+          did_finish_submit_post_lifecycle();
+        });
+      });
+    }
   };
 
   page_content = () => {

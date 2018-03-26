@@ -12,6 +12,12 @@ const config = {
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
+// Need to create a yerevancoder-dev app version as well.
+if (process.env.__DEV__) {
+  //
+} else {
+  //
+}
 
 const db = firebase.database();
 
