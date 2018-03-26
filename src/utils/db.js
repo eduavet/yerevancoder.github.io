@@ -1,8 +1,9 @@
 import * as firebase from 'firebase';
+import { __DEV__ } from './constants';
 
 let config = null;
 
-if (process.env.__DEV__) {
+if (__DEV__) {
   config = {
     apiKey: 'AIzaSyD0lm_n8XSRPJmyEfjVX6QgbJ5lf_wzeO0',
     authDomain: 'yerevan-coder-62f6c.firebaseapp.com',
@@ -11,7 +12,7 @@ if (process.env.__DEV__) {
     storageBucket: 'yerevan-coder-62f6c.appspot.com',
     messagingSenderId: '1071336616103',
   };
-} else {
+} else if (__DEV__ === false) {
   config = {
     apiKey: 'AIzaSyB7cO7cBbZr4gy5Whaurud8tA5MN-zZfeY',
     authDomain: 'yerevan-coder.firebaseapp.com',
@@ -20,6 +21,8 @@ if (process.env.__DEV__) {
     storageBucket: 'yerevan-coder.appspot.com',
     messagingSenderId: '404306745515',
   };
+} else {
+  console.error(`Unknown value for __DEV__:${__DEV__}`);
 }
 
 if (!firebase.apps.length) {

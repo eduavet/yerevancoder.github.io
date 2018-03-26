@@ -1,6 +1,12 @@
 import React from 'react';
 import color from 'color';
 
+let __DEV__ = null;
+if (process.env.__DEV__ === 'true') __DEV__ = true;
+else if (process.env.__DEV__ === 'false') __DEV__ = false;
+
+export { __DEV__ };
+
 export const modal_s = {
   content: {
     top: '50%',
