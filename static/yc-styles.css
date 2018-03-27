@@ -10,8 +10,7 @@
   --material-grey: #C5C9CF;
   --material-blue-heavy-fade: hsla(222.62, 25.7%, 29%, 0.4);
   --material-blue-light-fade: hsla(222.6, 25.7%, 29%, 0.65);
-  --material-grey-heavy-fade: hsla(216, 9.4%, 79.2%, 0.2);
-  --material-grey-light-fade: hsla(216, 9.4%, 79.2%, 0.4);
+  --material-grey-heavy-fade: hsla(216, 9.4%, 79.2%, 0.4);
 }
 
 body {
