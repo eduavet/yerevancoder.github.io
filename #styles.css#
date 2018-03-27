@@ -1,16 +1,21 @@
 :root {
-  --business-content-padding: 30px;
-  --business-content-padding-half: 15px;
+  --business-content-padding: 30;
+  --business-content-padding-half: 15;
   --fade-white-button: hsl(0, 0%, 90%);
   --fade-white-form: hsl(0, 0%, 50%);
-  --error-light-red: hsl(0, 100%, 62.5%);
-  --sidebar-fixed-width: 250px;
+
+
+
+  --error-light-red: red;
+
+  --sidebar-fixed-width: 250;
   --material-blue: #37425D;
   --material-beige: #FAF5F1;
   --material-grey: #C5C9CF;
   --material-blue-heavy-fade: hsla(222.62, 25.7%, 29%, 0.4);
   --material-blue-light-fade: hsla(222.6, 25.7%, 29%, 0.65);
-  --material-grey-heavy-fade: hsla(216, 9.4%, 79.2%, 0.4);
+  --material-grey-heavy-fade: hsla(216, 9.4%, 79.2%, 0.2);
+  --material-grey-light-fade: hsla(216, 9.4%, 79.2%, 0.4);
 }
 
 body {
@@ -40,14 +45,14 @@ textarea { resize:none; }
   color:red;
   margin:0;
   text-align:center;
-  padding-left: var(--business-content-padding-half);
-  padding-right: var(--business-content-padding-half);
+  padding-left: var(--business-content-padding-half)px;
+  padding-right: var(--business-content-padding-half)px;
 }
 
 .AuthingWelcomeMessage {
   text-align:center;
-  padding-left: var(--business-content-padding);
-  padding-right: var(--business-content-padding);
+  padding-left: var(--business-content-padding)px;
+  padding-right: var(--business-content-padding)px;
   font-weight:700;
   font-size:22px;
   padding-bottom:15px;
@@ -356,8 +361,8 @@ form > fieldset {
 }
 
 .AvailableForWorkContainer__NavTopRow {
-  padding-top:var(--business-content-padding-half);
-  padding-bottom:var(--business-content-padding-half);
+  padding-top:var(--business-content-padding-half)px;
+  padding-bottom:var(--business-content-padding-half)px;
 }
 
 .loginActionRow__RowContainer > input,.NewFreelancerFormContainer__SubmitButton {
@@ -403,7 +408,7 @@ form > fieldset {
 
 .loginActionRow__SigninOrSignOut--UserSignedIn,
 .loginActionRow__SigninOrSignOut--UserSignedOut {
-  color:var(--fade-white-form);
+  color:var(--fade-white-button);
   background-color:var(--material-grey-heavy-fade);
 }
 
@@ -411,6 +416,7 @@ form > fieldset {
 .loginActionRow__SigninOrSignOut--UserSignedOut:active {
   color:var(--fade-white-button);
   background-color:var(--material-grey-heavy-fade);
+
 }
 
 .AvailableForWorkContainer > * {
@@ -465,12 +471,12 @@ form > fieldset {
 
 .BlogEntryCard:nth-child(2n + 1),
 .FreelancerTable__Freelancer:nth-child(2n + 1) {
-  background-color:var(--material-grey-heavy-fade);
+  background-color:${MATERIAL_GREY_HEAVY_FADE};
 }
 
 .BlogEntryCard:nth-child(2n),
 .FreelancerTable__Freelancer:nth-child(2n) {
-  background-color:var(--material-blue-heavy-fade);
+  background-color:${MATERIAL_BLUE_HEAVY_FADE};
 }
 
 /* http://tobiasahlin.com/blog/how-to-animate-box-shadow/ */
@@ -675,18 +681,18 @@ legend {
       var(--material-beige)
     );
     background-size: 100% 20px;
-    width: var(--sidebar-fixed-width);
+    width:var(--sidebar-fixed-width)px;
     padding:10px;
   }
 
   .ApplicationContainer__MainContent {
-    padding-left:var(--sidebar-fixed-width);
+    padding-left:var(--sidebar-fixed-width)px;
     width:100%;
   }
 
   .ApplicationContainer__BusinessContent {
-    padding-left:var(--business-content-padding);
-    padding-right:var(--business-content-padding);
+    padding-left:var(--business-content-padding)px;
+    padding-right:var(--business-content-padding)px;
   }
   .Profile__User {
     justify-content:space-between;
