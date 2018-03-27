@@ -864,6 +864,11 @@ const MEDIA_QUERIES_CSS = `
 }
 
 @media (max-width: 649px) {
+  .FreelancerTable__CredRow {
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:15px;
+  }
   .FreelancerTable__FreelancerColumnDescription {
     padding:10px;
     font-size:12px;

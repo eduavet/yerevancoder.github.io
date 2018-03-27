@@ -24,24 +24,24 @@ const FreelancerCard = ({
       <div className={'FreelancerTable__FreelancerColumnDescription'}>
         <span className={'FreelancerTable__FreelancerName'}>{name}</span>
         <div className={'FreelancerTable__FlexColumn'}>
-          <div className={'PlainFlexRow FlexSpaceBetween'}>
+          <div className={'PlainFlexRow FlexSpaceBetween FreelancerTable__CredRow'}>
             <label>Github:</label>
             {SPACER_20_W}
             {maybe_link(github_link)}
           </div>
-          <div className={'PlainFlexRow FlexSpaceBetween'}>
+          <div className={'PlainFlexRow FlexSpaceBetween FreelancerTable__CredRow'}>
             <label>Linkedin:</label>
             {SPACER_20_W}
             {maybe_link(linkedin_link)}
           </div>
         </div>
         <div className={'FreelancerTable__FlexColumn'}>
-          <div className={'PlainFlexRow FlexSpaceBetween'}>
+          <div className={'PlainFlexRow FlexSpaceBetween FreelancerTable__CredRow'}>
             <label>Resume/Personal Site:</label>
             {SPACER_20_W}
             {maybe_link(resume_link)}
           </div>
-          <div className={'PlainFlexRow FlexSpaceBetween'}>
+          <div className={'PlainFlexRow FlexSpaceBetween FreelancerTable__CredRow'}>
             <label>Known Technologies:</label>
             {SPACER_20_W}
             <span>{known_technologies}</span>
