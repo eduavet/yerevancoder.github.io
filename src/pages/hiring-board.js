@@ -110,8 +110,9 @@ export default class HiringBoardPage extends React.Component {
       after_cb
     );
   };
+
   user_did_sign_out = () => {
-    this.setState(() => ({ ...INIT_STATE }));
+    this.setState(({ jobs }) => ({ ...INIT_STATE, jobs }));
   };
 
   already_signed_in_page_handler = after_cb => {
