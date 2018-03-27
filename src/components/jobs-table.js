@@ -25,19 +25,19 @@ const Posting = ({
           <span>{post_author}</span>
         </div>
         <div className={'PlainFlexRow FlexSpaceBetween'}>
-          <label>Location</label>
+          <label>Location:</label>
           {SPACER_20_W}
           <span>{job_location}</span>
         </div>
       </div>
       <div className={'FreelancerTable__FlexColumn'}>
         <div className={'PlainFlexRow FlexSpaceBetween'}>
-          <label>Salary Range</label>
+          <label>Salary Range:</label>
           {SPACER_20_W}
           <span>{`from: ${from} to: ${to} ${payment_currency}`}</span>
         </div>
         <div className={'PlainFlexRow FlexSpaceBetween'}>
-          <label>Contact Information</label>
+          <label>Contact Information:</label>
           {SPACER_20_W}
           <span>{contact_info}</span>
         </div>
