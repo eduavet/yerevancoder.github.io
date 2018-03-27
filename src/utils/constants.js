@@ -922,14 +922,15 @@ const MEDIA_QUERIES_CSS = `
   }
 
   .InformationBar > * {
-    font-size:14px;
-    line-height:1.2rem;
+    font-size:15px;
+    line-height:1.3rem;
+    text-align:center;
     padding-bottom:10px;
   }
 
   .InformationBar__SiteBannerName {
     font-weight:700;
-    font-size:22px;
+    font-size:24px;
     padding-bottom:10px;
   }
 
