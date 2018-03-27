@@ -187,12 +187,7 @@ export default class PageControl extends React.Component {
           {this.modal_content()}
         </Modal>
         <nav className={'AvailableForWorkContainer__NavTopRow'}>
-          <h4
-            data-balloon-pos={'right'}
-            data-balloon={'Sign in to post'}
-            className={'AvailableForWorkContainer__PageBanner'}>
-            {banner_title}
-          </h4>
+          <h4 className={'AvailableForWorkContainer__PageBanner'}>{banner_title}</h4>
           <SigninBar
             signin_handler={this.signin_handler}
             signup_handler={this.signup_handler}
