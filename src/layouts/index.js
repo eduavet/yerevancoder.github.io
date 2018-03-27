@@ -139,7 +139,7 @@ export default class ApplicationRoot extends React.Component {
       <div className={'ApplicationContainer__Container'}>
         <Helmet title={site_title}>
           {global_styles}
-          <link rel={'preload'} href={'yc-styles.css'} as={'style'} />
+          <link rel={'stylesheet'} href={'yc-styles.css'} />
           <link
             href="https://fonts.googleapis.com/css?family=Montserrat|Titillium+Web"
             rel="stylesheet"
