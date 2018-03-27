@@ -920,7 +920,7 @@ const MEDIA_QUERIES_CSS = `
     margin:0;
   }
 
-  .InformationBar > *:not(h3) {
+  .InformationBar > * {
     font-size:14px;
     line-height:1.2rem;
     padding-bottom:10px;
@@ -928,6 +928,7 @@ const MEDIA_QUERIES_CSS = `
 
   .InformationBar__SiteBannerName {
     font-weight:700;
+    font-size:22px;
     padding-bottom:10px;
   }
 
