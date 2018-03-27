@@ -548,6 +548,7 @@ form > fieldset {
   justify-content:center;
   align-items:center;
   font-size:20px;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .AvailableForWorkContainer > *:nth-child(1) {
