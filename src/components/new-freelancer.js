@@ -24,9 +24,16 @@ export default class NewFreelancerEntry extends React.Component {
     return (
       <div className={'NewFreelancerFormContainer'}>
         <form
-          onSubmit={submit_post_lifecycle.bind(null, this.state, after_form_cleanup => {
-            this.setState(() => ({ ...INIT_STATE }), after_form_cleanup);
-          })}>
+          onSubmit={submit_post_lifecycle.bind(
+            null,
+            this.state,
+            after_form_cleanup => {
+              this.setState(() => ({ ...INIT_STATE }), after_form_cleanup);
+            },
+            error => {
+              this.setState(updateByPropertyName('error', error));
+            }
+          )}>
           <fieldset>
             <legend
               className={

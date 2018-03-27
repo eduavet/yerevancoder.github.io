@@ -60,7 +60,7 @@ const FreelancerCard = ({
 
 const no_freelancers = (
   <p style={{ textAlign: 'center', fontFamily: 'Montserrat, sans-serif' }}>
-    No free lancers posted at this time
+    No freelancers posted at this time
   </p>
 );
 

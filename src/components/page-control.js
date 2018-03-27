@@ -87,16 +87,18 @@ export default class PageControl extends React.Component {
     return <div className={'ModalContentWrapper'}>{content}</div>;
   };
 
-  submit_post_lifecycle = (useful_data, clear_out_form, e) => {
+  submit_post_lifecycle = (useful_data, clear_out_form, error_handling, e) => {
     const { submit_new_freelancer_post } = this.context;
     const { did_finish_submit_post_lifecycle, page_content } = this.props;
     e.preventDefault();
     if (page_content === PAGE_CONTENT.NEW_FREELANCER) {
-      submit_new_freelancer_post(useful_data).then(() => {
-        clear_out_form(() => {
-          did_finish_submit_post_lifecycle();
-        });
-      });
+      submit_new_freelancer_post(useful_data)
+        .then(() => {
+          clear_out_form(() => {
+            did_finish_submit_post_lifecycle();
+          });
+        })
+        .catch(error_handling);
     }
   };
 
