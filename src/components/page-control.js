@@ -91,8 +91,18 @@ export default class PageControl extends React.Component {
     const { submit_new_freelancer_post } = this.context;
     const { did_finish_submit_post_lifecycle, page_content } = this.props;
     e.preventDefault();
+
+    const { error, ...data } = useful_data;
+    for (const k of Object.keys(data)) {
+      data[k] = data[k].trim();
+      if (data[k] === '') {
+        error_handling(new Error(`"${k}" field cannot be empty`));
+        return;
+      }
+    }
+
     if (page_content === PAGE_CONTENT.NEW_FREELANCER) {
-      submit_new_freelancer_post(useful_data)
+      submit_new_freelancer_post(data)
         .then(() => {
           clear_out_form(() => {
             did_finish_submit_post_lifecycle();
