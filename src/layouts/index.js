@@ -139,13 +139,14 @@ export default class ApplicationRoot extends React.Component {
       <div className={'ApplicationContainer__Container'}>
         <Helmet title={site_title}>
           {global_styles}
-          <link
-            rel={'stylesheet'}
-            href={'https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css'}
-          />
+          <link rel={'preload'} href={'yc-styles.css'} as={'style'} />
           <link
             href="https://fonts.googleapis.com/css?family=Montserrat|Titillium+Web"
             rel="stylesheet"
+          />
+          <link
+            rel={'stylesheet'}
+            href={'https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css'}
           />
         </Helmet>
         <FixedSidebar authors_count={authors_count} header_content={yc} />
