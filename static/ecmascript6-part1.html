@@ -1,0 +1,716 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>ES6 part1</title>
+
+  <link rel="stylesheet" href="presentation_dependencies/css/reveal.css">
+  <link rel="stylesheet" href="presentation_dependencies/css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="presentation_dependencies/lib/css/atom-one-dark.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'presentation_dependencies/css/print/pdf.css' : 'presentation_dependencies/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides" style="top: 0% !important">
+
+				<section data-markdown>
+					<textarea data-template>
+            # Javascript History
+					</textarea>
+        </section>
+
+        <section>
+          <img data-src="static/Brendan_Eich.jpg" width="500" height="500">
+          <h3>JS was created by Brendan Eich in 1995</h3>
+        </section>
+
+				<section data-markdown>
+					<textarea data-template>
+            ## Namings
+            ### Mocha
+            ### LiveScript
+            ### JavaScript
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            # Created with simplicity in mind
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ### Submitted to the ECMA international for language standardization
+					</textarea>
+        </section>
+
+				<section data-markdown>
+					<textarea data-template>
+            ### There are also ES7 and ES8
+            #### But ES6 is the most fundamental one
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            * Classes and modules (semantically)
+            * Iterators
+            * Generators and generator expressions
+            * Typed arrays
+            * Arrow functions
+            * Collections
+            * Promises
+            * Block Scoping
+            * Proxies
+            * Additional math operations
+            * Block Scoping
+            * And more
+					</textarea>
+        </section>
+
+				<section data-markdown>
+					<textarea data-template>
+            # ECMAScript6
+					</textarea>
+        </section>
+
+				<section data-markdown>
+					<textarea data-template>
+            ## Constant PI
+            ```javascript
+            const PI = 3.141593
+            PI > 3.0
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Block-scoped Variables (ES5)
+            ```javascript
+var i, x, y;
+for (i = 0; i < a.length; i++) {
+    x = a[i];
+    …
+}
+for (i = 0; i < b.length; i++) {
+    y = b[i];
+    …
+}
+
+var callbacks = [];
+for (var i = 0; i <= 2; i++) {
+    (function (i) {
+        callbacks[i] = function() { return i * 2; };
+    })(i);
+}
+callbacks[0]() === 0;
+callbacks[1]() === 2;
+callbacks[2]() === 4;
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Block-scoped Variables (ES6)
+            ```javascript
+for (let i = 0; i < a.length; i++) {
+    let x = a[i]
+    …
+}
+for (let i = 0; i < b.length; i++) {
+    let y = b[i]
+    …
+}
+
+let callbacks = []
+for (let i = 0; i <= 2; i++) {
+    callbacks[i] = function () { return i * 2 }
+}
+callbacks[0]() === 0
+callbacks[1]() === 2
+callbacks[2]() === 4
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Block-scoped Functions (ES5)
+            ```javascript
+(function () {
+    var foo = function () { return 1; }
+    foo() === 1;
+    (function () {
+        var foo = function () { return 2; }
+        foo() === 2;
+    })();
+    foo() === 1;
+})();
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Block-scoped Functions (ES6)
+            ```javascript
+{
+    function foo () { return 1 }
+    foo() === 1
+    {
+        function foo () { return 2 }
+        foo() === 2
+    }
+    foo() === 1
+}
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Standard functions (ES5)
+            ```javascript
+let odds  = evens.map(function (v) { return v + 1; });
+let pairs = evens.map(function (v) { return { even: v, odd: v + 1 }; });
+let nums  = evens.map(function (v, i) { return v + i; });
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Arrow functions (ES6)
+            ```javascript
+let odds  = evens.map(v => v + 1)
+let pairs = evens.map(v => ({ even: v, odd: v + 1 }))
+let nums  = evens.map((v, i) => v + i)
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Standard functions (ES5)
+            ```javascript
+nums.forEach(function (v) {
+   if (v % 5 === 0)
+       fives.push(v);
+});
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Arrow functions (ES6)
+            ```javascript
+nums.forEach(v => {
+   if (v % 5 === 0)
+       fives.push(v)
+})
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Standard functions (this) (ES5)
+            ```javascript
+//  variant 1
+var self = this;
+this.nums.forEach(function (v) {
+    if (v % 5 === 0)
+        self.fives.push(v);
+});
+
+//  variant 2
+this.nums.forEach(function (v) {
+    if (v % 5 === 0)
+        this.fives.push(v);
+}, this);
+
+//  variant 3 (since ECMAScript 5.1 only)
+this.nums.forEach(function (v) {
+    if (v % 5 === 0)
+        this.fives.push(v);
+}.bind(this));
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Arrow functions (this) (ES6)
+            ```javascript
+this.nums.forEach((v) => {
+    if (v % 5 === 0)
+        this.fives.push(v)
+})
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Default Parameters(ES5)
+            ```javascript
+function f (x, y, z) {
+    if (y === undefined)
+        y = 7;
+    if (z === undefined)
+        z = 42;
+    return x + y + z;
+};
+f(1) === 50;function f (x, y = 7, z = 42) {
+    return x + y + z
+}
+f(1) === 50
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Default Parameters(ES6)
+            ```javascript
+function f (x, y = 7, z = 42) {
+    return x + y + z
+}
+f(1) === 50
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Rest Parameter(ES5)
+            ```javascript
+function f (x, y) {
+    var a = Array.prototype.slice.call(arguments, 2);
+    return (x + y) * a.length;
+};
+f(1, 2, "hello", true, 7) === 9;
+
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Rest Parameter(ES6)
+            ```javascript
+function f (x, y, ...a) {
+    return (x + y) * a.length
+}
+f(1, 2, "hello", true, 7) === 9
+
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Spread Operator(ES5)
+            ```javascript
+var params = [ "hello", true, 7 ];
+var other = [ 1, 2 ].concat(params); // [ 1, 2, "hello", true, 7 ]
+
+function f (x, y) {
+    var a = Array.prototype.slice.call(arguments, 2);
+    return (x + y) * a.length;
+};
+f.apply(undefined, [ 1, 2 ].concat(params)) === 9;
+
+var str = "foo";
+var chars = str.split(""); // [ "f", "o", "o" ]
+
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Spread Operator(ES6)
+            ```javascript
+var params = [ "hello", true, 7 ]
+var other = [ 1, 2, ...params ] // [ 1, 2, "hello", true, 7 ]
+
+function f (x, y, ...a) {
+    return (x + y) * a.length
+}
+f(1, 2, ...params) === 9
+
+var str = "foo"
+var chars = [ ...str ] // [ "f", "o", "o" ]
+
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Template literals(ES5)
+            ```javascript
+var customer = { name: "Foo" };
+var card = { amount: 7, product: "Bar", unitprice: 42 };
+var message = "Hello " + customer.name + ",\n" +
+"want to buy " + card.amount + " " + card.product + " for\n" +
+"a total of " + (card.amount * card.unitprice) + " bucks?";
+
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Template literals(ES6)
+            ```javascript
+var customer = { name: "Foo" }
+var card = { amount: 7, product: "Bar", unitprice: 42 }
+var message = `Hello ${customer.name},
+want to buy ${card.amount} ${card.product} for
+a total of ${card.amount * card.unitprice} bucks?`
+
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Template literals(ES5)
+            ```javascript
+get([ "http://example.com/foo?bar=", "&quux=", "" ],bar + baz, quux);
+
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Template literals(ES6)
+            ```javascript
+get`http://example.com/foo?bar=${bar + baz}&quux=${quux}`
+
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Template literals(ES6 only)
+            ```javascript
+function quux (strings, ...values) {
+    strings[0] === "foo\n"
+    strings[1] === "bar"
+    strings.raw[0] === "foo\\n"
+    strings.raw[1] === "bar"
+    values[0] === 42
+}
+quux `foo\n${ 42 }bar`
+
+String.raw `foo\n${ 42 }bar` === "foo\\n42bar"
+
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Binary and Octal literals(ES5)
+            ```javascript
+parseInt("111110111", 2) === 503;
+parseInt("767", 8) === 503;
+0767 === 503; // only in non-strict, backward compatibility mode
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Binary and Octal literals(ES6)
+            ```javascript
+0b111110111 === 503
+0o767 === 503
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Property Shorthand(ES5)
+            ```javascript
+obj = { x: x, y: y };
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Property Shorthand(ES6)
+            ```javascript
+obj = { x, y }
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Computed Property Names(ES5)
+            ```javascript
+var obj = {
+    foo: "bar"
+};
+obj[ "baz" + quux() ] = 42;
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Computed Property Names(ES6)
+            ```javascript
+let obj = {
+    foo: "bar",
+    [ "baz" + quux() ]: 42
+}
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Method Properties(ES5)
+            ```javascript
+obj = {
+    foo: function (a, b) {
+        …
+    },
+    bar: function (x, y) {
+        …
+    }
+};
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Method Properties(ES6)
+            ```javascript
+obj = {
+    foo (a, b) {
+        …
+    },
+    bar (x, y) {
+        …
+    }
+}
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Array Matching(ES5)
+            ```javascript
+var list = [ 1, 2, 3 ];
+var a = list[0], b = list[2];
+var tmp = a; a = b; b = tmp;
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Array Matching(ES6)
+            ```javascript
+let list = [ 1, 2, 3 ]
+let [ a, , b ] = list
+[ b, a ] = [ a, b ]
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Object Matching, Shorthand Notation(ES5)
+            ```javascript
+var tmp = getASTNode();
+var op  = tmp.op;
+var lhs = tmp.lhs;
+var rhs = tmp.rhs;
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Object Matching, Shorthand Notation(ES6)
+            ```javascript
+let { op, lhs, rhs } = getASTNode()
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Object Matching, Deep Matching(ES5)
+            ```javascript
+var tmp = getASTNode();
+var a = tmp.op;
+var b = tmp.lhs.op;
+var c = tmp.rhs;
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Object Matching, Deep Matching(ES6)
+            ```javascript
+let { op: a, lhs: { op: b }, rhs: c } = getASTNode()
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Object And Array Matching, Default Values(ES5)
+            ```javascript
+var obj = { a: 1 };
+var list = [ 1 ];
+var a = obj.a;
+var b = obj.b === undefined ? 2 : obj.b;
+var x = list[0];
+var y = list[1] === undefined ? 2 : list[1];
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Object And Array Matching, Default Values(ES6)
+            ```javascript
+let obj = { a: 1 }
+let list = [ 1 ]
+let { a, b = 2 } = obj
+let [ x, y = 2 ] = list
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Parameter Context Matching(ES5)
+            ```javascript
+function f (arg) {
+    var name = arg[0];
+    var val  = arg[1];
+    console.log(name, val);
+};
+function g (arg) {
+    var n = arg.name;
+    var v = arg.val;
+    console.log(n, v);
+};
+function h (arg) {
+    var name = arg.name;
+    var val  = arg.val;
+    console.log(name, val);
+};
+f([ "bar", 42 ]);
+g({ name: "foo", val:  7 });
+h({ name: "bar", val: 42 });
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Parameter Context Matching(ES6)
+            ```javascript
+function f ([ name, val ]) {
+    console.log(name, val)
+}
+function g ({ name: n, val: v }) {
+    console.log(n, v)
+}
+function h ({ name, val }) {
+    console.log(name, val)
+}
+f([ "bar", 42 ])
+g({ name: "foo", val:  7 })
+h({ name: "bar", val: 42 })
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Fail-Soft Destructuring(ES5)
+            ```javascript
+var list = [ 7, 42 ];
+var a = typeof list[0] !== "undefined" ? list[0] : 1;
+var b = typeof list[1] !== "undefined" ? list[1] : 2;
+var c = typeof list[2] !== "undefined" ? list[2] : 3;
+var d = typeof list[3] !== "undefined" ? list[3] : undefined;
+a === 7;
+b === 42;
+c === 3;
+d === undefined;
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## Fail-Soft Destructuring(ES6)
+            ```javascript
+let list = [ 7, 42 ]
+let [ a = 1, b = 2, c = 3, d ] = list
+a === 7
+b === 42
+c === 3
+d === undefined
+            ```
+					</textarea>
+        </section>
+
+
+			</div>
+		</div>
+
+  <script src="presentation_dependencies/lib/js/head.min.js"></script>
+  <script src="presentation_dependencies/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+        { src: 'presentation_dependencies/plugin/markdown/marked.js' },
+        { src: 'presentation_dependencies/plugin/markdown/markdown.js' },
+        { src: 'presentation_dependencies/plugin/notes/notes.js', async: true },
+        { src: 'presentation_dependencies/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
