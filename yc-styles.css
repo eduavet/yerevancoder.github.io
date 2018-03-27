@@ -11,6 +11,8 @@
   --material-blue-heavy-fade: hsla(222.62, 25.7%, 29%, 0.4);
   --material-blue-light-fade: hsla(222.6, 25.7%, 29%, 0.65);
   --material-grey-heavy-fade: hsla(216, 9.4%, 79.2%, 0.4);
+  --material-grey-light-fade: hsla(216, 9.4%, 79.2%, 0.2);
+
 }
 
 body {
@@ -230,7 +232,7 @@ textarea { resize:none; }
 }
 
 .FormTopEntry {
-  background-color:var(--material-grey-heavy-fade);
+  background-color:var(--material-grey-light-fade);
   padding:14px 28px;
   border-radius: 5px;
 }
@@ -241,7 +243,7 @@ textarea { resize:none; }
 
 .RememberMeRow {
   font-size:12px;
-  padding:7px 14px;
+  padding:7px 0px;
   align-items:flex-end;
 }
 
@@ -658,7 +660,7 @@ legend {
     font-size:30px;
   }
   .InformationBar > * {
-    text-shadow: 2px 2px 3px var(--fade-white-button);
+    text-shadow: 4px 4px 4px var(--fade-white-button);
   }
   .InformationBar {
     position: fixed;
