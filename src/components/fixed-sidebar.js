@@ -5,7 +5,7 @@ import { ROUTES } from '../utils/constants';
 
 export default ({ authors_count, header_content }) => (
   <aside className={'InformationBar'}>
-    <h3 className={'InformationBar__SiteBannerName'}>{header_content}</h3>
+    {header_content}
     <p>
       yerevancoder.com is a place for coders in Armenia to share their thoughts, experiences in
       programming and tech. Find <Link to={ROUTES.AVAILABLE_FOR_WORK}>someone</Link> looking for a

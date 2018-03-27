@@ -8,10 +8,8 @@ import FixedSidebar from '../components/fixed-sidebar';
 import { SESSION_USER, global_styles, ROUTES } from '../utils/constants';
 import { query_my_freelance_submission } from '../utils/funcs';
 
-const link_style = { boxShadow: 'none', textDecoration: 'none', color: 'inherit' };
-
 const yc = (
-  <Link style={link_style} to={'/'}>
+  <Link className={'InformationBar__SiteBannerName'} to={'/'}>
     yerevancoder
   </Link>
 );

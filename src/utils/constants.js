@@ -116,6 +116,9 @@ body {
 }
 
 .InformationBar__SiteBannerName {
+  box-shadow: none;
+  text-decoration: none;
+  color: inherit;
   text-align:center;
 }
 
