@@ -861,6 +861,7 @@ const MEDIA_QUERIES_CSS = `
 
 @media (max-width: 649px) {
   .FreelancerTable__FreelancerColumnDescription {
+    padding:10px;
     font-size:12px;
   }
   .FreelancerTable__FreelancerName {
@@ -957,6 +958,10 @@ const MEDIA_QUERIES_CSS = `
   input[type=button] {
     margin-top:10px;
   }
+  .FreelancerTable__Freelancer {
+    padding:2px;
+}
+
 }
 `;
 
