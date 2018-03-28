@@ -42,7 +42,7 @@ export default class SignInForm extends React.Component {
     return (
       <div className={'PlainFlexRow FlexSpaceBetween PlainFlexCentered RememberMeRow'}>
         <span className={'PlainFlexColumn'}>
-          <span style={with_20_h}>
+          <span data-balloon={'This DOES not work yet'} data-ballon-pos={'top'} style={with_20_h}>
             <input
               type={'checkbox'}
               style={with_20_h}
