@@ -7,12 +7,10 @@
     "url": "https://github.com/yerevancoder/yerevancoder.github.io/issues"
   },
   "dependencies": {
-    "@firebase/auth": "^0.3.4",
-    "@firebase/database": "^0.2.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "color": "^3.0.0",
     "date-fns": "^1.29.0",
-    "firebase": "^4.11.0",
+    "firebase": "4.11.0",
     "gatsby": "^1.9.238",
     "gatsby-link": "^1.6.39",
     "gatsby-plugin-ed-comments": "^0.4.4",
