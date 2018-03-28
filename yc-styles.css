@@ -13,7 +13,6 @@
   --material-blue-light-fade: hsla(222.6, 25.7%, 29%, 0.65);
   --material-grey-heavy-fade: hsla(216, 9.4%, 79.2%, 0.4);
   --material-grey-light-fade: hsla(216, 9.4%, 79.2%, 0.2);
-
 }
 
 body {
@@ -163,9 +162,6 @@ textarea { resize:none; }
   height:150px;
   width:100%;
   padding:5px;
-}
-
-.FreelanceProfileSubmission__MonoText > span {
 }
 
 /* https://codepen.io/ayoungh/pen/ABJKu */
@@ -651,18 +647,23 @@ legend {
 }
 
 @media (min-width: 650px) and (orientation: landscape) {
+
   .sk-spinner {
-    margin:200px;
+    margin:150px 100px;
   }
+
   .NewsPageContainer {
     height:100vh;
   }
+
   .InformationBar__SiteBannerName {
     font-size:30px;
   }
+
   .InformationBar > * {
     text-shadow: 4px 4px 4px var(--text-shadow-color);
   }
+
   .InformationBar {
     position: fixed;
     justify-content:space-around;
@@ -691,65 +692,81 @@ legend {
     padding-left:var(--business-content-padding);
     padding-right:var(--business-content-padding);
   }
+
   .Profile__User {
     justify-content:space-between;
   }
+
   legend {
     font-size:32px;
   }
+
   .loginActionRow__GetHiredText {
     font-size:24px;
   }
+
   .loginActionRow__Container, .loginActionRow__AuthingButtons {
     flex-direction:row;
     justify-content:space-between;
     align-items:center;
   }
+
   .loginActionRow__RowContainer {
     justify-content:center;
   }
 }
 
 @media (max-width: 1200px) {
+
   .sk-spinner {
-    margin:150px
+    margin:200px 150px;
   }
+
   .FreelancerTable__FlexRow {
     flex-direction:column;
     padding-left:20px;
     padding-right:20px;
   }
+
   .AvailableForWorkContainer__NavTopRow {
     flex-direction:column;
     text-align:center;
   }
+
   .FreelanceProfileSubmission__MonoText {
     font-size:18px;
   }
 }
 
 @media (max-width: 649px) {
+
   .FreelancerTable__CredRow {
     flex-direction:column;
     align-items:center;
     margin-bottom:15px;
   }
+
   .FreelancerTable__FreelancerColumnDescription {
     padding:10px;
     font-size:12px;
   }
+
   .FreelancerTable__FreelancerName {
     font-size:24px;
   }
+
   .loginActionRow__RowContainer > input:nth-child(2) {
     margin:0;
   }
+
   .loginActionRow__RowContainer > input:nth-child(3) {
     margin:0;
   }
+
   .sk-spinner {
     margin:75px;
   }
+
   .Profile__User {
     flex-direction:column;
     align-items:center;
@@ -757,9 +774,11 @@ legend {
     align-content:center;
     text-align:center;
   }
+
   .Profile__CreationTime {
     text-align:center !important;
   }
+
   .FreelanceProfileSubmission__MonoText {
     font-size:12px;
   }
@@ -821,33 +840,33 @@ legend {
   legend {
     font-size:20px;
   }
-  .ReactModal__Content--after-open {
 
-  }
   .loginActionRow__GetHiredText {
     font-size:39px;
   }
+
   .loginActionRow__Container, .loginActionRow__AuthingButtons {
     flex-direction:column;
     text-align:center;
   }
+
   input[type=button] {
     margin-top:10px;
   }
+
   .FreelancerTable__Freelancer {
     padding:2px;
 }
-
 }
 
 @supports (zoom:2) {
-	input[type="radio"],  input[type=checkbox]{
-	  zoom: 1.3;
-	}
+  input[type="radio"],input[type=checkbox]{
+    zoom: 1.3;
+  }
 }
 
 @supports not (zoom:2) {
-	input[type="radio"],  input[type=checkbox]{
-		transform: scale(1.3);
-	}
+  input[type="radio"],input[type=checkbox]{
+    transform: scale(1.3);
+  }
 }
