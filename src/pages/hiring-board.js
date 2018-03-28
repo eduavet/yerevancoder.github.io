@@ -68,7 +68,7 @@ export default class HiringBoardPage extends React.Component {
   };
 
   new_tech_job_post_did_finish = () => {
-    this.query_data().then(rows =>
+    return this.query_data().then(rows =>
       query_my_hiring_post_submissions().then(my_submissions =>
         this.setState(() => ({
           page_content: PAGE_CONTENT.HIRING_TABLE,
