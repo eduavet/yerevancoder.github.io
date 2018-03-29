@@ -28,6 +28,12 @@ export default ({ data }) => {
           sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
         />
       ) : null}
+      <p>
+        Like what you read, then join{' '}
+        <a href={'http://iteratehackerspace.com'}>iterate hackerspace</a> for a community of
+        programmers in Yerevan for coding workshops and a coding community.
+      </p>
+      <hr />
       <EffectiveDiscussionsCommentsIframe discussionId={post.frontmatter.discussionId} />
     </div>
   );
