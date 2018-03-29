@@ -137,8 +137,14 @@ export default class HiringBoardPage extends React.Component {
     }));
   };
 
-  custom_input_handler_signedout = () => {
-    this.setState(() => ({ page_content: PAGE_CONTENT.HIRING_TABLE }));
+  custom_input_handler_signedout = after_cb => {
+    this.setState(
+      () => ({
+        page_content: PAGE_CONTENT.HIRING_TABLE,
+        modal_content: MODAL_CONTENT.SIGNIN_VIEW,
+      }),
+      after_cb
+    );
   };
 
   render() {

@@ -27,7 +27,6 @@ const SigninBar = ({
             ? 'loginActionRow__CustomInputField--UserSignedIn'
             : 'loginActionRow__CustomInputField--UserSignedOut'
         }
-        disabled={!is_signed_in}
       />
     );
   const signin_or_signout = (

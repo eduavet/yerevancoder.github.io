@@ -164,13 +164,17 @@ export default class PageControl extends React.Component {
     signup_handler(() => this.setState(() => ({ modal_show: true })));
   };
 
+  custom_input_handler_signedout_wrapper = () => {
+    const { custom_input_handler_signedout } = this.props;
+    custom_input_handler_signedout(() => this.setState(() => ({ modal_show: true })));
+  };
+
   render() {
     const {
       banner_title,
-      custom_input_handler_signedin,
-      custom_input_handler_signedout,
       custom_input_signed_in_name,
       custom_input_signed_out_name,
+      custom_input_handler_signedin,
     } = this.props;
     const { modal_show } = this.state;
     const { authenticated_user } = this.context;
@@ -196,7 +200,7 @@ export default class PageControl extends React.Component {
             is_signed_in={user !== null}
             when_active_name={user ? user.email : ''}
             custom_input_handler_signedin={custom_input_handler_signedin}
-            custom_input_handler_signedout={custom_input_handler_signedout}
+            custom_input_handler_signedout={this.custom_input_handler_signedout_wrapper}
             custom_input_signed_in_name={custom_input_signed_in_name}
             custom_input_signed_out_name={custom_input_signed_out_name}
           />
