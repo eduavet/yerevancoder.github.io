@@ -9,7 +9,9 @@ export default ({ authors_count, header_content }) => (
     <p>
       yerevancoder.com is a place for coders in Armenia to share their thoughts, experiences in
       programming and tech. Find <Link to={ROUTES.AVAILABLE_FOR_WORK}>someone</Link> looking for a
-      job, or post a tech job on our <Link to={ROUTES.JOBS_TABLE}>hiring board</Link>.
+      job, or post a tech job on our <Link to={ROUTES.JOBS_TABLE}>hiring board</Link>. Come to{' '}
+      <a href={'http://iteratehackerspace.com'}>iterate hackerspace</a> for coding workshops and a
+      vibrant programmer community.
     </p>
     <p>
       {authors_count} coders have already contributed and we are always looking for more
