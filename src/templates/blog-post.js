@@ -29,9 +29,10 @@ export default ({ data }) => {
         />
       ) : null}
       <p>
-        Like what you read, then join{' '}
+        Check out our <a href={'http://forum.yerevancoder.com'}>forums</a> for more discussions, and
+        if you like what you read, then join{' '}
         <a href={'http://iteratehackerspace.com'}>iterate hackerspace</a> for a community of
-        programmers in Yerevan for coding workshops and a coding community.
+        programmers in Yerevan for coding workshops, coding community.
       </p>
       <hr />
       <EffectiveDiscussionsCommentsIframe discussionId={post.frontmatter.discussionId} />

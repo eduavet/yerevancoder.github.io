@@ -7,9 +7,10 @@ export default ({ authors_count, header_content }) => (
   <aside className={'InformationBar'}>
     {header_content}
     <p>
-      yerevancoder.com is a place for coders in Armenia to share their thoughts, experiences in
-      programming and tech. Find <Link to={ROUTES.AVAILABLE_FOR_WORK}>someone</Link> looking for a
-      job, or post a tech job on our <Link to={ROUTES.JOBS_TABLE}>hiring board</Link>. Come to{' '}
+      yerevancoder.com is a place for coders in Armenia to share their experiences in tech. Find{' '}
+      <Link to={ROUTES.AVAILABLE_FOR_WORK}>someone</Link> looking for a job, or post a tech job on
+      our <Link to={ROUTES.JOBS_TABLE}>hiring board</Link>. Check out our{' '}
+      <a href={'http://forum.yerevancoder.com'}>forums</a> for more discussions, consider coming to{' '}
       <a href={'http://iteratehackerspace.com'}>iterate hackerspace</a> for coding workshops and a
       vibrant programmer community.
     </p>
