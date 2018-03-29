@@ -671,13 +671,6 @@ legend {
     left:0;
     bottom:0;
     top:0;
-    background: linear-gradient(
-      to bottom,
-      var(--material-grey),
-      var(--material-grey) 50%,
-      var(--material-beige) 50%,
-      var(--material-beige)
-    );
     background-size: 100% 20px;
     width: var(--sidebar-fixed-width);
     padding:10px;
