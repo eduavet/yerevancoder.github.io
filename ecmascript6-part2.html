@@ -1,0 +1,449 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>ES6 part2</title>
+
+  <link rel="stylesheet" href="presentation_dependencies/css/reveal.css">
+  <link rel="stylesheet" href="presentation_dependencies/css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="presentation_dependencies/lib/css/atom-one-dark.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'presentation_dependencies/css/print/pdf.css' : 'presentation_dependencies/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides" style="top: 0% !important">
+
+				<section data-markdown>
+					<textarea data-template>
+            # Module System
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+          ## What's module?
+					</textarea>
+        </section>
+
+				<section data-markdown>
+					<textarea data-template>
+            ## The old ways - Node
+            The old way was using the special object called module(Something similar to `window`)
+            To export something we added exports property in module.
+            ```javascript
+              module.exports = {
+                a: 1,
+                b: 2,
+              }
+            ```
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+            ## The old ways - Others
+            For front-end side, there was no proper implementation of module system.
+            Imagine the code, when the tiny pieces were in the file with nothing connecting them.
+            Or code, which is 10000 line in 1 big file.
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+						![Globals](https://memegenerator.net/img/instances/500x/58886085/global-variables-globals-everywhere.jpg "Globals")
+					</textarea>
+        </section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## The new way - Module system
+						The ES6 provides keywords `export` and `import` to work with modules
+					</textarea>
+				</section>
+
+        <section data-markdown>
+					<textarea data-template>
+						## Example
+						```javascript
+						// Here we import the entity called 'integer' from 'module-a',
+						// and the entity called 'string' from 'module-b'.
+						import {integer} from 'module-a';
+						import {string} from 'module-b';
+						// Here we export three different fields, 'func',
+						// 'integer' and 'string'
+						export function func() {...}
+						export integer;
+						export string;
+						```
+					</textarea>
+        </section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Default export
+						Default export provides us with an opportunity to export something that can
+						be imported anywhere with any name whenever the file is required.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Default export
+						```javascript
+						// someModule.js
+						export default {
+						a: 1,
+						b: 2,
+						}
+						// main.js
+						import something from 'someModule.js'
+						```
+
+						As you can see brackets are omitted and now we have the object with a name
+						`something`. Can provide any name there.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Wildcard import
+						If you want to import all the things that some other file exports, you can use
+						wildcard which is an asterisk symbol `*`
+						```javascript
+						// someModule.js
+						export const a = 1;
+						export const b = 'I am exported';
+						export const c = name => `Hello ${name}`
+						// main.js
+						import * as everything from 'someModule.js'
+						```
+						What's typeof everything?
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						Let's also take a look at MDN info about [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+						and [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+            # Promises
+					</textarea>
+        </section>
+
+        <section data-markdown>
+					<textarea data-template>
+          ## Prepare yourself for a pivotal moment in the history of web development.
+					</textarea>
+        </section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## What is it all about
+
+						JavaScript is single threaded, meaning that two bits of script cannot
+						run at the same time; they have to run one after another.
+						In browsers, JavaScript shares a thread with a load of
+						other stuff that differs from browser to browser.
+					</textarea>
+        </section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## How about you
+
+						In contrast to JS, humans can do multiple tasks. And that's really annoying
+						to see someone or something to one task at a time.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## What's the old solution
+
+						Old way of handling this is callbacks.
+
+						```javascript
+						const img1 = document.querySelector('.img-1');
+
+						img1.addEventListener('load', () => {
+							// woo yey image loaded
+						});
+
+						img1.addEventListener('error', () => {
+							// argh everything's broken
+						});
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Can you suggest any other solution?
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Some way it can be done
+						```javascript
+						img1.callThisIfLoadedOrWhenLoaded(() => {
+              // loaded
+						}).orIfFailedCallThis(() => {
+              // failed
+						});
+
+						// and…
+						whenAllTheseHaveLoaded([img1, img2]).callThis(() => {
+              // all loaded
+						}).orIfSomeFailedCallThis(() => {
+              // one or more failed
+						});
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## So this is how it's done. With better terminology, of course.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Most important differences?
+						At their most basic, promises are a bit like event listeners except:
+
+						* A promise can only succeed or fail once. It cannot succeed or fail twice,
+						neither can it switch from success to failure or vice versa.
+						* If a promise has succeeded or failed and you later add a success/failure
+						callback, the correct callback will be called,
+						even though the event took place earlier.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## There are 4 states for promises
+						A promise can be:
+
+						* fulfilled - The action relating to the promise succeeded
+						* rejected - The action relating to the promise failed
+						* pending - Hasn't fulfilled or rejected yet
+						* settled - Has fulfilled or rejected
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## One more term
+
+						The spec also uses the term `thenable` to describe an
+						object that is promise-like, in that it has a then method.
+						The meaning of this one will be obvious once we get to writing code.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## How to create a Promise
+
+						```javascript
+						const promise = new Promise((resolve, reject) => {
+              // do a thing, possibly async, then…
+
+              if (/* everything turned out fine */) {
+                resolve("Stuff worked!");
+              }
+              else {
+                reject(Error("It broke"));
+              }
+						});
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## How to get result from a Promise.
+
+						Using `.then` method of the promise. What's the type of its argument?
+
+						```javascript
+						promise.then(result => {
+              console.log(result); // "Stuff worked!"
+						})
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## How to catch errors?
+
+						You can catch error using the catch method. Another way of doing so is giving
+						a second argument to `.then` method.
+
+						```javascript
+						promise.then(result => {
+							console.log(result); // "Stuff worked!"
+						}).catch(e => {
+							console.log(e);
+						})
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Chaining Promises
+
+						Using `.then` multiple times! You can add one `.catch` at the end, it will
+						catch all the errors.
+
+						```javascript
+						const promise = new Promise((resolve, reject) => {
+              resolve(1);
+						});
+
+						promise.then(val => {
+              console.log(val); // 1
+              return val + 2;
+						}).then(val => {
+              console.log(val); // 3
+						})
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Practical example.
+
+						Let's discuss a more practical example. We usually get data from the server
+						and then parse it.
+
+						```javascript
+						get('story.json').then(function(response) {
+              return JSON.parse(response);
+						}).then(function(response) {
+              console.log("Yey JSON!", response);
+						}).catch(e => {
+							console.log(e);
+						})
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Run to completion
+
+						Usually, as JS is async, then we will have cases, when one of the async things
+						randomly will execute faster than the other one. This is non-deterministic
+						and will create a lot of problems for you in the future
+
+						```javascript
+						let a = 2;
+						fetch('https://google.com').then(() => {
+							a += 5;
+						})
+						fetch('https://duckduckgo.com/').then(() => {
+							a *= 2;
+						})
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Another example
+
+						Here as another good example of non-deterministic code.
+
+						```javascript
+						const s = new Date().getSeconds();
+
+						setTimeout(() => {
+              // prints out "2", meaning that the callback is
+							// not called immediately after 500 milliseconds.
+              console.log(`Ran after ${new Date().getSeconds() - s} seconds`);
+						}, 500);
+
+						while(true) {
+              if(new Date().getSeconds() - s >= 2) {
+                console.log("Good, looped for 2 seconds");
+                break;
+              }
+						}
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Test your worthiness
+
+						What do you think the output order will be like.
+
+						P.S. Here as another good example of non-deterministic code.
+						People asked this to me during interviews for 3 - 4 times.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						```javascript
+						const a = () => {
+
+						console.log(1);
+
+						setTimeout(() => {
+              console.log(2);
+						});
+
+						console.log(3);
+
+						setTimeout(() => {
+              console.log(4);
+						}, 0);
+
+						console.log(5);
+
+						};
+
+						a();
+						```
+					</textarea>
+				</section>
+			</div>
+		</div>
+
+  <script src="presentation_dependencies/lib/js/head.min.js"></script>
+  <script src="presentation_dependencies/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+        { src: 'presentation_dependencies/plugin/markdown/marked.js' },
+        { src: 'presentation_dependencies/plugin/markdown/markdown.js' },
+        { src: 'presentation_dependencies/plugin/notes/notes.js', async: true },
+        { src: 'presentation_dependencies/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
