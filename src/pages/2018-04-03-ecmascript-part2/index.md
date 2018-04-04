@@ -7,7 +7,7 @@ description: Presentation of lecture about ECMAScript6
 discussionId: "2018-04-03-ecmascript-part2"
 ---
 
-## ECMAScript 6 part 1 presentation
+## ECMAScript 6 part 2 presentation
 
 <iframe src="https://yerevancoder.com/ecmascript6-part2.html" width="1" height="1" />
 
