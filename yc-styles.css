@@ -15,10 +15,6 @@
   --material-grey-light-fade: hsla(216, 9.4%, 79.2%, 0.2);
 }
 
-body, p, img, a {
-  margin:0;
-}
-
 body {
   background-color: var(--material-beige);
 }
@@ -651,7 +647,7 @@ legend {
   display:flex;
 }
 
-@media (min-width: 650px) and (orientation: landscape) {
+@media (min-width: 650px) {
   .headroom-wrapper {
     display:none;
   }
@@ -762,6 +758,7 @@ legend {
   .BlogTable__MobileBarSiteLogo {
     height:48px;
     width:48px;
+    margin:0;
   }
 
   .headroom-wrapper {
