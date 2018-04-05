@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[yerevancoder]]></title><description><![CDATA[A place for Armenian coders to talk]]></description><link>https://yerevancoder.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 05 Apr 2018 20:11:21 GMT</lastBuildDate><item><title><![CDATA[How yerevancoder.com works and how you can contribute (Part Two)]]></title><description><![CDATA[This is part two of a two part series, see  part one  for
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[yerevancoder]]></title><description><![CDATA[A place for Armenian coders to talk]]></description><link>https://yerevancoder.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 05 Apr 2018 20:16:32 GMT</lastBuildDate><item><title><![CDATA[How yerevancoder.com works and how you can contribute (Part Two)]]></title><description><![CDATA[This is part two of a two part series, see  part one  for
 the beginning of the post, this post assumes familiarity with React and the React…]]></description><link>https://yerevancoder.com/2018-04-05-how-yerevan-coder-works-part-two/</link><guid isPermaLink="false">https://yerevancoder.com/2018-04-05-how-yerevan-coder-works-part-two/</guid><pubDate>Thu, 05 Apr 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This is part two of a two part series, see &lt;a href=&quot;../2018-03-13-how-yerevan-coder-works&quot;&gt;part one&lt;/a&gt; for
 the beginning of the post, this post assumes familiarity with React and the React ecosystem.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Continuing from last time, &lt;code class=&quot;language-text&quot;&gt;yc&lt;/code&gt; is a serverless site as it is hosted on github pages, but we still
@@ -111,9 +111,9 @@ further down in &lt;code class=&quot;language-text&quot;&gt;layouts/index.js&lt;
 `&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
       &lt;/div&gt;
-&lt;p&gt;This is a &lt;code class=&quot;language-text&quot;&gt;graphql&lt;/code&gt; query and notice that it is named &lt;code class=&quot;language-text&quot;&gt;pageQuery&lt;/code&gt;, this is intentional as &lt;code class=&quot;language-text&quot;&gt;gatsby&lt;/code&gt;
-will inject our &lt;code class=&quot;language-text&quot;&gt;default export&lt;/code&gt;ed component and inject it with the data result of this &lt;code class=&quot;language-text&quot;&gt;graphql&lt;/code&gt;
-query, it will put it under the &lt;code class=&quot;language-text&quot;&gt;data&lt;/code&gt; prop, hence &lt;code class=&quot;language-text&quot;&gt;this.props.data&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This is a &lt;a href=&quot;https://graphql.org&quot;&gt;graphql&lt;/a&gt; query and notice that it is named &lt;code class=&quot;language-text&quot;&gt;pageQuery&lt;/code&gt;, this is
+intentional as &lt;code class=&quot;language-text&quot;&gt;gatsby&lt;/code&gt; will inject our &lt;code class=&quot;language-text&quot;&gt;default export&lt;/code&gt;ed component and inject it with the data
+result of this &lt;code class=&quot;language-text&quot;&gt;graphql&lt;/code&gt; query, it will put it under the &lt;code class=&quot;language-text&quot;&gt;data&lt;/code&gt; prop, hence &lt;code class=&quot;language-text&quot;&gt;this.props.data&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Moving onto line &lt;code class=&quot;language-text&quot;&gt;8&lt;/code&gt;, we make a container div and begin with a &lt;code class=&quot;language-text&quot;&gt;Helmet&lt;/code&gt; component. &lt;code class=&quot;language-text&quot;&gt;Helmet&lt;/code&gt; is used
 to put whatever it’s children are into the &lt;code class=&quot;language-text&quot;&gt;&amp;lt;head/&amp;gt;&lt;/code&gt; HTML element. We use it to load our &lt;code class=&quot;language-text&quot;&gt;CSS&lt;/code&gt;
 which provides our popup tooltips on some buttons, fonts and website layout/style; handwritten CSS on YC is
@@ -170,10 +170,11 @@ have to pass data from one component as prop to another, and then pass again and
 even five levels. React seems to limit the kinds of “global” operations we can do.&lt;/p&gt;
 &lt;h2&gt;Context API&lt;/h2&gt;
 &lt;p&gt;Of course React does have a solution, and its an important one that is undergoing changes at the
-moment. As of commit &lt;code class=&quot;language-text&quot;&gt;&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;yc&lt;/code&gt; is built with React version &lt;code class=&quot;language-text&quot;&gt;16.1.0&lt;/code&gt;. That means that we are using the
-original context API, but note that React released a new a much better context API in &lt;code class=&quot;language-text&quot;&gt;16.3.0&lt;/code&gt; read
-this &lt;a href=&quot;https://reactjs.org/blog/2018/03/29/react-v-16-3.html&quot;&gt;post&lt;/a&gt; for more critical details on the
-new API. The new context API is so nice that you can avoid using redux and mobx.&lt;/p&gt;
+moment. As of commit &lt;code class=&quot;language-text&quot;&gt;0bf892baef941ea7a4117d4494b07fd1f7de13fc&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;yc&lt;/code&gt; is built with React version
+&lt;code class=&quot;language-text&quot;&gt;16.1.0&lt;/code&gt;. That means that we are using the original context API, but note that React released a new
+a much better context API in &lt;code class=&quot;language-text&quot;&gt;16.3.0&lt;/code&gt; read this
+&lt;a href=&quot;https://reactjs.org/blog/2018/03/29/react-v-16-3.html&quot;&gt;post&lt;/a&gt; for more critical details on the new
+API. The new context API is so nice that you can avoid using redux and mobx.&lt;/p&gt;
 &lt;p&gt;The point of the context API is to inject values into the children (subtree) of any React element
 without having to go through many layers of nested data lookups.&lt;/p&gt;
 &lt;h3&gt;Our usage&lt;/h3&gt;
