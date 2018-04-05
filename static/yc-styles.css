@@ -744,6 +744,9 @@ legend {
     padding:7px 14px;
     align-items:center;
     background-color:var(--fade-white-button);
+    border-bottom-color: var(--material-blue-light-fade);
+    border-bottom-width:2px;
+    border-bottom-style:solid;
   }
 
   .BlogTable__MobileBarBanner {
@@ -755,12 +758,27 @@ legend {
     box-shadow:none;
     color:var(--material-blue-light-fade);
   }
+
   .BlogTable__MobileBarSiteLogo {
     height:48px;
     width:48px;
   }
+
   .headroom-wrapper {
     display:flex;
+  }
+
+  .BlogTable__MobileBarNavBox > * {
+    text-align:center;
+    box-shadow:none;
+  }
+
+  .BlogTable__MobileBarNavBoxElement > * {
+  }
+
+  .BlogTable__MobileBarNavBox {
+    flex:1;
+    justify-content:space-around;
   }
 
   .FreelancerTable__CredRow {
