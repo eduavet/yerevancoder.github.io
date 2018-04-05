@@ -7,6 +7,9 @@ description: How yerevancoder.com works and how you can contribute (Part One)
 discussionId: "2018-03-13-how-yerevancoder-works"
 ---
 
+**This is part one of a two part series, see
+[part-two](../2018-03-23-how-yerevan-coder-works-part-two) for the rest of the post.**
+
 # web application
 
 `yerevancoder`, (yc), is a [gatsby](https://www.gatsbyjs.org/) web application and its built using a
