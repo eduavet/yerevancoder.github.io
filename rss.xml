@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[yerevancoder]]></title><description><![CDATA[A place for Armenian coders to talk]]></description><link>https://yerevancoder.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 05 Apr 2018 20:32:24 GMT</lastBuildDate><item><title><![CDATA[How yerevancoder.com works and how you can contribute (Part Two)]]></title><description><![CDATA[This is part two of a two part series, see  part one  for
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[yerevancoder]]></title><description><![CDATA[A place for Armenian coders to talk]]></description><link>https://yerevancoder.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 05 Apr 2018 21:38:58 GMT</lastBuildDate><item><title><![CDATA[How yerevancoder.com works and how you can contribute (Part Two)]]></title><description><![CDATA[This is part two of a two part series, see  part one  for
 the beginning of the post, this post assumes familiarity with React and the React…]]></description><link>https://yerevancoder.com/2018-04-05-how-yerevan-coder-works-part-two/</link><guid isPermaLink="false">https://yerevancoder.com/2018-04-05-how-yerevan-coder-works-part-two/</guid><pubDate>Thu, 05 Apr 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This is part two of a two part series, see &lt;a href=&quot;../2018-03-13-how-yerevan-coder-works&quot;&gt;part one&lt;/a&gt; for
 the beginning of the post, this post assumes familiarity with React and the React ecosystem.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Continuing from last time, &lt;code class=&quot;language-text&quot;&gt;yc&lt;/code&gt; is a serverless site as it is hosted on github pages, but we still
@@ -325,7 +325,12 @@ point. aka something like:&lt;/p&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
       &lt;/div&gt;
-&lt;h1&gt;closing&lt;/h1&gt;
+&lt;h1&gt;Contributing&lt;/h1&gt;
+&lt;p&gt;There are quite a few tasks that can be done in this project as a practical learning experience,
+nothing build real experience like a real world task. For example, the &lt;code class=&quot;language-text&quot;&gt;remember me&lt;/code&gt; functionality
+in the sign modal does not actually work, neither does forget my password. Such tasks should come
+with a Pull Request.&lt;/p&gt;
+&lt;h1&gt;Closing&lt;/h1&gt;
 &lt;p&gt;Be sure to write a comment below if there is something you don’t understand, or open a question on our
 &lt;a href=&quot;https://forum.yerevancoder.com&quot;&gt;forum&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[ECMAScript6, part 2]]></title><description><![CDATA[ECMAScript 6 part 2 presentation To view it fullscreen click  here]]></description><link>https://yerevancoder.com/2018-04-03-ecmascript-part2/</link><guid isPermaLink="false">https://yerevancoder.com/2018-04-03-ecmascript-part2/</guid><pubDate>Tue, 03 Apr 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;ECMAScript 6 part 2 presentation&lt;/h2&gt;
 &lt;div&gt;
