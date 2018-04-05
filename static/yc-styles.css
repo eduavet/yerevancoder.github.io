@@ -1,6 +1,7 @@
 :root {
   --business-content-padding: 30px;
   --business-content-padding-half: 15px;
+  --mobile-banner-spacing: 5px;
   --fade-white-button: hsl(0, 0%, 90%);
   --fade-white-form: hsl(0, 0%, 50%);
   --error-light-red: hsl(0, 100%, 62.5%);
@@ -746,7 +747,7 @@ legend {
   }
 
   .BlogTable__MobileBarBanner {
-    margin-left: var(--business-content-padding-half);
+    margin-left: var(--mobile-banner-spacing);
     font-family: 'Titillium Web', sans-serif;
     text-decoration:none;
     font-weight:700;
@@ -911,7 +912,7 @@ legend {
 
 @media (max-width: 350px) {
   .BlogTable__MobileBarBanner {
-    margin-left: var(--business-content-padding-half);
+    margin-left: var(--mobile-banner-spacing);
     font-family: 'Titillium Web', sans-serif;
     text-decoration:none;
     font-weight:700;
