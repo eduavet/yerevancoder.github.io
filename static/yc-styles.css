@@ -15,7 +15,7 @@
   --material-grey-light-fade: hsla(216, 9.4%, 79.2%, 0.2);
 }
 
-body, p, img {
+body, p, img, a {
   margin:0;
 }
 
