@@ -1,14 +1,15 @@
 :root {
   --business-content-padding: 30px;
   --business-content-padding-half: 15px;
+  --mobile-banner-spacing: 5px;
   --fade-white-button: hsl(0, 0%, 90%);
   --fade-white-form: hsl(0, 0%, 50%);
   --error-light-red: hsl(0, 100%, 62.5%);
   --sidebar-fixed-width: 250px;
-  --text-shadow-color:#F6DBB8;
-  --material-blue: #37425D;
-  --material-beige: #FAF5F1;
-  --material-grey: #C5C9CF;
+  --text-shadow-color: #f6dbb8;
+  --material-blue: #37425d;
+  --material-beige: #faf5f1;
+  --material-grey: #c5c9cf;
   --material-blue-heavy-fade: hsla(222.62, 25.7%, 29%, 0.4);
   --material-blue-light-fade: hsla(222.6, 25.7%, 29%, 0.65);
   --material-grey-heavy-fade: hsla(216, 9.4%, 79.2%, 0.4);
@@ -746,7 +747,7 @@ legend {
   }
 
   .BlogTable__MobileBarBanner {
-    margin-left: var(--business-content-padding-half);
+    margin-left: var(--mobile-banner-spacing);
     font-family: 'Titillium Web', sans-serif;
     text-decoration:none;
     font-weight:700;
@@ -911,7 +912,7 @@ legend {
 
 @media (max-width: 350px) {
   .BlogTable__MobileBarBanner {
-    margin-left: var(--business-content-padding-half);
+    margin-left: var(--mobile-banner-spacing);
     font-family: 'Titillium Web', sans-serif;
     text-decoration:none;
     font-weight:700;
