@@ -178,9 +178,36 @@ appropriate. So the full usage of our fixed sidebar is:
 }
 ```
 
-aka, this `CSS` will only work when the screen has a min-width of at least 650 pixels.
+aka, this `CSS` will only work when the screen has a min-width of at least 650 pixels. You'll notice
+the usage of `var(--sidebar-fixed-width)`, what is that? That is [CSS
+variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables), a new feature of
+CSS where we can finally define variables in CSS. We do that with a pseudoelement called `:root`
 
-Then we see the `Headroom` Component used on line `23`, this provides us with the nav bar that comes
+```css
+:root {
+  --business-content-padding: 30px;
+  --business-content-padding-half: 15px;
+  --mobile-banner-spacing: 5px;
+  --fade-white-button: hsl(0, 0%, 90%);
+  --fade-white-form: hsl(0, 0%, 50%);
+  --error-light-red: hsl(0, 100%, 62.5%);
+  --sidebar-fixed-width: 250px;
+  --text-shadow-color: #f6dbb8;
+  --material-blue: #37425d;
+  --material-beige: #faf5f1;
+  --material-grey: #c5c9cf;
+  --material-blue-heavy-fade: hsla(222.62, 25.7%, 29%, 0.4);
+  --material-blue-light-fade: hsla(222.6, 25.7%, 29%, 0.65);
+  --material-grey-heavy-fade: hsla(216, 9.4%, 79.2%, 0.4);
+  --material-grey-light-fade: hsla(216, 9.4%, 79.2%, 0.2);
+}
+```
+
+This lets us use these variables anywhere in our CSS with a `var` invocation, yes it must be named `:root`.
+
+## Back to React
+
+...then we see the `Headroom` Component used on line `23`, this provides us with the nav bar that comes
 down when you down up on mobile, you can see usage of `this.state.pin_bar_content` on line `24`,
 which should imply that we are keeping a React element (remember that a element is an instance of a
 React Component) in state.
