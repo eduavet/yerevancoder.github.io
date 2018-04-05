@@ -7,6 +7,8 @@ else if (process.env.__DEV__ === 'false') __DEV__ = false;
 
 export { __DEV__ };
 
+export const EMPTY_DIV = <div />;
+
 export const modal_s = {
   content: {
     top: '50%',
