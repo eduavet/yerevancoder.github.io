@@ -372,7 +372,14 @@ point. aka something like:
 }
 ```
 
-# closing
+# Contributing
+
+There are quite a few tasks that can be done in this project as a practical learning experience,
+nothing build real experience like a real world task. For example, the `remember me` functionality
+in the sign modal does not actually work, neither does forget my password. Such tasks should come
+with a Pull Request.
+
+# Closing
 
 Be sure to write a comment below if there is something you don't understand, or open a question on our
 [forum](https://forum.yerevancoder.com).
