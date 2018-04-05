@@ -133,9 +133,9 @@ export const pageQuery = graphql`
 `;
 ```
 
-This is a `graphql` query and notice that it is named `pageQuery`, this is intentional as `gatsby`
-will inject our `default export`ed component and inject it with the data result of this `graphql`
-query, it will put it under the `data` prop, hence `this.props.data`.
+This is a [graphql](https://graphql.org) query and notice that it is named `pageQuery`, this is
+intentional as `gatsby` will inject our `default export`ed component and inject it with the data
+result of this `graphql` query, it will put it under the `data` prop, hence `this.props.data`.
 
 Moving onto line `8`, we make a container div and begin with a `Helmet` component. `Helmet` is used
 to put whatever it's children are into the `<head/>` HTML element. We use it to load our `CSS`
@@ -202,10 +202,11 @@ even five levels. React seems to limit the kinds of "global" operations we can d
 ## Context API
 
 Of course React does have a solution, and its an important one that is undergoing changes at the
-moment. As of commit ``, `yc` is built with React version `16.1.0`. That means that we are using the
-original context API, but note that React released a new a much better context API in `16.3.0` read
-this [post](https://reactjs.org/blog/2018/03/29/react-v-16-3.html) for more critical details on the
-new API. The new context API is so nice that you can avoid using redux and mobx.
+moment. As of commit `0bf892baef941ea7a4117d4494b07fd1f7de13fc`, `yc` is built with React version
+`16.1.0`. That means that we are using the original context API, but note that React released a new
+a much better context API in `16.3.0` read this
+[post](https://reactjs.org/blog/2018/03/29/react-v-16-3.html) for more critical details on the new
+API. The new context API is so nice that you can avoid using redux and mobx.
 
 The point of the context API is to inject values into the children (subtree) of any React element
 without having to go through many layers of nested data lookups.
