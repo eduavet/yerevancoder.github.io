@@ -681,11 +681,6 @@ legend {
     width:100%;
   }
 
-  .ApplicationContainer__BusinessContent {
-    padding-left:var(--business-content-padding);
-    padding-right:var(--business-content-padding);
-  }
-
   .Profile__User {
     justify-content:space-between;
   }
