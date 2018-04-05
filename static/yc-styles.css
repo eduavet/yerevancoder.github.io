@@ -746,11 +746,11 @@ legend {
   }
 
   .BlogTable__MobileBarBanner {
-    margin-left: var(--business-content-padding);
+    margin-left: var(--business-content-padding-half);
     font-family: 'Titillium Web', sans-serif;
     text-decoration:none;
     font-weight:700;
-    font-size:2rem;
+    font-size:1.2rem;
     box-shadow:none;
     color:var(--material-blue-light-fade);
   }
