@@ -21,10 +21,6 @@ import {
 } from '../utils/constants';
 
 export default class PageControl extends React.Component {
-  static propTypes = {
-    //
-  };
-
   state = { modal_show: false, error: null };
 
   static contextTypes = {

@@ -2,30 +2,15 @@ import 'prismjs/themes/prism-tomorrow.css';
 
 import React from 'react';
 import Link from 'gatsby-link';
-import Headroom from 'react-headroom';
 
-import { EMPTY_DIV } from '../utils/constants';
-import MobileBar from '../components/mobile-bar';
 // import 'prismjs/themes/prism-solarizedlight.css';
 
 export default class BlogIndex extends React.Component {
-  state = { content: EMPTY_DIV };
-
-  onUnpin = () => this.setState(() => ({ content: EMPTY_DIV }));
-
-  onUnfix = () => this.setState({ content: EMPTY_DIV });
-
-  onPin = () => this.setState({ content: MobileBar });
-
   render() {
     const { data } = this.props;
     const posts = data.allMarkdownRemark.edges;
-
     return (
       <div className={'BlogTable'}>
-        <Headroom pinStart={300} onPin={this.onPin} onUnpin={this.onUnpin} onUnfix={this.onUnfix}>
-          {this.state.content}
-        </Headroom>
         {posts.map(({ node }) => {
           const { title, tags, author, date } = node.frontmatter;
           return (

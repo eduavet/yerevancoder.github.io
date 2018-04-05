@@ -70,8 +70,6 @@ export const SPACER_20_W = <div style={{ width: '20px', height: '100%' }} />;
 
 export const MODAL_TRANSITION = 500;
 
-export const SESSION_USER = 'yerevan-coder-authed-user';
-
 export const FANCY_INPUT_BOXES = {
   // Submission for freelance position
   NAME: 'name-box',

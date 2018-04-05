@@ -2,10 +2,12 @@ import React from 'react';
 import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import Headroom from 'react-headroom';
 
 import { auth, freelancers_posts_ref, db, firebase, hiring_table_posts_ref } from '../utils/db';
 import FixedSidebar from '../components/fixed-sidebar';
-import { SESSION_USER, global_styles, ROUTES } from '../utils/constants';
+import MobileBar from '../components/mobile-bar';
+import { global_styles, ROUTES, EMPTY_DIV } from '../utils/constants';
 import { query_my_freelance_submission } from '../utils/funcs';
 
 const yc = (
@@ -14,7 +16,11 @@ const yc = (
   </Link>
 );
 
-const INIT_STATE = { authenticated_user: null, remember_me_checked: false };
+const INIT_STATE = {
+  authenticated_user: null,
+  remember_me_checked: false,
+  pin_bar_content: EMPTY_DIV,
+};
 
 export default class ApplicationRoot extends React.Component {
   state = { ...INIT_STATE };
@@ -27,21 +33,6 @@ export default class ApplicationRoot extends React.Component {
     submit_new_freelancer_post: PropTypes.func,
     submit_new_hiring_post: PropTypes.func,
   };
-
-  componentDidMount() {
-    // const existing_user = sessionStorage.getItem(SESSION_USER);
-    // if (existing_user) {
-    //   const authenticated_user = JSON.parse(existing_user);
-    //   console.log({ authenticated_user });
-    // this.setState(() => ({ authenticated_user }));
-    // }
-  }
-
-  handle_session_storage(remember_me_checked, authed_user_data) {
-    if (remember_me_checked) {
-      sessionStorage.setItem(SESSION_USER, JSON.stringify(authed_user_data));
-    }
-  }
 
   pass_through = ({
     displayName,
@@ -129,8 +120,14 @@ export default class ApplicationRoot extends React.Component {
     };
   }
 
+  onUnpin = () => this.setState(() => ({ pin_bar_content: EMPTY_DIV }));
+
+  onUnfix = () => this.setState({ pin_bar_content: EMPTY_DIV });
+
+  onPin = () => this.setState({ pin_bar_content: MobileBar });
+
   render() {
-    const { children, location } = this.props;
+    const { children } = this.props;
     const site_title = this.props.data.site.siteMetadata.title;
     const posts = this.props.data.allMarkdownRemark.edges;
     const all_authors = new Set(posts.map(({ node }) => node.timeToRead));
@@ -141,8 +138,8 @@ export default class ApplicationRoot extends React.Component {
           {global_styles}
           <link rel={'stylesheet'} href={'/yc-styles.css'} />
           <link
-            href="https://fonts.googleapis.com/css?family=Montserrat|Titillium+Web"
-            rel="stylesheet"
+            href={'https://fonts.googleapis.com/css?family=Montserrat|Titillium+Web'}
+            rel={'stylesheet'}
           />
           <link
             rel={'stylesheet'}
@@ -151,6 +148,9 @@ export default class ApplicationRoot extends React.Component {
         </Helmet>
         <FixedSidebar authors_count={authors_count} header_content={yc} />
         <div className={'ApplicationContainer__MainContent'}>
+          <Headroom pinStart={300} onPin={this.onPin} onUnpin={this.onUnpin} onUnfix={this.onUnfix}>
+            {this.state.pin_bar_content}
+          </Headroom>
           <div className={'ApplicationContainer__BusinessContent'}>{children()}</div>
         </div>
       </div>
