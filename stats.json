@@ -4,6 +4,10 @@
       "path---2018-02-22-recursion-37d4a41a287b29b80779.js",
       "path---2018-02-22-recursion-37d4a41a287b29b80779.js.map"
     ],
+    "path---2018-03-27-how-yerevan-coder-works-part-two": [
+      "path---2018-03-27-how-yerevan-coder-works-part-two-830bea9334629065af21.js",
+      "path---2018-03-27-how-yerevan-coder-works-part-two-830bea9334629065af21.js.map"
+    ],
     "path---2018-02-10-js-boolean-expressions-and-conditionals": [
       "path---2018-02-10-js-boolean-expressions-and-conditionals-54ce895c5e14f2e619e3.js",
       "path---2018-02-10-js-boolean-expressions-and-conditionals-54ce895c5e14f2e619e3.js.map"
@@ -13,8 +17,8 @@
       "path---2018-02-08-js-types-primitives-variable-initialization-b090fd0e2da58f50b156.js.map"
     ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-bde145ba20fee07a0881.js",
-      "component---src-pages-index-js-bde145ba20fee07a0881.js.map"
+      "component---src-pages-index-js-7e610207967a2797b445.js",
+      "component---src-pages-index-js-7e610207967a2797b445.js.map"
     ],
     "path---2018-01-09-pay-rates-in-armenian-tech": [
       "path---2018-01-09-pay-rates-in-armenian-tech-961989e238e7926e05ef.js",
@@ -37,8 +41,8 @@
       "path---2018-02-06-simple-terminal-commands-dd334f318a4e509c2e5f.js.map"
     ],
     "path---": [
-      "path----60a2c397c790ebc58fe5.js",
-      "path----60a2c397c790ebc58fe5.js.map"
+      "path----198f511628df42f89780.js",
+      "path----198f511628df42f89780.js.map"
     ],
     "path---2018-02-21-js-arrays-and-objects": [
       "path---2018-02-21-js-arrays-and-objects-7e7c70d967ab4b062bde.js",
@@ -53,8 +57,8 @@
       "component---src-pages-news-js-2e68362c1b336c1e8ecc.js.map"
     ],
     "path---2018-03-13-how-yerevan-coder-works": [
-      "path---2018-03-13-how-yerevan-coder-works-873ff2d535caec375ee6.js",
-      "path---2018-03-13-how-yerevan-coder-works-873ff2d535caec375ee6.js.map"
+      "path---2018-03-13-how-yerevan-coder-works-02b24cef679b29ee115a.js",
+      "path---2018-03-13-how-yerevan-coder-works-02b24cef679b29ee115a.js.map"
     ],
     "path---2018-03-15-js-classes-context-prototypes": [
       "path---2018-03-15-js-classes-context-prototypes-a3e7c63fd4b8423dd495.js",
@@ -81,8 +85,8 @@
       "path---2018-02-10-js-functions-scopes-and-var-980901dbca5c2879e48e.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-cbd5564b6f7a6540acb4.js",
-      "component---src-layouts-index-js-cbd5564b6f7a6540acb4.js.map"
+      "component---src-layouts-index-js-0bd89bc80957d9cf85b2.js",
+      "component---src-layouts-index-js-0bd89bc80957d9cf85b2.js.map"
     ],
     "path---2017-12-31-elm-intro": [
       "path---2017-12-31-elm-intro-d1f82d5ff13a3304f8ed.js",
@@ -97,8 +101,8 @@
       "path---2018-04-03-ecmascript-part-2-cde3820047c0a3b7a9b5.js.map"
     ],
     "path---index": [
-      "path---index-71e66fccce120734d013.js",
-      "path---index-71e66fccce120734d013.js.map"
+      "path---index-d00fe3155e2f6698828f.js",
+      "path---index-d00fe3155e2f6698828f.js.map"
     ],
     "path---2018-03-26-technical-interview-arm": [
       "path---2018-03-26-technical-interview-arm-63b9dbfcb43f4befdf5f.js",
@@ -159,9 +163,9 @@
       "path---2018-01-12-promises-and-timeouts-baad461d87b399d20c47.js.map"
     ],
     "app": [
-      "app-50e8abc2235a7a3dd49f.js",
+      "app-fa9402e02e2bb835ef5b.js",
       "build-js-styles.css",
-      "app-50e8abc2235a7a3dd49f.js.map",
+      "app-fa9402e02e2bb835ef5b.js.map",
       "build-js-styles.css.map"
     ],
     "path---2018-03-04-js-function-declaration-and-function-expression": [
