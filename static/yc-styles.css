@@ -332,6 +332,7 @@ form > fieldset {
 
 .loginActionRow__CustomInputField--UserSignedIn,
 .loginActionRow__CustomInputField--UserSignedOut {
+  color:var(--material-blue);
   background-color:transparent;
   box-shadow:none !important;
 }
@@ -391,7 +392,7 @@ form > fieldset {
 .loginActionRow__SignUpOrLoggedIn--UserSignedIn,
 .loginActionRow__SignUpOrLoggedIn--UserSignedOut {
   color:white;
-  background-color:var(--material-blue-light-fade)
+  background-color:var(--material-blue-light-fade);
 }
 
 .loginActionRow__SignUpOrLoggedIn--UserSignedIn:active,
@@ -402,7 +403,7 @@ form > fieldset {
 
 .loginActionRow__SigninOrSignOut--UserSignedIn,
 .loginActionRow__SigninOrSignOut--UserSignedOut {
-  color:var(--fade-white-form);
+  color:var(--material-blue);
   background-color:var(--material-grey-heavy-fade);
 }
 
