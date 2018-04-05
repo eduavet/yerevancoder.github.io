@@ -8,7 +8,7 @@ discussionId: "2018-03-13-how-yerevancoder-works"
 ---
 
 **This is part one of a two part series, see
-[part-two](../2018-03-23-how-yerevan-coder-works-part-two) for the rest of the post.**
+[part-two](../2018-04-05-how-yerevan-coder-works-part-two) for the rest of the post.**
 
 # web application
 
@@ -45,11 +45,11 @@ of other blog posts and keep this
 
 Exact steps to write a blog post:
 
-1. First [fork](https://help.github.com/articles/fork-a-repo/) the main
-   [repo](https://github.com/yerevancoder/yerevancoder.github.io)
-2. [clone](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) your `fork`.
-3. `cd` to your recently cloned directory and install all the dependencies with either `yarn` or
-   `npm`. So something like:
+1.  First [fork](https://help.github.com/articles/fork-a-repo/) the main
+    [repo](https://github.com/yerevancoder/yerevancoder.github.io)
+2.  [clone](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) your `fork`.
+3.  `cd` to your recently cloned directory and install all the dependencies with either `yarn` or
+    `npm`. So something like:
 
 ```bash
 $ git clone YOUR_FORK_OF_YEREVAN_CODER
@@ -57,11 +57,11 @@ $ cd YOUR_FORK_OF_YEREVAN_CODER
 $ npm install # OR just type yarn
 ```
 
-4. Now run `npm run dev` or just `yarn dev`. This will start a local web server on `localhost:8000`
-   and you can see the site automatically rebuilt whenever you make a change, it lets you iterate
-   very fast, the automatic refresh is called
-   [hot-module-replacement](https://webpack.js.org/concepts/hot-module-replacement/) and gatsby sets
-   it up for us.
+4.  Now run `npm run dev` or just `yarn dev`. This will start a local web server on `localhost:8000`
+    and you can see the site automatically rebuilt whenever you make a change, it lets you iterate
+    very fast, the automatic refresh is called
+    [hot-module-replacement](https://webpack.js.org/concepts/hot-module-replacement/) and gatsby sets
+    it up for us.
 
 ![](./hmr-refresh-is-awesome.gif)
 
@@ -69,14 +69,14 @@ Note that `gatsby` will generate an `HTML` file for JavaScript files under `src/
 new directory with `mkdir` under `src/pages`. Notice how the other directories are organized with
 the date and title in the directory names.
 
-5. Under your new directory, create an `index.md` file. This is your blog post and you write it in
-   `markdown`, be sure to make sure that the top part of the markdown file is set up correctly,
+5.  Under your new directory, create an `index.md` file. This is your blog post and you write it in
+    `markdown`, be sure to make sure that the top part of the markdown file is set up correctly,
 
 ![](./meta-data.png)
 
-6. Once you are happy with the post, create a [pull
-   request](https://help.github.com/articles/about-pull-requests/) and someone with commit access
-   for the main yerevancoder repo will either merge the PR or will give some comments.
+6.  Once you are happy with the post, create a [pull
+    request](https://help.github.com/articles/about-pull-requests/) and someone with commit access
+    for the main yerevancoder repo will either merge the PR or will give some comments.
 
 This is basically the flow of all open source projects so its important to get some experience in
 it, the dynamic part which is the React coding part, will be explained in part two.
