@@ -9,7 +9,14 @@ import FilterControl from '../components/filter-control';
 
 // import 'prismjs/themes/prism-solarizedlight.css';
 
-const TRIGGER = <span className={'FilterControl__TriggerMessage'}>Filter by topic tags</span>;
+const TRIGGER = (
+  <span
+    data-balloon={'Click to toggle filter tag options'}
+    data-ballon-pos={'right'}
+    className={'FilterControl__TriggerMessage'}>
+    Filter by topic tags
+  </span>
+);
 
 export default class BlogIndex extends React.Component {
   constructor(p, context) {
