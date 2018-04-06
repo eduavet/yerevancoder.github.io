@@ -499,7 +499,7 @@ form > fieldset {
 }
 
 .BlogEntryCard__Byline, .BlogEntryCard__Excerpt {
-  font-family:Merriweather;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .BlogEntryCard__Excerpt {
