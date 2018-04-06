@@ -30,15 +30,43 @@ export default class BlogIndex extends React.Component {
     this.setState(() => ({ filtered_tags }));
   };
 
-  render() {
+  make_posts() {
     const { data } = this.props;
+    const { filtered_tags } = this.state;
     const posts = data.allMarkdownRemark.edges;
-    const post_banners = posts.map(({ node }) => {
-      node._tag_set = new Set(node.frontmatter.tags.split(',').map(s => s.toLowerCase().trim()));
-      return (
+    let post_banners = [];
+    if (filtered_tags.size === 0) {
+      post_banners = posts.map(({ node }) => (
         <BlogCardBanner key={`${node.frontmatter.author}/${node.frontmatter.title}`} node={node} />
-      );
-    });
+      ));
+    } else {
+      for (const post of posts) {
+        const post_tags = new Set(
+          post.node.frontmatter.tags.split(',').map(s => s.toLowerCase().trim())
+        );
+        let intersection = false;
+        for (const tag of post_tags) {
+          if (filtered_tags.has(tag)) {
+            intersection = true;
+            break;
+          }
+        }
+        if (intersection) {
+          const { node } = post;
+          post_banners.push(
+            <BlogCardBanner
+              key={`${node.frontmatter.author}/${node.frontmatter.title}`}
+              node={node}
+            />
+          );
+        }
+      }
+    }
+    return post_banners;
+  }
+
+  render() {
+    const post_banners = this.make_posts();
     const classes =
       'AvailableForWorkContainer__PageBanner AlignSelfFlexStart LeftMinorOneHalfRemPadding';
     return (

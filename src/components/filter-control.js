@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default ({ known_tags, filtered_tags, on_checkbox_toggle }) => {
-  console.log({ known_tags, filtered_tags });
   const input_pairs = known_tags.map(name => {
     return (
       <span key={`${Math.random()}`} className={'PlainFlexRow'}>
