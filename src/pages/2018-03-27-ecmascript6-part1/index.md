@@ -1,6 +1,6 @@
 ---
 title: ECMAScript6, part 1
-tags: JavaScript, ECMAScript6, ES6
+tags: JavaScript
 author: Edgar Khanzadian
 date: "2018-03-27"
 description: Presentation of lecture about ECMAScript6

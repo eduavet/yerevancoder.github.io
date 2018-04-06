@@ -1,6 +1,6 @@
 ---
 title: ECMAScript6, part 2
-tags: JavaScript, ECMAScript6, ES6
+tags: JavaScript
 author: Robert Gevorgyan
 date: "2018-04-03"
 description: Presentation of lecture about ECMAScript6
