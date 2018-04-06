@@ -3,32 +3,22 @@ import 'prismjs/themes/prism-tomorrow.css';
 import React from 'react';
 import Link from 'gatsby-link';
 
+import BlogCardBanner from '../components/blog-card-banner';
 // import 'prismjs/themes/prism-solarizedlight.css';
 
 export default class BlogIndex extends React.Component {
   render() {
     const { data } = this.props;
     const posts = data.allMarkdownRemark.edges;
+    const post_banners = posts.map(({ node }) => (
+      <BlogCardBanner key={`${node.frontmatter.author}/${node.frontmatter.title}`} node={node} />
+    ));
+    const classes =
+      'AvailableForWorkContainer__PageBanner AlignSelfFlexStart LeftMinorOneHalfRemPadding';
     return (
       <div className={'BlogTable'}>
-        {posts.map(({ node }) => {
-          const { title, tags, author, date } = node.frontmatter;
-          return (
-            <div key={node.fields.slug} className={'BlogEntryCard'}>
-              <h3 className={'BlogEntryCard__Banner'}>
-                <Link to={node.fields.slug}>{title}</Link>
-              </h3>
-              <small className={'BlogEntryCard__Byline'}>
-                {date} | {node.wordCount.words} words | {node.timeToRead} minutes to read | {author}{' '}
-                | {tags}
-              </small>
-              <p
-                className={'BlogEntryCard__Excerpt'}
-                dangerouslySetInnerHTML={{ __html: node.excerpt }}
-              />
-            </div>
-          );
-        })}
+        <h4 className={classes}>{`${post_banners.length} great posts to read`}</h4>
+        {post_banners}
       </div>
     );
   }

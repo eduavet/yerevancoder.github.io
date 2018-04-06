@@ -20,6 +20,14 @@ body {
   background-color: var(--material-beige);
 }
 
+.AlignSelfFlexStart {
+  align-self:flex-start;
+}
+
+.LeftMinorOneHalfRemPadding {
+  padding-left:1.5rem;
+}
+
 .InformationBar__SiteBannerName {
   box-shadow: none;
   text-decoration: none;
@@ -423,8 +431,12 @@ form > fieldset {
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:20px;
+  font-size:2.5rem;
+  text-shadow: 4px 4px 4px var(--text-shadow-color);
   font-family: 'Titillium Web', sans-serif;
+  box-shadow: none;
+  text-decoration: none;
+  color:var(--material-blue);
 }
 
 .AvailableForWorkContainer > *:nth-child(1) {
@@ -438,7 +450,7 @@ form > fieldset {
 
 .BlogEntryCard > * {
   margin:0;
-  font-family: Montserrat, sans-serif;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .BlogEntryCard__Byline, .BlogEntryCard__Excerpt {
@@ -681,12 +693,12 @@ legend {
   }
 
   .ApplicationContainer__MainContent {
-    padding-left:var(--sidebar-fixed-width);
     width:100%;
+    overflow-x: unset;
   }
 
   .ApplicationContainer__BusinessContent {
-    padding-right:var(--business-content-padding);
+    padding-left:var(--sidebar-fixed-width);
   }
 
   .Profile__User {
@@ -735,6 +747,13 @@ legend {
 }
 
 @media (max-width: 649px) {
+  .AvailableForWorkContainer__PageBanner {
+    text-align:center;
+    padding-left:0;
+    width:100%;
+    font-size:2.0rem;
+  }
+
   .BlogTable__MobileBar {
     display:flex;
     flex-direction:row;
