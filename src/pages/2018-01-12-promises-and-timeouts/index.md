@@ -1,6 +1,6 @@
 ---
 title: Racing to get a timeout
-tags: coding, JavaScript, timeout
+tags: javascript
 author: Edgar Aroutiounian
 date: "2018-01-12"
 description: simple way to get a timeout

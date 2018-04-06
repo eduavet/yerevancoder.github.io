@@ -1,6 +1,6 @@
 ---
 title: Free JavaScript learning material! (nodejs, React, JSConf)
-tags: armenia, coding, javascript, jsconf, learning
+tags: javascript
 author: Edgar Aroutiounian
 date: "2017-12-21"
 description: some useful material for you

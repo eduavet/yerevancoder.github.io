@@ -1,6 +1,6 @@
 ---
 title: JavaScript classes, prototypes, execution context
-tags: JavaScript, technology
+tags: JavaScript
 author: Narek Ghevondian
 date: "2018-03-15"
 description: Presentation of lecture about JavaScript classes, prototypes, execution context

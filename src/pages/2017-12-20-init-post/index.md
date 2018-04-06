@@ -1,6 +1,6 @@
 ---
 title: The success of JSConf in Armenia and what the future holds
-tags: armenia, coding, jsconf
+tags: jsconf
 author: Edgar Aroutiounian
 date: "2017-12-20"
 description: A strong first conference
