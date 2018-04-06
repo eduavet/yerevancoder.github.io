@@ -1,6 +1,6 @@
 ---
 title: How yerevancoder.com works and how you can contribute (Part One)
-tags: yerevancoder, tutorial
+tags: yerevancoder, tutorial, reactjs
 author: Edgar Aroutiounian
 date: "2018-03-13"
 description: How yerevancoder.com works and how you can contribute (Part One)
