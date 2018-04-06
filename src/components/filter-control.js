@@ -1,7 +1,9 @@
 import React from 'react';
 
 export default ({ known_tags, filtered_tags, on_checkbox_toggle, clear_all }) => {
-  const input_pairs = known_tags.map(name => {
+  const copy = [...known_tags];
+  copy.sort();
+  const input_pairs = copy.map(name => {
     return (
       <span key={`${Math.random()}`} className={'PlainFlexRow FilterControl__FilterRow'}>
         <input
