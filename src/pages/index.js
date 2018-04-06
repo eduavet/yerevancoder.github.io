@@ -11,7 +11,7 @@ import FilterControl from '../components/filter-control';
 
 const TRIGGER = (
   <span
-    data-balloon={'Click to toggle filter tag options'}
+    data-balloon={'Click to toggle filter tags'}
     data-ballon-pos={'right'}
     className={'FilterControl__TriggerMessage'}>
     Filter by topic tags
