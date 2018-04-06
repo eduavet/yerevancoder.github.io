@@ -706,7 +706,16 @@ legend {
   display:flex;
 }
 
+.BlogPost__PostContainer > * {
+  font-family: 'Titillium Web', sans-serif;
+}
+
 @media (min-width: 650px) {
+
+  .BlogPost__PostContainer {
+    padding-left:1.2rem;
+  }
+
   .headroom-wrapper {
     display:none;
   }
@@ -978,13 +987,13 @@ legend {
 
 @supports (zoom:2) {
   input[type="radio"],input[type=checkbox]{
-    zoom: 1.3;
+    zoom: 1.2;
   }
 }
 
 @supports not (zoom:2) {
   input[type="radio"],input[type=checkbox]{
-    transform: scale(1.3);
+    transform: scale(1.2);
   }
 }
 

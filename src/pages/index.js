@@ -84,7 +84,7 @@ export default class BlogIndex extends React.Component {
       <div className={'BlogTable'}>
         <h4 className={classes}>{`${post_banners.length} great posts to read`}</h4>
         <div className={'FilterControlWrapper LeftMinorOneHalfRemMargin'}>
-          <Collapsible trigger={TRIGGER} open={true}>
+          <Collapsible trigger={TRIGGER}>
             <FilterControl
               known_tags={this.state.known_tags}
               on_checkbox_toggle={this.on_checkbox_toggle}

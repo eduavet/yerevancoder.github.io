@@ -8,13 +8,13 @@ export default ({ data }) => {
   const tag_names = new Set(tags.split(',').map(s => s.trim().toLowerCase()));
   const siteTitle = data.site.siteMetadata.title;
   return (
-    <div>
+    <div className={'BlogPost__PostContainer'}>
       <Helmet title={`${title} | ${siteTitle}`} />
       <h1>{title}</h1>
       <p className={'BlogPost__ByLine'}>
         {date} | By {author} | {tags}
       </p>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div className={''} dangerouslySetInnerHTML={{ __html: post.html }} />
       <hr />
       {tag_names.has('javascript') ? (
         <iframe
