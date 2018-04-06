@@ -220,3 +220,10 @@ ${create_effects_css(FANCY_INPUT_BOXES.NEW_TECH_JOB_SALARY_TO)}
 `;
 
 export const global_styles = <style>{`${FANCY_INPUT_BOX}`}</style>;
+
+export const DID_YOU_KNOW = (
+  <span>
+    Did you know you can see all your postings in your profile view? Click on your display name once
+    signed in.
+  </span>
+);

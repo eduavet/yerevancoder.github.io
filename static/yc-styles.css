@@ -154,6 +154,7 @@ textarea { resize:none; }
 .Profile__Container__LoadingSpinner {
   padding-left:20px;
   display:flex;
+	flex-direction:column;
   align-items:center;
   justify-content:center;
   padding-right:20px;

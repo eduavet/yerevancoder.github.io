@@ -2,7 +2,13 @@ import React from 'react';
 import Spinner from 'react-spinkit';
 
 import { updateByPropertyName } from '../../utils/funcs';
-import { FANCY_INPUT_BOXES, LOADING_STATE, SPACER_30_H, SPACER_10_H } from '../../utils/constants';
+import {
+  FANCY_INPUT_BOXES,
+  LOADING_STATE,
+  SPACER_30_H,
+  SPACER_10_H,
+  DID_YOU_KNOW,
+} from '../../utils/constants';
 import SubmitInput from '../submit-input';
 import WithEffectInput from '../with-effect-input';
 
@@ -83,6 +89,7 @@ export default class SignInForm extends React.Component {
     const content =
       this.state.loading_state === LOADING_STATE.CURRENTLY_LOADING ? (
         <div className={'Profile__Container__LoadingSpinner'}>
+          {DID_YOU_KNOW}
           <Spinner fadeIn={'quarter'} name={'ball-scale-ripple-multiple'} />
         </div>
       ) : (
