@@ -20,12 +20,32 @@ body {
   background-color: var(--material-beige);
 }
 
+.Collapsible {
+  cursor:pointer;
+}
+
+.FilterControl {
+  display:flex;
+  max-width:100%;
+  flex-wrap:wrap;
+}
+
+.FilterControlWrapper {
+  background-color:orange;
+  margin-right:1.5rem;
+  align-self:flex-start;
+}
+
 .AlignSelfFlexStart {
   align-self:flex-start;
 }
 
 .LeftMinorOneHalfRemPadding {
   padding-left:1.5rem;
+}
+
+.LeftMinorOneHalfRemMargin {
+  margin-left:1.5rem;
 }
 
 .InformationBar__SiteBannerName {
@@ -699,6 +719,7 @@ legend {
 
   .ApplicationContainer__BusinessContent {
     padding-left:var(--sidebar-fixed-width);
+    padding-right: var(--business-content-padding-half);
   }
 
   .Profile__User {
