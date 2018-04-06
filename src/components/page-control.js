@@ -111,6 +111,7 @@ export default class PageControl extends React.Component {
   page_content = () => {
     const {
       jobs,
+      loadedJobs,
       new_tech_job_post_did_finish,
       submit_new_hiring_post,
       freelancers,
@@ -119,7 +120,7 @@ export default class PageControl extends React.Component {
     // Then need to add the HN style news thing here
     switch (page_content) {
       case PAGE_CONTENT.HIRING_TABLE:
-        return <JobsTable all_jobs={jobs} />;
+        return <JobsTable all_jobs={jobs} loadedJobs={loadedJobs}/>;
       case PAGE_CONTENT.NEW_HIRING_POST:
         return (
           <NewJobPosting

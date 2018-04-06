@@ -1,5 +1,6 @@
 import React from 'react';
 import format from 'date-fns/format';
+import Loader from 'react-loader';
 
 import { SPACER_20_W } from '../utils/constants';
 
@@ -58,12 +59,18 @@ const no_jobs = (
   </p>
 );
 
-export default ({ all_jobs }) => {
+export default ({ all_jobs, loadedJobs }) => {
   const content =
     all_jobs.length >= 1
       ? all_jobs.map(s => (
           <Posting {...s} key={`${s.job_description}/${s.post_author}/${s.job_location}`} />
         ))
       : no_jobs;
-  return <section>{content}</section>;
+  return (
+    <section>
+      <Loader loaded={loadedJobs}>
+        {content}
+      </Loader>
+    </section>
+  );
 };

@@ -15,6 +15,7 @@ const INIT_STATE = {
   modal_content: MODAL_CONTENT.SIGNIN_VIEW,
   modal_profile_content: MODAL_PROFILE_CONTENT.HIRING_BOARD_LISTINGS,
   page_content: PAGE_CONTENT.HIRING_TABLE,
+  loadedJobs: false,
 };
 
 export default class HiringBoardPage extends React.Component {
@@ -30,7 +31,11 @@ export default class HiringBoardPage extends React.Component {
   query_data = () => hiring_table_posts_ref.once('value').then(snap_shot => snap_shot.val());
 
   componentDidMount() {
-    this.query_data().then(rows => this.setState(() => ({ jobs: rows ? obj_to_array(rows) : [] })));
+    this.query_data()
+      .then(rows => this.setState({
+        jobs: rows ? obj_to_array(rows) : [],
+        loadedJobs: true,
+      }));
   }
 
   delete_a_job_posting = post_key => {
@@ -154,6 +159,7 @@ export default class HiringBoardPage extends React.Component {
         signin_handler={this.signin_handler}
         banner_title={'Get hired'}
         jobs={this.state.jobs}
+        loadedJobs={this.state.loadedJobs}
         user_did_sign_out={this.user_did_sign_out}
         new_tech_job_post_did_finish={this.new_tech_job_post_did_finish}
         did_finish_submit_post_lifecycle={no_op}
