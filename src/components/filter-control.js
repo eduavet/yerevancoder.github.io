@@ -19,7 +19,7 @@ export default ({ known_tags, filtered_tags, on_checkbox_toggle, clear_all }) =>
     <div>
       <div className={'FilterControl'}>{input_pairs}</div>
       <input
-        className={'FilterControl__ClearAllButton'}
+        className={'SubmitInput FilterControl__ClearAllButton'}
         type={'button'}
         onClick={clear_all}
         value={'Clear all filters'}
