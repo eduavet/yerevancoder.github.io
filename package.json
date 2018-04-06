@@ -28,6 +28,7 @@
     "gatsby-transformer-remark": "^1.7.37",
     "gatsby-transformer-sharp": "^1.6.16",
     "prop-types": "^15.6.1",
+    "react-collapsible": "^2.0.4",
     "react-headroom": "^2.2.2",
     "react-helmet": "^5.2.0",
     "react-loader": "^2.4.3",
