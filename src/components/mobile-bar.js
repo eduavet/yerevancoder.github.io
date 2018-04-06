@@ -19,7 +19,7 @@ export default (
         {SPACER_10_H}
         <Link to={ROUTES.JOBS_TABLE}>hiring board</Link>
       </div>
-      <div className={'PlainFlexColumn'}>
+      <div className={'PlainFlexColumn BlogTable__MobileBarNavBoxElement'}>
         <a href={'https://forum.yerevancoder.com/categories'}>forums</a>
         {SPACER_10_H}
         <a href={'https://iteratehackerspace.com'}>iterate</a>

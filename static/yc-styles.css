@@ -1,7 +1,7 @@
 :root {
   --business-content-padding: 30px;
   --business-content-padding-half: 15px;
-  --mobile-banner-spacing: 5px;
+  --mobile-banner-spacing: 7px;
   --fade-white-button: hsl(0, 0%, 90%);
   --fade-white-form: hsl(0, 0%, 50%);
   --error-light-red: hsl(0, 100%, 62.5%);
@@ -14,6 +14,7 @@
   --material-blue-light-fade: hsla(222.6, 25.7%, 29%, 0.65);
   --material-grey-heavy-fade: hsla(216, 9.4%, 79.2%, 0.4);
   --material-grey-light-fade: hsla(216, 9.4%, 79.2%, 0.2);
+  --primary-font: 'Titillium Web', sans-serif;
 }
 
 body {
@@ -156,7 +157,7 @@ textarea { resize:none; }
 .Profile__Container__LoadingSpinner {
   padding-left:20px;
   display:flex;
-	flex-direction:column;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
   padding-right:20px;
@@ -842,10 +843,10 @@ legend {
 
   .BlogTable__MobileBarBanner {
     margin-left: var(--mobile-banner-spacing);
-    font-family: 'Titillium Web', sans-serif;
+    font-family: var(--primary-font);
     text-decoration:none;
     font-weight:700;
-    font-size:1.2rem;
+    font-size:1.4rem;
     box-shadow:none;
     color:var(--material-blue-light-fade);
   }
@@ -862,10 +863,14 @@ legend {
 
   .BlogTable__MobileBarNavBox > * {
     text-align:center;
+    font-size:1.1rem;
+    font-family: var(--primary-font);
     box-shadow:none;
   }
 
   .BlogTable__MobileBarNavBoxElement > * {
+    color:var(--material-blue-light-fade);
+    text-decoration:none;
   }
 
   .BlogTable__MobileBarNavBox {
@@ -989,7 +994,7 @@ legend {
 
   .FreelancerTable__Freelancer {
     padding:2px;
-}
+  }
 }
 
 @supports (zoom:2) {
