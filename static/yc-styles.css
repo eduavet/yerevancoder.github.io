@@ -807,6 +807,10 @@ legend {
 
 @media (max-width: 649px) {
 
+  .ModalContentWrapper {
+    width:250px;
+  }
+
   .FilterControlWrapper {
     margin:0;
     padding:0;

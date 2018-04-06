@@ -193,6 +193,7 @@ const FANCY_INPUT_BOX = `
   font-family: 'Titillium Web', sans-serif;
   color: #333;
   width: 100%;
+  font-size:1.1rem;
   border-radius:5px;
   box-sizing:border-box;
   letter-spacing: 1px;
