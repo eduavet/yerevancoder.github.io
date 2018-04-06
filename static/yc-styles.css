@@ -31,7 +31,8 @@ body {
 }
 
 .FilterControlWrapper {
-  background-color:orange;
+  background-color:var(--material-blue-heavy-fade);
+  padding: 7px 14px;
   margin-right:1.5rem;
   align-self:flex-start;
 }

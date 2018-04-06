@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ known_tags, filtered_tags, on_checkbox_toggle }) => {
+export default ({ known_tags, filtered_tags, on_checkbox_toggle, clear_all }) => {
   const input_pairs = known_tags.map(name => {
     return (
       <span key={`${Math.random()}`} className={'PlainFlexRow'}>
@@ -13,5 +13,10 @@ export default ({ known_tags, filtered_tags, on_checkbox_toggle }) => {
       </span>
     );
   });
-  return <div className={'FilterControl'}>{input_pairs}</div>;
+  return (
+    <div className={'FilterControl'}>
+      <input type={'button'} onClick={clear_all} value={'clear all'} />
+      {input_pairs}
+    </div>
+  );
 };

@@ -65,6 +65,8 @@ export default class BlogIndex extends React.Component {
     return post_banners;
   }
 
+  clear_all = () => this.setState(() => ({ filtered_tags: new Set() }));
+
   render() {
     const post_banners = this.make_posts();
     const classes =
@@ -78,6 +80,7 @@ export default class BlogIndex extends React.Component {
               known_tags={this.state.known_tags}
               on_checkbox_toggle={this.on_checkbox_toggle}
               filtered_tags={this.state.filtered_tags}
+              clear_all={this.clear_all}
             />
           </Collapsible>
         </div>
