@@ -123,6 +123,7 @@ textarea { resize:none; }
 }
 
 .SubmitInput {
+  font-family: 'Titillium Web', sans-serif;
   background-color:var(--material-blue);
   width:100%;
   padding:7px 14px;
@@ -131,6 +132,7 @@ textarea { resize:none; }
   color: var(--fade-white-button);
   border-radius:5px;
   cursor:pointer;
+  font-size:1.1rem;
 }
 
 .SubmitInput:active {
@@ -175,7 +177,7 @@ textarea { resize:none; }
 }
 
 .ModalContainer__Form {
-  width:100%;
+  width:110%;
   display:flex;
   flex:1;
   align-items:center;
