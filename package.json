@@ -32,6 +32,7 @@
     "prop-types": "^15.6.1",
     "react-headroom": "^2.2.2",
     "react-helmet": "^5.2.0",
+    "react-loader": "^2.4.3",
     "react-modal": "^3.3.2",
     "react-spinkit": "^3.0.0",
     "typeface-merriweather": "0.0.54",
@@ -45,11 +46,21 @@
     "standardx": "^2.0.0"
   },
   "homepage": "https://github.com/yerevancoder/yerevancoder.github.io#readme",
-  "keywords": ["gatsby", "armenia", "coders", "hackers", "iterate", "yerevan"],
+  "keywords": [
+    "gatsby",
+    "armenia",
+    "coders",
+    "hackers",
+    "iterate",
+    "yerevan"
+  ],
   "eslintConfig": {
     "rules": {
       "camelcase": 0,
-      "semi": [2, "always"],
+      "semi": [
+        2,
+        "always"
+      ],
       "no-extra-semi": 2,
       "comma-dangle": 0
     }
