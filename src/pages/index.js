@@ -9,6 +9,8 @@ import FilterControl from '../components/filter-control';
 
 // import 'prismjs/themes/prism-solarizedlight.css';
 
+const TRIGGER = <span className={'FilterControl__TriggerMessage'}>Filter by topic tags</span>;
+
 export default class BlogIndex extends React.Component {
   constructor(p, context) {
     super(p, context);
@@ -75,7 +77,7 @@ export default class BlogIndex extends React.Component {
       <div className={'BlogTable'}>
         <h4 className={classes}>{`${post_banners.length} great posts to read`}</h4>
         <div className={'FilterControlWrapper LeftMinorOneHalfRemMargin'}>
-          <Collapsible trigger={'Filter by tags'}>
+          <Collapsible trigger={TRIGGER} open={true}>
             <FilterControl
               known_tags={this.state.known_tags}
               on_checkbox_toggle={this.on_checkbox_toggle}

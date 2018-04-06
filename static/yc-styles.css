@@ -20,8 +20,25 @@ body {
   background-color: var(--material-beige);
 }
 
+.FilterControl__FilterRow {
+  padding: 7px 14px;
+  margin: 7px 14px;
+  background-color:var(--fade-white-button);
+  border-radius: 5px;
+}
+
 .Collapsible {
   cursor:pointer;
+}
+
+.FilterControl__TriggerMessage {
+  color:white;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.2rem;
+}
+
+.FilterControl__FilterLabel {
+  padding-left:5px;
 }
 
 .FilterControl {
@@ -769,6 +786,18 @@ legend {
 }
 
 @media (max-width: 649px) {
+
+  .FilterControlWrapper {
+    margin:0;
+    padding:0;
+    padding: 3px;
+  }
+
+  .FilterControl__FilterRow {
+    margin: 3px 6px;
+    padding: 3px 6px;
+  }
+
   .AvailableForWorkContainer__PageBanner {
     text-align:center;
     padding-left:0;
