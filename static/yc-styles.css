@@ -104,6 +104,7 @@ textarea { resize:none; }
 }
 
 .FilterControl__ClearAllButton {
+  -webkit-appearance: none;
   width:100%;
   font-family: 'Titillium Web', sans-serif;
   font-size: 1.2rem;
@@ -407,31 +408,36 @@ form > fieldset {
 }
 
 .loginActionRow__CustomInputField--UserSignedOut {
-  background-color:red;
+  -webkit-appearance: none;
 }
 
 .loginActionRow__CustomInputField--UserSignedIn,
 .loginActionRow__CustomInputField--UserSignedOut {
+  -webkit-appearance: none;
   color:var(--material-blue);
   background-color:transparent;
   box-shadow:none !important;
 }
 
 .loginActionRow__RowContainer > input {
+  -webkit-appearance: none;
   padding:7px 14px;
 }
 
 .loginActionRow__RowContainer {
+  -webkit-appearance: none;
   margin:0;
   display:inline-flex;
   padding:10px;
 }
 
 .loginActionRow__RowContainer > input:nth-child(2) {
+  -webkit-appearance: none;
   margin-left:1rem;
 }
 
 .loginActionRow__RowContainer > input:nth-child(3) {
+  -webkit-appearance: none;
   margin-left:1rem;
 }
 
@@ -440,7 +446,8 @@ form > fieldset {
   padding-bottom:var(--business-content-padding-half);
 }
 
-.loginActionRow__RowContainer > input,.NewFreelancerFormContainer__SubmitButton {
+.loginActionRow__RowContainer > input,
+.NewFreelancerFormContainer__SubmitButton {
   position: relative;
   font-family: Montserrat, sans-serif;
   display: flex;
@@ -471,24 +478,28 @@ form > fieldset {
 
 .loginActionRow__SignUpOrLoggedIn--UserSignedIn,
 .loginActionRow__SignUpOrLoggedIn--UserSignedOut {
+  -webkit-appearance: none;
   color:white;
   background-color:var(--material-blue-light-fade);
 }
 
 .loginActionRow__SignUpOrLoggedIn--UserSignedIn:active,
 .loginActionRow__SignUpOrLoggedIn--UserSignedOut:active {
+  -webkit-appearance: none;
   color:var(--fade-white-button);
   background-color:var(--material-blue-light-fade);
 }
 
 .loginActionRow__SigninOrSignOut--UserSignedIn,
 .loginActionRow__SigninOrSignOut--UserSignedOut {
+  -webkit-appearance: none;
   color:var(--material-blue);
   background-color:var(--material-grey-heavy-fade);
 }
 
 .loginActionRow__SigninOrSignOut--UserSignedIn:active,
 .loginActionRow__SigninOrSignOut--UserSignedOut:active {
+  -webkit-appearance: none;
   color:var(--fade-white-button);
   background-color:var(--material-grey-heavy-fade);
 }
