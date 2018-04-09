@@ -129,9 +129,6 @@ export default class ApplicationRoot extends React.Component {
   render() {
     const { children } = this.props;
     const site_title = this.props.data.site.siteMetadata.title;
-    const posts = this.props.data.allMarkdownRemark.edges;
-    const all_authors = new Set(posts.map(({ node }) => node.timeToRead));
-    const authors_count = all_authors.size;
     return (
       <div className={'ApplicationContainer__Container'}>
         <Helmet title={site_title}>
@@ -146,7 +143,7 @@ export default class ApplicationRoot extends React.Component {
             href={'https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css'}
           />
         </Helmet>
-        <FixedSidebar authors_count={authors_count} header_content={yc} />
+        <FixedSidebar header_content={yc} />
         <div className={'ApplicationContainer__MainContent'}>
           <Headroom pinStart={300} onPin={this.onPin} onUnpin={this.onUnpin} onUnfix={this.onUnfix}>
             {this.state.pin_bar_content}

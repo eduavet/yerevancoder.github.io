@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 
 import { ROUTES } from '../utils/constants';
 
-export default ({ authors_count, header_content }) => (
+export default ({ header_content }) => (
   <aside className={'InformationBar'}>
     {header_content}
     <p>
@@ -15,9 +15,8 @@ export default ({ authors_count, header_content }) => (
       coding workshops and a vibrant programmer community.
     </p>
     <p>
-      {authors_count} coders have already contributed and we are always looking for more
-      contributors, use this <Link to={'/2018-03-13-how-yerevan-coder-works/'}>post</Link> as a
-      guide on how to add a new blog post and check out this{' '}
+      Use this <Link to={'/2018-03-13-how-yerevan-coder-works/'}>post</Link> as a guide on how to
+      add a new blog post and check out this{' '}
       <Link to={'/2017-12-21-javascript-resources/'}>post</Link> for many inpage lecture notes on
       learning JavaScript, consider checking out the source code{' '}
       <a href={'https://github.com/yerevancoder/yerevancoder.github.io'}>here</a>.
