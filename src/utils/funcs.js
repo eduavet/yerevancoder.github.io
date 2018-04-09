@@ -27,3 +27,6 @@ export const obj_to_array = obj => {
 };
 
 export const no_op = () => null;
+
+export const email_new_job_body = job_detail =>
+  encodeURI(`I am interested in your job: ${job_detail} `);
