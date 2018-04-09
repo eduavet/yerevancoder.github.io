@@ -93,7 +93,7 @@ export default class NewJobPosting extends React.Component {
               <WithEffectInput
                 box_name={FANCY_INPUT_BOXES.NEW_TECH_JOB_SALARY_FROM}
                 query_field={() => this.state.salary_from}
-                input_type={'number'}
+                input_type={'text'}
                 on_change={event =>
                   this.setState(updateByPropertyName('salary_from', event.target.value))
                 }
@@ -101,7 +101,7 @@ export default class NewJobPosting extends React.Component {
               />
               <WithEffectInput
                 box_name={FANCY_INPUT_BOXES.NEW_TECH_JOB_SALARY_TO}
-                input_type={'number'}
+                input_type={'text'}
                 query_field={() => this.state.salary_to}
                 on_change={event =>
                   this.setState(updateByPropertyName('salary_to', event.target.value))
@@ -142,17 +142,23 @@ export default class NewJobPosting extends React.Component {
                   left)
                 </label>
                 {SPACER_10_H}
-                <textarea
-                  className={'TextSubmissionArea FullWidth WithTextSubmissionBackground'}
-                  maxLength={SUMMARY_LIMIT}
-                  rows={4}
-                  autoComplete={'off'}
-                  onChange={event =>
-                    this.setState(updateByPropertyName('short_job_description', event.target.value))
-                  }
-                  value={this.state.short_job_description}
-                  placeholder={'This will be the single line description on the jobs board'}
-                />
+                <div className={'TextSubmissionWrapper'}>
+                  <textarea
+                    className={
+                      'TextSubmissionArea WithTextSubmissionBackground OneHundredMinusFifteen'
+                    }
+                    maxLength={SUMMARY_LIMIT}
+                    rows={4}
+                    autoComplete={'off'}
+                    onChange={event =>
+                      this.setState(
+                        updateByPropertyName('short_job_description', event.target.value)
+                      )
+                    }
+                    value={this.state.short_job_description}
+                    placeholder={'This will be the single line description on the jobs board'}
+                  />
+                </div>
               </div>
               {SPACER_30_H}
               <div className={'PlainFlexColumn PlainFlexCentered FullWidth'}>
@@ -161,18 +167,20 @@ export default class NewJobPosting extends React.Component {
                   {JOB_POSTING_DESCRIPTION_LIMIT - f_j_d_len} chars left)
                 </label>
                 {SPACER_10_H}
-                <textarea
-                  className={'TextSubmissionArea FullWidth'}
-                  maxLength={JOB_POSTING_DESCRIPTION_LIMIT}
-                  role={'textbox'}
-                  autoComplete={'off'}
-                  rows={6}
-                  onChange={event =>
-                    this.setState(updateByPropertyName('job_description', event.target.value))
-                  }
-                  value={this.state.job_description}
-                  placeholder={'The full job description, please phrase this carefully'}
-                />
+                <div className={'TextSubmissionWrapper'}>
+                  <textarea
+                    className={'TextSubmissionArea OneHundredMinusFifteen'}
+                    maxLength={JOB_POSTING_DESCRIPTION_LIMIT}
+                    role={'textbox'}
+                    autoComplete={'off'}
+                    rows={6}
+                    onChange={event =>
+                      this.setState(updateByPropertyName('job_description', event.target.value))
+                    }
+                    value={this.state.job_description}
+                    placeholder={'The full job description, please phrase this carefully'}
+                  />
+                </div>
               </div>
               {SPACER_30_H}
               <SubmitInput className={'NewJobPosting__SubmitButton'} value={'Submit New Job'} />
