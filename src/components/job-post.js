@@ -1,5 +1,6 @@
 import React from 'react';
 import format from 'date-fns/format';
+import Link from 'gatsby-link';
 
 import { SPACER_20_W, EMAIL_REGEX, EMAIL_NEW_JOB_SUBJECT } from '../utils/constants';
 import { email_new_job_body } from '../utils/funcs';
@@ -36,7 +37,9 @@ export default ({
       <div className={'FreelancerTable__FreelancerColumnDescription FullWidth'}>
         <span className={'FreelancerTable__FreelancerName'}>{short_job_description}</span>
         <span>Post date: {format(new Date(creation_time), 'DD/MMM/YYYY')}</span>
-        <a href={`/hiring-board/job$${post_key}`}>Dedicated Link</a>
+        <Link className={'FreelancerTable__DedicatedLink'} to={`/hiring-board/job$${post_key}`}>
+          Dedicated Link
+        </Link>
         <div className={'FreelancerTable__FlexColumn'}>
           <div className={'PlainFlexRow FlexSpaceBetween'}>
             <label>Posted by:</label>
