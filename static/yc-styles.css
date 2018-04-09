@@ -58,6 +58,7 @@ body {
 }
 
 .FilterControlWrapper {
+  border-radius:5px;
   background-color:var(--material-blue-heavy-fade);
   padding: 7px 14px;
   margin-right:1.5rem;
