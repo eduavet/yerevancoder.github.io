@@ -31,7 +31,6 @@
     "react-collapsible": "^2.0.4",
     "react-headroom": "^2.2.2",
     "react-helmet": "^5.2.0",
-    "react-loader": "^2.4.3",
     "react-modal": "^3.3.2",
     "react-spinkit": "^3.0.0"
   },
