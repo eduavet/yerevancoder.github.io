@@ -228,3 +228,5 @@ export const DID_YOU_KNOW = (
     signed in.
   </span>
 );
+
+export const EMAIL_REGEX = new RegExp('', 'ig');
