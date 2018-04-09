@@ -509,6 +509,11 @@ form > fieldset {
   font-family: 'Titillium Web', sans-serif;
 }
 
+.BlogEntryCard__Banner > a {
+	font-size:1.5rem;
+	font-weight:700;
+}
+
 .BlogEntryCard__Byline, .BlogEntryCard__Excerpt {
   font-family: 'Titillium Web', sans-serif;
 }
