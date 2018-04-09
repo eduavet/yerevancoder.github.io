@@ -1,7 +1,8 @@
 import React from 'react';
 import format from 'date-fns/format';
 
-import { SPACER_20_W, EMAIL_REGEX } from '../utils/constants';
+import { SPACER_20_W, EMAIL_REGEX, EMAIL_NEW_JOB_SUBJECT } from '../utils/constants';
+import { email_new_job_body } from '../utils/funcs';
 
 export default ({
   creation_time,
@@ -15,15 +16,24 @@ export default ({
   contact_info,
 }) => {
   const is_email_address = contact_info.match(EMAIL_REGEX);
-  const contact_element = is_email_address ? (
-    <a href={'mailto://'}>{contact_info}</a>
-  ) : (
-    <span>{contact_info}</span>
-  );
+  let contact_element = null;
+  if (is_email_address !== null) {
+    contact_element = (
+      <a
+        href={`mailto:${contact_info}?subject=${EMAIL_NEW_JOB_SUBJECT}&body=${email_new_job_body(
+          short_job_description
+        )}`}>
+        {contact_info}
+      </a>
+    );
+  } else {
+    // Then I guess it was some kind of phone number?
+    contact_element = <span>{contact_info}</span>;
+  }
 
   return (
     <div className={'FreelancerTable__Freelancer'}>
-      <div className={'FreelancerTable__FreelancerColumnDescription'}>
+      <div className={'FreelancerTable__FreelancerColumnDescription FullWidth'}>
         <span className={'FreelancerTable__FreelancerName'}>{short_job_description}</span>
         <span>Post date: {format(new Date(creation_time), 'DD/MMM/YYYY')}</span>
         <div className={'FreelancerTable__FlexColumn'}>
