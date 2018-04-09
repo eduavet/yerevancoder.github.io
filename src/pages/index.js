@@ -10,11 +10,13 @@ import FilterControl from '../components/filter-control';
 // import 'prismjs/themes/prism-solarizedlight.css';
 
 const TRIGGER = (
-  <span
-    data-balloon={'Click to toggle filter tags'}
-    data-ballon-pos={'right'}
-    className={'FilterControl__TriggerMessage'}>
+  <span className={'FilterControl__TriggerMessage'}>
     Filter by topic tags
+    <span
+      data-balloon={'Click to toggle filter tags'}
+      data-ballon-pos={'right'}
+      className={'FilterControl__TriggerMessageTooltip'}
+    />
   </span>
 );
 

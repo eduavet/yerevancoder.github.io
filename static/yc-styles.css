@@ -817,6 +817,11 @@ legend {
 
 @media (max-width: 649px) {
 
+	.FilterControl__TriggerMessageTooltip {
+		display:none;
+	}
+
+
   .ModalContentWrapper {
     width:250px;
   }
