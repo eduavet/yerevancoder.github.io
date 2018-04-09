@@ -1,6 +1,6 @@
 import React from 'react';
 import format from 'date-fns/format';
-import Loader from 'react-loader';
+import Spinner from 'react-spinkit';
 
 import { SPACER_20_W } from '../utils/constants';
 
@@ -66,11 +66,10 @@ export default ({ all_jobs, loadedJobs }) => {
           <Posting {...s} key={`${s.job_description}/${s.post_author}/${s.job_location}`} />
         ))
       : no_jobs;
+
   return (
-    <section>
-      <Loader loaded={loadedJobs}>
-        {content}
-      </Loader>
+    <section className={'JobsList'}>
+      {loadedJobs ? content : <Spinner fadeIn={'quarter'} name={'ball-scale-ripple-multiple'} />}
     </section>
   );
 };

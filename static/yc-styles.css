@@ -21,6 +21,14 @@ body {
   background-color: var(--material-beige);
 }
 
+.JobsList {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  padding: 0 5px;
+}
+
 .FilterControl__FilterRow {
   padding: 7px 14px;
   margin: 7px 14px;
@@ -510,6 +518,7 @@ form > fieldset {
 }
 
 .FreelancerTable__Freelancer {
+  width:100%;
   display:flex;
   justify-content:center;
   padding:10px;
