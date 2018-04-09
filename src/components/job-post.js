@@ -14,6 +14,7 @@ export default ({
   job_description,
   short_job_description,
   contact_info,
+  post_key,
 }) => {
   const is_email_address = contact_info.match(EMAIL_REGEX);
   let contact_element = null;
@@ -30,12 +31,12 @@ export default ({
     // Then I guess it was some kind of phone number?
     contact_element = <span>{contact_info}</span>;
   }
-
   return (
     <div className={'FreelancerTable__Freelancer'}>
       <div className={'FreelancerTable__FreelancerColumnDescription FullWidth'}>
         <span className={'FreelancerTable__FreelancerName'}>{short_job_description}</span>
         <span>Post date: {format(new Date(creation_time), 'DD/MMM/YYYY')}</span>
+        <a href={`/hiring-board/job$${post_key}`}>Dedicated Link</a>
         <div className={'FreelancerTable__FlexColumn'}>
           <div className={'PlainFlexRow FlexSpaceBetween'}>
             <label>Posted by:</label>

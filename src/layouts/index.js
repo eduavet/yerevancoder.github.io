@@ -7,6 +7,7 @@ import Headroom from 'react-headroom';
 import { auth, freelancers_posts_ref, db, firebase, hiring_table_posts_ref } from '../utils/db';
 import FixedSidebar from '../components/fixed-sidebar';
 import MobileBar from '../components/mobile-bar';
+import DedicatedJobPost from '../components/dedicated-job-post';
 import { global_styles, ROUTES, EMPTY_DIV } from '../utils/constants';
 import { query_my_freelance_submission } from '../utils/funcs';
 
@@ -126,9 +127,21 @@ export default class ApplicationRoot extends React.Component {
 
   onPin = () => this.setState({ pin_bar_content: MobileBar });
 
+  location_based_page() {
+    const { location } = this.props;
+    const [, first_level, posting] = location.pathname.split('/');
+    if (first_level === 'hiring-board' && posting !== undefined && posting.startsWith('job$')) {
+      const [, job_id] = posting.split('$');
+      return <DedicatedJobPost job_id={job_id} />;
+    }
+    return null;
+  }
+
   render() {
     const { children } = this.props;
     const site_title = this.props.data.site.siteMetadata.title;
+    const location_based_content = this.location_based_page();
+    const content = location_based_content !== null ? location_based_content : children();
     return (
       <div className={'ApplicationContainer__Container'}>
         <Helmet title={site_title}>
@@ -148,7 +161,7 @@ export default class ApplicationRoot extends React.Component {
           <Headroom pinStart={300} onPin={this.onPin} onUnpin={this.onUnpin} onUnfix={this.onUnfix}>
             {this.state.pin_bar_content}
           </Headroom>
-          <div className={'ApplicationContainer__BusinessContent'}>{children()}</div>
+          <div className={'ApplicationContainer__BusinessContent'}>{content}</div>
         </div>
       </div>
     );

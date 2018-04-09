@@ -290,6 +290,10 @@ textarea { resize:none; }
   padding-left:1px;
 }
 
+.FifteenPaddingLeft {
+  padding-left:15px;
+}
+
 .FullHeight {
   height:100%;
 }
