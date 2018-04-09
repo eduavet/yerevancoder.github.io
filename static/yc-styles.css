@@ -260,6 +260,15 @@ textarea { resize:none; }
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
 }
 
+.OneHundredMinusFifteen {
+  width: calc(100% - var(--business-content-padding-half));
+}
+
+.TextSubmissionWrapper {
+  padding-top:5px;
+  width:100%;
+}
+
 .PlainFlexColumn {
   display:flex;
   flex-direction:column;
@@ -349,12 +358,6 @@ RememberMeRow__RememberMe--Checked {
   width:100%;
   font-family: Montserrat, sans-serif;
   flex-direction:column;
-}
-
-.FreelancerTable__FreelancerColumnDescription > textarea {
-  width:100%;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
 .NewFreelancerFormContainer__SubmitButton {
