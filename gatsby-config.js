@@ -53,6 +53,10 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/hiring-board/job/*`] },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: `UA-111477105-1`,
