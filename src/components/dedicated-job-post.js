@@ -4,6 +4,9 @@ import Spinner from 'react-spinkit';
 import { hiring_table_posts_ref } from '../utils/db';
 import JobPost from './job-post';
 
+const JOB_WRAPPER_CLASSES =
+  'PlainFlexColumn PlainFlexCentered FifteenPaddingLeft MobileRemoveFifteenPaddingLeft';
+
 export default class DedicatedJobPost extends React.Component {
   state = { job: null };
 
@@ -29,6 +32,6 @@ export default class DedicatedJobPost extends React.Component {
     } else {
       content = <JobPost {...this.state.job} />;
     }
-    return <div className={'PlainFlexColumn PlainFlexCentered FifteenPaddingLeft'}>{content}</div>;
+    return <div className={JOB_WRAPPER_CLASSES}>{content}</div>;
   }
 }

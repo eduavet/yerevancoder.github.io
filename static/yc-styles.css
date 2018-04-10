@@ -855,6 +855,10 @@ legend {
 
 @media (max-width: 649px) {
 
+  .MobileRemoveFifteenPaddingLeft {
+    padding-left:0;
+  }
+
 	.FilterControl__TriggerMessageTooltip {
 		display:none;
 	}
