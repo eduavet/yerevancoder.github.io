@@ -37,7 +37,7 @@ export default ({
       <div className={'FreelancerTable__FreelancerColumnDescription FullWidth'}>
         <span className={'FreelancerTable__FreelancerName'}>{short_job_description}</span>
         <span>Post date: {format(new Date(creation_time), 'DD/MMM/YYYY')}</span>
-        <Link className={'FreelancerTable__DedicatedLink'} to={`/hiring-board/job$${post_key}`}>
+        <Link className={'FreelancerTable__DedicatedLink'} to={`/hiring-board/job/${post_key}`}>
           Dedicated Link
         </Link>
         <div className={'FreelancerTable__FlexColumn'}>

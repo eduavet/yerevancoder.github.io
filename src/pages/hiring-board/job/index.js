@@ -1,9 +1,9 @@
 import React from 'react';
 import Spinner from 'react-spinkit';
 
-import { hiring_table_posts_ref } from '../utils/db';
-import JobPost from './job-post';
-import { SPACER_10_H } from '../utils/constants';
+import { hiring_table_posts_ref } from '../../../utils/db';
+import JobPost from '../../../components/job-post';
+import { SPACER_10_H } from '../../../utils/constants';
 
 const JOB_WRAPPER_CLASSES =
   'PlainFlexColumn PlainFlexCentered FifteenPaddingLeft MobileRemoveFifteenPaddingLeft';
@@ -12,7 +12,8 @@ export default class DedicatedJobPost extends React.Component {
   state = { job: null };
 
   componentDidMount() {
-    const { job_id } = this.props;
+    const [, , , job_id] = this.props.location.pathname.split('/');
+    console.log(job_id);
     hiring_table_posts_ref
       .child(job_id)
       .once('value')
@@ -23,6 +24,9 @@ export default class DedicatedJobPost extends React.Component {
         if (job !== null) {
           this.setState(() => ({ job }));
         }
+      })
+      .catch(err => {
+        // Error can't happen
       });
   }
 
