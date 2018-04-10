@@ -4286,6 +4286,12 @@ gatsby-module-loader@^1.0.11:
     babel-runtime "^6.26.0"
     loader-utils "^0.2.16"
 
+gatsby-plugin-create-client-paths@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-1.0.8.tgz#d8628194675dec24da19ba3d3666b01e17b8c98a"
+  dependencies:
+    babel-runtime "^6.26.0"
+
 gatsby-plugin-ed-comments@^0.4.4:
   version "0.4.8"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-ed-comments/-/gatsby-plugin-ed-comments-0.4.8.tgz#361c5a6920fa0793ca86082a3c3d55ddbb3c6559"
