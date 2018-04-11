@@ -54,7 +54,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/hiring-board/job/*`] },
+      options: { prefixes: [`/hiring-board/job/*`, `/news/posting/*`] },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,

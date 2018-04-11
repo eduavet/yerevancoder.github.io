@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PageControl from '../components/page-control';
-import { PAGE_CONTENT, MODAL_CONTENT, MODAL_PROFILE_CONTENT } from '../utils/constants';
-import { obj_to_array, no_op } from '../utils/funcs';
+import PageControl from '../../components/page-control';
+import { PAGE_CONTENT, MODAL_CONTENT, MODAL_PROFILE_CONTENT } from '../../utils/constants';
+import { obj_to_array, no_op } from '../../utils/funcs';
 
 const INIT_STATE = {
   modal_content: MODAL_CONTENT.SIGNIN_VIEW,
