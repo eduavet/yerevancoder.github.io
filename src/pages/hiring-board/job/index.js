@@ -13,14 +13,12 @@ export default class DedicatedJobPost extends React.Component {
 
   componentDidMount() {
     const [, , , job_id] = this.props.location.pathname.split('/');
-    console.log(job_id);
     hiring_table_posts_ref
       .child(job_id)
       .once('value')
       .then(snap_shot => {
         const job = snap_shot.val();
         // If data is null, then you got a gibberish, nonexistent job
-        console.log({ data: job });
         if (job !== null) {
           this.setState(() => ({ job }));
         }
