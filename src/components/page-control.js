@@ -7,7 +7,7 @@ import Signup from './modal-content/signup';
 import ProfileControl from './modal-content/profile-control';
 import NewFreelancer from './new-freelancer';
 import FreelancerTable from './freelancer-table';
-import News from './news';
+import News from './news/news';
 import JobsTable from './jobs-table';
 import NewJobPosting from './new-job-posting';
 import SigninBar from './signin-bar';
@@ -116,6 +116,8 @@ export default class PageControl extends React.Component {
       submit_new_hiring_post,
       freelancers,
       page_content,
+      news_count,
+      new_postings,
     } = this.props;
     // Then need to add the HN style news thing here
     switch (page_content) {
@@ -133,7 +135,7 @@ export default class PageControl extends React.Component {
       case PAGE_CONTENT.NEW_FREELANCER:
         return <NewFreelancer submit_post_lifecycle={this.submit_post_lifecycle} />;
       case PAGE_CONTENT.NEWS_LISTINGS:
-        return <News />;
+        return <News news_count={news_count} new_postings={new_postings} />;
       default:
         throw new Error(`Unhandled page requested ${page_content}`);
     }

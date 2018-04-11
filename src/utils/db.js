@@ -38,3 +38,7 @@ const hiring_table_posts_ref = db.ref(`hiring-table-posts`);
 const freelancers_posts_ref = db.ref(`freelancer-table-posts`);
 
 export { firebase, auth, db, hiring_table_posts_ref, freelancers_posts_ref };
+
+export const news_postings_ref = db.ref(`news_postings`);
+
+export const total_news_posting_count_ref = db.ref(`total_news_posting_count`);
