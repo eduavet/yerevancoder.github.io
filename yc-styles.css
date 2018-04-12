@@ -1,7 +1,7 @@
 :root {
   --business-content-padding: 30px;
   --business-content-padding-half: 15px;
-  --mobile-banner-spacing: 5px;
+  --mobile-banner-spacing: 7px;
   --fade-white-button: hsl(0, 0%, 90%);
   --fade-white-form: hsl(0, 0%, 50%);
   --error-light-red: hsl(0, 100%, 62.5%);
@@ -14,10 +14,82 @@
   --material-blue-light-fade: hsla(222.6, 25.7%, 29%, 0.65);
   --material-grey-heavy-fade: hsla(216, 9.4%, 79.2%, 0.4);
   --material-grey-light-fade: hsla(216, 9.4%, 79.2%, 0.2);
+  --primary-font: 'Titillium Web', sans-serif;
+}
+
+/* turn off iOS doing its own styling */
+textarea,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+.input-checkbox {
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 body {
   background-color: var(--material-beige);
+}
+
+.JobsList {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  padding: 0 5px;
+}
+
+.FilterControl__FilterRow {
+  padding: 7px 14px;
+  margin: 7px 14px;
+  background-color:var(--fade-white-button);
+  border-radius: 5px;
+}
+
+.Collapsible {
+  cursor:pointer;
+}
+
+.FilterControl__TriggerMessage {
+  color:white;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.2rem;
+}
+
+.FreelancerTable__DedicatedLink {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.FilterControl__FilterLabel {
+  padding-left:5px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.FilterControl {
+  display:flex;
+  max-width:100%;
+  flex-wrap:wrap;
+}
+
+.FilterControlWrapper {
+  border-radius:5px;
+  background-color:var(--material-blue-heavy-fade);
+  padding: 7px 14px;
+  margin-right:1.5rem;
+  align-self:flex-start;
+}
+
+.AlignSelfFlexStart {
+  align-self:flex-start;
+}
+
+.LeftMinorOneHalfRemPadding {
+  padding-left:1.5rem;
+}
+
+.LeftMinorOneHalfRemMargin {
+  margin-left:1.5rem;
 }
 
 .InformationBar__SiteBannerName {
@@ -33,6 +105,13 @@ textarea { resize:none; }
 
 .BlogPost__ByLine {
   font-style:italic;
+}
+
+.FilterControl__ClearAllButton {
+  -webkit-appearance: none;
+  width:100%;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.2rem;
 }
 
 .AuthingErrorMessage {
@@ -70,6 +149,7 @@ textarea { resize:none; }
 }
 
 .SubmitInput {
+  font-family: 'Titillium Web', sans-serif;
   background-color:var(--material-blue);
   width:100%;
   padding:7px 14px;
@@ -78,6 +158,7 @@ textarea { resize:none; }
   color: var(--fade-white-button);
   border-radius:5px;
   cursor:pointer;
+  font-size:1.1rem;
 }
 
 .SubmitInput:active {
@@ -101,6 +182,7 @@ textarea { resize:none; }
 .Profile__Container__LoadingSpinner {
   padding-left:20px;
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
   padding-right:20px;
@@ -121,7 +203,7 @@ textarea { resize:none; }
 }
 
 .ModalContainer__Form {
-  width:100%;
+  width:110%;
   display:flex;
   flex:1;
   align-items:center;
@@ -194,6 +276,15 @@ textarea { resize:none; }
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
 }
 
+.OneHundredMinusFifteen {
+  width: calc(100% - var(--business-content-padding-half));
+}
+
+.TextSubmissionWrapper {
+  padding-top:5px;
+  width:100%;
+}
+
 .PlainFlexColumn {
   display:flex;
   flex-direction:column;
@@ -201,6 +292,10 @@ textarea { resize:none; }
 
 .OnePaddingLeft {
   padding-left:1px;
+}
+
+.FifteenPaddingLeft {
+  padding-left:15px;
 }
 
 .FullHeight {
@@ -285,13 +380,6 @@ RememberMeRow__RememberMe--Checked {
   flex-direction:column;
 }
 
-.FreelancerTable__FreelancerColumnDescription > textarea {
-  width:100%;
-  font-family: Merriweather;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .NewFreelancerFormContainer__SubmitButton {
   width:100%;
   padding-top:7px;
@@ -315,7 +403,6 @@ form > fieldset {
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  width: 100%;
   padding:25px;
 }
 
@@ -328,31 +415,36 @@ form > fieldset {
 }
 
 .loginActionRow__CustomInputField--UserSignedOut {
-  background-color:red;
+  -webkit-appearance: none;
 }
 
 .loginActionRow__CustomInputField--UserSignedIn,
 .loginActionRow__CustomInputField--UserSignedOut {
+  -webkit-appearance: none;
   color:var(--material-blue);
   background-color:transparent;
   box-shadow:none !important;
 }
 
 .loginActionRow__RowContainer > input {
+  -webkit-appearance: none;
   padding:7px 14px;
 }
 
 .loginActionRow__RowContainer {
+  -webkit-appearance: none;
   margin:0;
   display:inline-flex;
   padding:10px;
 }
 
 .loginActionRow__RowContainer > input:nth-child(2) {
+  -webkit-appearance: none;
   margin-left:1rem;
 }
 
 .loginActionRow__RowContainer > input:nth-child(3) {
+  -webkit-appearance: none;
   margin-left:1rem;
 }
 
@@ -361,7 +453,8 @@ form > fieldset {
   padding-bottom:var(--business-content-padding-half);
 }
 
-.loginActionRow__RowContainer > input,.NewFreelancerFormContainer__SubmitButton {
+.loginActionRow__RowContainer > input,
+.NewFreelancerFormContainer__SubmitButton {
   position: relative;
   font-family: Montserrat, sans-serif;
   display: flex;
@@ -392,24 +485,28 @@ form > fieldset {
 
 .loginActionRow__SignUpOrLoggedIn--UserSignedIn,
 .loginActionRow__SignUpOrLoggedIn--UserSignedOut {
+  -webkit-appearance: none;
   color:white;
   background-color:var(--material-blue-light-fade);
 }
 
 .loginActionRow__SignUpOrLoggedIn--UserSignedIn:active,
 .loginActionRow__SignUpOrLoggedIn--UserSignedOut:active {
+  -webkit-appearance: none;
   color:var(--fade-white-button);
   background-color:var(--material-blue-light-fade);
 }
 
 .loginActionRow__SigninOrSignOut--UserSignedIn,
 .loginActionRow__SigninOrSignOut--UserSignedOut {
+  -webkit-appearance: none;
   color:var(--material-blue);
   background-color:var(--material-grey-heavy-fade);
 }
 
 .loginActionRow__SigninOrSignOut--UserSignedIn:active,
 .loginActionRow__SigninOrSignOut--UserSignedOut:active {
+  -webkit-appearance: none;
   color:var(--fade-white-button);
   background-color:var(--material-grey-heavy-fade);
 }
@@ -423,8 +520,12 @@ form > fieldset {
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:20px;
+  font-size:2.5rem;
+  text-shadow: 4px 4px 4px var(--text-shadow-color);
   font-family: 'Titillium Web', sans-serif;
+  box-shadow: none;
+  text-decoration: none;
+  color:var(--material-blue);
 }
 
 .AvailableForWorkContainer > *:nth-child(1) {
@@ -436,20 +537,8 @@ form > fieldset {
   margin:0;
 }
 
-.BlogEntryCard > * {
-  margin:0;
-  font-family: Montserrat, sans-serif;
-}
-
-.BlogEntryCard__Byline, .BlogEntryCard__Excerpt {
-  font-family:Merriweather;
-}
-
-.BlogEntryCard__Excerpt {
-  font-weight: 500;
-}
-
 .FreelancerTable__Freelancer {
+  width:100%;
   display:flex;
   justify-content:center;
   padding:10px;
@@ -464,54 +553,12 @@ form > fieldset {
   width:100%;
 }
 
-.BlogEntryCard:nth-child(2n + 1),
 .FreelancerTable__Freelancer:nth-child(2n + 1) {
   background-color:var(--material-grey-heavy-fade);
 }
 
-.BlogEntryCard:nth-child(2n),
 .FreelancerTable__Freelancer:nth-child(2n) {
   background-color:var(--material-blue-heavy-fade);
-}
-
-/* http://tobiasahlin.com/blog/how-to-animate-box-shadow/ */
-.BlogEntryCard {
-  margin:15px 0px;
-  padding:15px;
-  position: relative;
-  display: inline-block;
-  width: 90%;
-  height: 90%;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.BlogEntryCard::after {
-  content: "";
-  border-radius: 5px;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.BlogEntryCard:hover {
-  -webkit-transform: scale(1.05, 1.05);
-  transform: scale(1.05, 1.05);
-}
-
-.BlogEntryCard:hover::after {
-  opacity: 1;
 }
 
 .JobPostingCard {
@@ -648,7 +695,18 @@ legend {
   display:flex;
 }
 
+.BlogPost__PostContainer > * {
+  font-family: 'Titillium Web', sans-serif;
+}
+
 @media (min-width: 650px) {
+  .AvailableForWorkContainer {
+    padding-left:var(--business-content-padding-half);
+  }
+  .BlogPost__PostContainer {
+    padding-left:1.2rem;
+  }
+
   .headroom-wrapper {
     display:none;
   }
@@ -681,12 +739,13 @@ legend {
   }
 
   .ApplicationContainer__MainContent {
-    padding-left:var(--sidebar-fixed-width);
     width:100%;
+    overflow-x: unset;
   }
 
   .ApplicationContainer__BusinessContent {
-    padding-right:var(--business-content-padding);
+    padding-left:var(--sidebar-fixed-width);
+    padding-right: var(--business-content-padding-half);
   }
 
   .Profile__User {
@@ -735,6 +794,38 @@ legend {
 }
 
 @media (max-width: 649px) {
+
+  .MobileRemoveFifteenPaddingLeft {
+    padding-left:0;
+  }
+
+	.FilterControl__TriggerMessageTooltip {
+		display:none;
+	}
+
+
+  .ModalContentWrapper {
+    width:250px;
+  }
+
+  .FilterControlWrapper {
+    margin:0;
+    padding:0;
+    padding: 5px;
+  }
+
+  .FilterControl__FilterRow {
+    margin: 3px 6px;
+    padding: 3px 6px;
+  }
+
+  .AvailableForWorkContainer__PageBanner {
+    text-align:center;
+    padding-left:0;
+    width:100%;
+    font-size:2.0rem;
+  }
+
   .BlogTable__MobileBar {
     display:flex;
     flex-direction:row;
@@ -748,10 +839,10 @@ legend {
 
   .BlogTable__MobileBarBanner {
     margin-left: var(--mobile-banner-spacing);
-    font-family: 'Titillium Web', sans-serif;
+    font-family: var(--primary-font);
     text-decoration:none;
     font-weight:700;
-    font-size:1.2rem;
+    font-size:1.4rem;
     box-shadow:none;
     color:var(--material-blue-light-fade);
   }
@@ -768,10 +859,14 @@ legend {
 
   .BlogTable__MobileBarNavBox > * {
     text-align:center;
+    font-size:1.1rem;
+    font-family: var(--primary-font);
     box-shadow:none;
   }
 
   .BlogTable__MobileBarNavBoxElement > * {
+    color:var(--material-blue-light-fade);
+    text-decoration:none;
   }
 
   .BlogTable__MobileBarNavBox {
@@ -895,18 +990,18 @@ legend {
 
   .FreelancerTable__Freelancer {
     padding:2px;
-}
+  }
 }
 
 @supports (zoom:2) {
   input[type="radio"],input[type=checkbox]{
-    zoom: 1.3;
+    zoom: 1.2;
   }
 }
 
 @supports not (zoom:2) {
   input[type="radio"],input[type=checkbox]{
-    transform: scale(1.3);
+    transform: scale(1.2);
   }
 }
 

@@ -1,142 +1,154 @@
 {
   "assetsByChunkName": {
     "path---2018-02-22-recursion": [
-      "path---2018-02-22-recursion-37d4a41a287b29b80779.js",
-      "path---2018-02-22-recursion-37d4a41a287b29b80779.js.map"
+      "path---2018-02-22-recursion-07692c9b508310346ea0.js",
+      "path---2018-02-22-recursion-07692c9b508310346ea0.js.map"
     ],
     "path---2018-02-10-js-boolean-expressions-and-conditionals": [
-      "path---2018-02-10-js-boolean-expressions-and-conditionals-54ce895c5e14f2e619e3.js",
-      "path---2018-02-10-js-boolean-expressions-and-conditionals-54ce895c5e14f2e619e3.js.map"
+      "path---2018-02-10-js-boolean-expressions-and-conditionals-fcbb22b86bb55e4ff233.js",
+      "path---2018-02-10-js-boolean-expressions-and-conditionals-fcbb22b86bb55e4ff233.js.map"
     ],
     "path---2018-02-08-js-types-primitives-variable-initialization": [
-      "path---2018-02-08-js-types-primitives-variable-initialization-b090fd0e2da58f50b156.js",
-      "path---2018-02-08-js-types-primitives-variable-initialization-b090fd0e2da58f50b156.js.map"
+      "path---2018-02-08-js-types-primitives-variable-initialization-19a5b79ab2e454b73c9d.js",
+      "path---2018-02-08-js-types-primitives-variable-initialization-19a5b79ab2e454b73c9d.js.map"
     ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-1319e29c2f6fd413965a.js",
-      "component---src-pages-index-js-1319e29c2f6fd413965a.js.map"
+      "component---src-pages-index-js-b1c70ed4bd1e8537b148.js",
+      "component---src-pages-index-js-b1c70ed4bd1e8537b148.js.map"
     ],
     "path---2018-01-09-pay-rates-in-armenian-tech": [
-      "path---2018-01-09-pay-rates-in-armenian-tech-961989e238e7926e05ef.js",
-      "path---2018-01-09-pay-rates-in-armenian-tech-961989e238e7926e05ef.js.map"
+      "path---2018-01-09-pay-rates-in-armenian-tech-2479f4f68ff0890a45ec.js",
+      "path---2018-01-09-pay-rates-in-armenian-tech-2479f4f68ff0890a45ec.js.map"
     ],
     "path---2018-03-26-technical-interview-eng": [
-      "path---2018-03-26-technical-interview-eng-eee1b712efa4fdd834a9.js",
-      "path---2018-03-26-technical-interview-eng-eee1b712efa4fdd834a9.js.map"
+      "path---2018-03-26-technical-interview-eng-4abb6b9738485911244c.js",
+      "path---2018-03-26-technical-interview-eng-4abb6b9738485911244c.js.map"
     ],
     "path---2018-02-04-dual-booting-linux-with-windows": [
-      "path---2018-02-04-dual-booting-linux-with-windows-0bc985288c25386b8d21.js",
-      "path---2018-02-04-dual-booting-linux-with-windows-0bc985288c25386b8d21.js.map"
+      "path---2018-02-04-dual-booting-linux-with-windows-8fc6ad7c0ed091ce619b.js",
+      "path---2018-02-04-dual-booting-linux-with-windows-8fc6ad7c0ed091ce619b.js.map"
     ],
     "path---2017-12-24-squash-commits-with-git": [
-      "path---2017-12-24-squash-commits-with-git-0d4a525d211d3b1e94ca.js",
-      "path---2017-12-24-squash-commits-with-git-0d4a525d211d3b1e94ca.js.map"
+      "path---2017-12-24-squash-commits-with-git-4693992349d2099ecadf.js",
+      "path---2017-12-24-squash-commits-with-git-4693992349d2099ecadf.js.map"
+    ],
+    "path---latest-news": [
+      "path---latest-news-a0e39f21c11f6a62c5ab.js",
+      "path---latest-news-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---2018-02-06-simple-terminal-commands": [
-      "path---2018-02-06-simple-terminal-commands-dd334f318a4e509c2e5f.js",
-      "path---2018-02-06-simple-terminal-commands-dd334f318a4e509c2e5f.js.map"
+      "path---2018-02-06-simple-terminal-commands-17344efad66a34895410.js",
+      "path---2018-02-06-simple-terminal-commands-17344efad66a34895410.js.map"
     ],
     "path---": [
-      "path----09c690c2c67bed3ee37e.js",
-      "path----09c690c2c67bed3ee37e.js.map"
+      "path----9b4a0ad0fff9db6112e7.js",
+      "path----9b4a0ad0fff9db6112e7.js.map"
     ],
     "path---2018-02-21-js-arrays-and-objects": [
-      "path---2018-02-21-js-arrays-and-objects-7e7c70d967ab4b062bde.js",
-      "path---2018-02-21-js-arrays-and-objects-7e7c70d967ab4b062bde.js.map"
+      "path---2018-02-21-js-arrays-and-objects-b4577da87d66a0e2ff0d.js",
+      "path---2018-02-21-js-arrays-and-objects-b4577da87d66a0e2ff0d.js.map"
     ],
     "path---2017-12-21-javascript-resources": [
-      "path---2017-12-21-javascript-resources-7b55ad7f3267bc50f3fc.js",
-      "path---2017-12-21-javascript-resources-7b55ad7f3267bc50f3fc.js.map"
+      "path---2017-12-21-javascript-resources-ef1f226eb4495a93d376.js",
+      "path---2017-12-21-javascript-resources-ef1f226eb4495a93d376.js.map"
     ],
-    "component---src-pages-news-js": [
-      "component---src-pages-news-js-2bf98b9c0113887713cb.js",
-      "component---src-pages-news-js-2bf98b9c0113887713cb.js.map"
+    "component---src-pages-hiring-board-job-index-js": [
+      "component---src-pages-hiring-board-job-index-js-0a0108488d1d925a722f.js",
+      "component---src-pages-hiring-board-job-index-js-0a0108488d1d925a722f.js.map"
+    ],
+    "path---news-posting": [
+      "path---news-posting-a0e39f21c11f6a62c5ab.js",
+      "path---news-posting-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---2018-03-13-how-yerevan-coder-works": [
-      "path---2018-03-13-how-yerevan-coder-works-9581bca5f04f6b4f748e.js",
-      "path---2018-03-13-how-yerevan-coder-works-9581bca5f04f6b4f748e.js.map"
+      "path---2018-03-13-how-yerevan-coder-works-10d736e6fda9683cec3e.js",
+      "path---2018-03-13-how-yerevan-coder-works-10d736e6fda9683cec3e.js.map"
     ],
     "path---2018-03-15-js-classes-context-prototypes": [
-      "path---2018-03-15-js-classes-context-prototypes-a3e7c63fd4b8423dd495.js",
-      "path---2018-03-15-js-classes-context-prototypes-a3e7c63fd4b8423dd495.js.map"
+      "path---2018-03-15-js-classes-context-prototypes-d4132d0c274665621a25.js",
+      "path---2018-03-15-js-classes-context-prototypes-d4132d0c274665621a25.js.map"
     ],
     "path---2018-02-18-git-and-github": [
-      "path---2018-02-18-git-and-github-a2972468779a6f637c68.js",
-      "path---2018-02-18-git-and-github-a2972468779a6f637c68.js.map"
+      "path---2018-02-18-git-and-github-ed9379e3262faf83a1f5.js",
+      "path---2018-02-18-git-and-github-ed9379e3262faf83a1f5.js.map"
     ],
     "component---node-modules-gatsby-plugin-offline-app-shell-js": [
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "path---2018-04-05-how-yerevan-coder-works-part-two": [
-      "path---2018-04-05-how-yerevan-coder-works-part-two-a3f6e0f163f535effd67.js",
-      "path---2018-04-05-how-yerevan-coder-works-part-two-a3f6e0f163f535effd67.js.map"
+      "path---2018-04-05-how-yerevan-coder-works-part-two-529af39c28996f4aeb6d.js",
+      "path---2018-04-05-how-yerevan-coder-works-part-two-529af39c28996f4aeb6d.js.map"
+    ],
+    "component---src-pages-latest-news-index-js": [
+      "component---src-pages-latest-news-index-js-de473f0b70e294177f11.js",
+      "component---src-pages-latest-news-index-js-de473f0b70e294177f11.js.map"
     ],
     "component---src-templates-blog-post-js": [
-      "component---src-templates-blog-post-js-fce84250dfb11587770d.js",
-      "component---src-templates-blog-post-js-fce84250dfb11587770d.js.map"
+      "component---src-templates-blog-post-js-0af96f7020a1b2b37af1.js",
+      "component---src-templates-blog-post-js-0af96f7020a1b2b37af1.js.map"
     ],
     "path---2018-02-13-js-loops": [
-      "path---2018-02-13-js-loops-683398a5a4179f2251fa.js",
-      "path---2018-02-13-js-loops-683398a5a4179f2251fa.js.map"
+      "path---2018-02-13-js-loops-3627e5912da53357cace.js",
+      "path---2018-02-13-js-loops-3627e5912da53357cace.js.map"
     ],
     "path---2018-02-10-js-functions-scopes-and-var": [
-      "path---2018-02-10-js-functions-scopes-and-var-980901dbca5c2879e48e.js",
-      "path---2018-02-10-js-functions-scopes-and-var-980901dbca5c2879e48e.js.map"
+      "path---2018-02-10-js-functions-scopes-and-var-36e18af9c85a918eb0fe.js",
+      "path---2018-02-10-js-functions-scopes-and-var-36e18af9c85a918eb0fe.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-6ea85b24d99999148c8c.js",
-      "component---src-layouts-index-js-6ea85b24d99999148c8c.js.map"
+      "component---src-layouts-index-js-463c05512b9a2d792c2e.js",
+      "component---src-layouts-index-js-463c05512b9a2d792c2e.js.map"
     ],
     "path---2017-12-31-elm-intro": [
-      "path---2017-12-31-elm-intro-d1f82d5ff13a3304f8ed.js",
-      "path---2017-12-31-elm-intro-d1f82d5ff13a3304f8ed.js.map"
+      "path---2017-12-31-elm-intro-45f846162441cb41326f.js",
+      "path---2017-12-31-elm-intro-45f846162441cb41326f.js.map"
     ],
     "path---2018-03-06-javascript-edge-cases": [
-      "path---2018-03-06-javascript-edge-cases-ac441385f418a93a15fe.js",
-      "path---2018-03-06-javascript-edge-cases-ac441385f418a93a15fe.js.map"
+      "path---2018-03-06-javascript-edge-cases-13aac46df18dc077dd0e.js",
+      "path---2018-03-06-javascript-edge-cases-13aac46df18dc077dd0e.js.map"
     ],
     "path---2018-04-03-ecmascript-part-2": [
-      "path---2018-04-03-ecmascript-part-2-cde3820047c0a3b7a9b5.js",
-      "path---2018-04-03-ecmascript-part-2-cde3820047c0a3b7a9b5.js.map"
+      "path---2018-04-03-ecmascript-part-2-b4f0bd941dcb3059e58d.js",
+      "path---2018-04-03-ecmascript-part-2-b4f0bd941dcb3059e58d.js.map"
     ],
     "path---index": [
-      "path---index-7c1a8213604c311d43fc.js",
-      "path---index-7c1a8213604c311d43fc.js.map"
+      "path---index-cb1e92ce000ccc1bd519.js",
+      "path---index-cb1e92ce000ccc1bd519.js.map"
     ],
     "path---2018-03-26-technical-interview-arm": [
-      "path---2018-03-26-technical-interview-arm-63b9dbfcb43f4befdf5f.js",
-      "path---2018-03-26-technical-interview-arm-63b9dbfcb43f4befdf5f.js.map"
+      "path---2018-03-26-technical-interview-arm-3b821f90b26291242164.js",
+      "path---2018-03-26-technical-interview-arm-3b821f90b26291242164.js.map"
     ],
     "component---src-pages-404-js": [
       "component---src-pages-404-js-78eb0160ebc5e112276c.js",
       "component---src-pages-404-js-78eb0160ebc5e112276c.js.map"
     ],
     "component---src-pages-available-for-work-js": [
-      "component---src-pages-available-for-work-js-b953d22ad6db653e0910.js",
-      "component---src-pages-available-for-work-js-b953d22ad6db653e0910.js.map"
+      "component---src-pages-available-for-work-js-254b79ee2879921306ae.js",
+      "component---src-pages-available-for-work-js-254b79ee2879921306ae.js.map"
     ],
     "commons": [
-      "commons-b51a7fb3c6df3c1048a7.js",
+      "commons-6580ccff1d0aa7e24da3.js",
       "build-js-styles.css",
-      "commons-b51a7fb3c6df3c1048a7.js.map",
+      "commons-6580ccff1d0aa7e24da3.js.map",
       "build-js-styles.css.map"
     ],
     "path---404-html": [
       "path---404-html-a0e39f21c11f6a62c5ab.js",
       "path---404-html-a0e39f21c11f6a62c5ab.js.map"
     ],
+    "path---hiring-board-job": [
+      "path---hiring-board-job-a0e39f21c11f6a62c5ab.js",
+      "path---hiring-board-job-a0e39f21c11f6a62c5ab.js.map"
+    ],
     "path---2017-12-20-init-post": [
-      "path---2017-12-20-init-post-197192da73b1426e68a4.js",
-      "path---2017-12-20-init-post-197192da73b1426e68a4.js.map"
+      "path---2017-12-20-init-post-7138efc0ad0fa80001f3.js",
+      "path---2017-12-20-init-post-7138efc0ad0fa80001f3.js.map"
     ],
     "path---2017-12-23-tech-places-and-events": [
-      "path---2017-12-23-tech-places-and-events-afb21400c6e081be65a8.js",
-      "path---2017-12-23-tech-places-and-events-afb21400c6e081be65a8.js.map"
-    ],
-    "path---news": [
-      "path---news-a0e39f21c11f6a62c5ab.js",
-      "path---news-a0e39f21c11f6a62c5ab.js.map"
+      "path---2017-12-23-tech-places-and-events-da4cce5d24ba8a0400a6.js",
+      "path---2017-12-23-tech-places-and-events-da4cce5d24ba8a0400a6.js.map"
     ],
     "path---available-for-work": [
       "path---available-for-work-a0e39f21c11f6a62c5ab.js",
@@ -147,46 +159,50 @@
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---2018-03-06-this-js-context": [
-      "path---2018-03-06-this-js-context-981a8233eb80f6812fbd.js",
-      "path---2018-03-06-this-js-context-981a8233eb80f6812fbd.js.map"
+      "path---2018-03-06-this-js-context-6a3e00469ce4e6f8431a.js",
+      "path---2018-03-06-this-js-context-6a3e00469ce4e6f8431a.js.map"
+    ],
+    "component---src-pages-news-posting-index-js": [
+      "component---src-pages-news-posting-index-js-62e4c1c7d9264022b7cd.js",
+      "component---src-pages-news-posting-index-js-62e4c1c7d9264022b7cd.js.map"
     ],
     "path---hiring-board": [
       "path---hiring-board-a0e39f21c11f6a62c5ab.js",
       "path---hiring-board-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---2018-03-14-front-end-react-js-developer-learning-path": [
-      "path---2018-03-14-front-end-react-js-developer-learning-path-6b2e7b69ded7d2dbbb69.js",
-      "path---2018-03-14-front-end-react-js-developer-learning-path-6b2e7b69ded7d2dbbb69.js.map"
+      "path---2018-03-14-front-end-react-js-developer-learning-path-c0db7fa74f52110053df.js",
+      "path---2018-03-14-front-end-react-js-developer-learning-path-c0db7fa74f52110053df.js.map"
     ],
     "path---2018-01-12-promises-and-timeouts": [
-      "path---2018-01-12-promises-and-timeouts-baad461d87b399d20c47.js",
-      "path---2018-01-12-promises-and-timeouts-baad461d87b399d20c47.js.map"
+      "path---2018-01-12-promises-and-timeouts-6c0666ebf90aaa29398d.js",
+      "path---2018-01-12-promises-and-timeouts-6c0666ebf90aaa29398d.js.map"
     ],
     "app": [
-      "app-378f7c60f8eb05eb2741.js",
+      "app-cde38e7830c3767c7460.js",
       "build-js-styles.css",
-      "app-378f7c60f8eb05eb2741.js.map",
+      "app-cde38e7830c3767c7460.js.map",
       "build-js-styles.css.map"
     ],
     "path---2018-03-04-js-function-declaration-and-function-expression": [
-      "path---2018-03-04-js-function-declaration-and-function-expression-05e7b324fa110be53570.js",
-      "path---2018-03-04-js-function-declaration-and-function-expression-05e7b324fa110be53570.js.map"
+      "path---2018-03-04-js-function-declaration-and-function-expression-133064020e6734a84b93.js",
+      "path---2018-03-04-js-function-declaration-and-function-expression-133064020e6734a84b93.js.map"
     ],
     "path---2018-03-28-asyncio-in-python": [
-      "path---2018-03-28-asyncio-in-python-86493ad3e079fd43bb1b.js",
-      "path---2018-03-28-asyncio-in-python-86493ad3e079fd43bb1b.js.map"
+      "path---2018-03-28-asyncio-in-python-3aacd5bd44deec3972a0.js",
+      "path---2018-03-28-asyncio-in-python-3aacd5bd44deec3972a0.js.map"
     ],
     "path---404": [
       "path---404-a0e39f21c11f6a62c5ab.js",
       "path---404-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---2018-03-27-ecmascript-6-part-1": [
-      "path---2018-03-27-ecmascript-6-part-1-5a80ec9502242e68732e.js",
-      "path---2018-03-27-ecmascript-6-part-1-5a80ec9502242e68732e.js.map"
+      "path---2018-03-27-ecmascript-6-part-1-0bc9fc7eb308fe99ca75.js",
+      "path---2018-03-27-ecmascript-6-part-1-0bc9fc7eb308fe99ca75.js.map"
     ],
     "component---src-pages-hiring-board-js": [
-      "component---src-pages-hiring-board-js-b66c7fed3f42476b0899.js",
-      "component---src-pages-hiring-board-js-b66c7fed3f42476b0899.js.map"
+      "component---src-pages-hiring-board-js-c2f719225adfdec32b72.js",
+      "component---src-pages-hiring-board-js-c2f719225adfdec32b72.js.map"
     ]
   }
 }
