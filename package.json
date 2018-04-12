@@ -33,6 +33,7 @@
     "react-headroom": "^2.2.2",
     "react-helmet": "^5.2.0",
     "react-modal": "^3.3.2",
+    "react-paginate": "^5.2.2",
     "react-spinkit": "^3.0.0"
   },
   "devDependencies": {
