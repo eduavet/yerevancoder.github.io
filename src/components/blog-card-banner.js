@@ -11,7 +11,7 @@ export default ({ node }) => {
         <Link to={node.fields.slug}>{title}</Link>
       </h3>
       <small className={styles.BlogEntryCard__Byline}>
-        {date} | {node.wordCount.words} words | {node.timeToRead} minutes to read | {author} |{' '}
+        {date} | {node.wordCount.words} words | {node.timeToRead} {node.timeToRead > 1 ? "minutes" : "minute"} to read | {author} |{' '}
         {tags}
       </small>
       <p
