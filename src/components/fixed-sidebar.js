@@ -7,8 +7,8 @@ export default ({ header_content }) => (
   <aside className={'InformationBar'}>
     {header_content}
     <p>
-      yerevancoder.com is a place for coders in Armenia to share their experiences in tech. Find{' '}
-      <Link to={ROUTES.AVAILABLE_FOR_WORK}>someone</Link> looking for a job, or post a tech job on
+      yerevancoder.com is a place for coders in Armenia to share their experiences in tech. {' '}
+      <Link to={ROUTES.AVAILABLE_FOR_WORK}>Find freelancers</Link> looking for a job, or post a tech job on
       our <Link to={ROUTES.JOBS_TABLE}>hiring board</Link>. Check out our{' '}
       <a href={'https://forum.yerevancoder.com/categories'}>forums</a> for more discussions,
       consider coming to <a href={'https://iteratehackerspace.com'}>iterate hackerspace</a> for

@@ -115,6 +115,7 @@ export default class PageControl extends React.Component {
       new_tech_job_post_did_finish,
       submit_new_hiring_post,
       freelancers,
+      loadedLancers,
       page_content,
       news_count,
       new_postings,
@@ -131,7 +132,7 @@ export default class PageControl extends React.Component {
           />
         );
       case PAGE_CONTENT.FREELANCER_TABLE:
-        return <FreelancerTable freelancers={freelancers} />;
+        return <FreelancerTable freelancers={freelancers} loadedLancers={loadedLancers}/>;
       case PAGE_CONTENT.NEW_FREELANCER:
         return <NewFreelancer submit_post_lifecycle={this.submit_post_lifecycle} />;
       case PAGE_CONTENT.NEWS_LISTINGS:

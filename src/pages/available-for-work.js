@@ -13,6 +13,7 @@ const NEW_FREELANCER = 'New freelancer';
 
 const INIT_STATE = {
   freelancers: [],
+  loadedLancers: false,
   self_freelance_posting: null,
   modal_content: MODAL_CONTENT.SIGNIN_VIEW,
   page_content: PAGE_CONTENT.FREELANCER_TABLE,
@@ -33,7 +34,10 @@ export default class AvailableForWorkPage extends React.Component {
 
   componentDidMount() {
     this.query_data().then(rows =>
-      this.setState(() => ({ freelancers: rows ? obj_to_array(rows) : [] }))
+      this.setState(() => ({ 
+        freelancers: rows ? obj_to_array(rows) : [],
+        loadedLancers: true,
+      }))
     );
   }
 
@@ -159,6 +163,7 @@ export default class AvailableForWorkPage extends React.Component {
         did_finish_submit_post_lifecycle={this.freelancer_post_did_finish}
         submit_new_hiring_post={no_op}
         freelancers={this.state.freelancers}
+        loadedLancers={this.state.loadedLancers}
         page_content={this.state.page_content}
         modal_content={this.state.modal_content}
         modal_profile_content={this.state.modal_profile_content}
